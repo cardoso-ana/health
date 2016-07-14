@@ -7,11 +7,13 @@
 //
 
 import UIKit
+import MapKit
 
 class MonitorViewController: UIViewController
 {
     
     @IBOutlet weak var gradientView: UIView!
+    @IBOutlet weak var map: MKMapView!
     
     override func viewDidLoad()
     {
