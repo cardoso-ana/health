@@ -131,8 +131,8 @@
 			isa = PBXGroup;
 			children = (
 				E174D9F91D37DF0200EC9086 /* Elder.swift */,
-				E174DA091D37FE0F00EC9086 /* GradiantLayer.swift */,
 				E174D9FB1D37DF1A00EC9086 /* Caretaker.swift */,
+				E174DA091D37FE0F00EC9086 /* GradiantLayer.swift */,
 			);
 			name = Model;
 			sourceTree = "<group>";
