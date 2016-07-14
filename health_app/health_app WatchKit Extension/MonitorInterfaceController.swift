@@ -1,17 +1,18 @@
 //
-//  InterfaceController.swift
-//  health_app WatchKit Extension
+//  MonitorInterfaceController.swift
+//  health_app
 //
-//  Created by Ana Carolina Nascimento on 7/12/16.
+//  Created by Ana Carolina Nascimento on 7/14/16.
 //  Copyright © 2016 Ana Carolina Nascimento. All rights reserved.
 //
 
 import WatchKit
 import Foundation
+import CloudKit
 
 
-class InterfaceController: WKInterfaceController {
-
+class MonitorInterfaceController: WKInterfaceController {
+    
     override func awake(withContext context: AnyObject?) {
         super.awake(withContext: context)
         
@@ -27,5 +28,5 @@ class InterfaceController: WKInterfaceController {
         // This method is called when watch view controller is no longer visible
         super.didDeactivate()
     }
-
+    
 }
