@@ -339,36 +339,62 @@
                                     </userDefinedRuntimeAttribute>
                                 </userDefinedRuntimeAttributes>
                             </view>
-                            <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Tmv-r3-K6w">
+                            <stackView opaque="NO" contentMode="scaleToFill" fixedFrame="YES" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="BLl-r7-8hl">
                                 <frame key="frameInset" minY="164" width="375" height="1"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <color key="backgroundColor" white="1" alpha="0.5" colorSpace="calibratedWhite"/>
-                                <color key="tintColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                            </view>
-                            <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="wE7-ts-ybn">
+                                <subviews>
+                                    <view contentMode="scaleToFill" ambiguous="YES" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Tmv-r3-K6w">
+                                        <frame key="frameInset" width="375" height="1"/>
+                                        <color key="backgroundColor" white="1" alpha="0.5" colorSpace="calibratedWhite"/>
+                                        <color key="tintColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="1" id="phh-fD-P7I"/>
+                                        </constraints>
+                                    </view>
+                                </subviews>
+                            </stackView>
+                            <view contentMode="scaleToFill" ambiguous="YES" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="wE7-ts-ybn">
                                 <frame key="frameInset" minY="324" width="375" height="1"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <color key="backgroundColor" white="1" alpha="0.5" colorSpace="calibratedWhite"/>
                                 <color key="tintColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="1" id="K5X-Au-bqy"/>
+                                </constraints>
                             </view>
-                            <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="ub5-YF-K7h">
+                            <view contentMode="scaleToFill" ambiguous="YES" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="ub5-YF-K7h">
                                 <frame key="frameInset" minY="486" width="375" height="1"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <color key="backgroundColor" white="1" alpha="0.5" colorSpace="calibratedWhite"/>
                                 <color key="tintColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="1" id="DTY-K5-ffh"/>
+                                </constraints>
                             </view>
-                            <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="x0M-hJ-qiZ">
+                            <view contentMode="scaleToFill" ambiguous="YES" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="x0M-hJ-qiZ">
                                 <frame key="frameInset" minX="187" minY="164" width="1" height="161"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <color key="backgroundColor" white="1" alpha="0.5" colorSpace="calibratedWhite"/>
                                 <color key="tintColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="1" id="gvZ-p6-p8k"/>
+                                </constraints>
                             </view>
+                            <mapView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" ambiguous="YES" misplaced="YES" mapType="standard" translatesAutoresizingMaskIntoConstraints="NO" id="dV3-le-MJH">
+                                <frame key="frameInset" minY="324" width="375" height="163"/>
+                            </mapView>
                         </subviews>
                         <color key="backgroundColor" red="0.32156862749999998" green="0.80392156859999997" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                         <constraints>
+                            <constraint firstItem="dV3-le-MJH" firstAttribute="centerX" secondItem="XfA-Gc-sMD" secondAttribute="centerX" id="2Vg-6K-NrR"/>
+                            <constraint firstAttribute="trailing" secondItem="dV3-le-MJH" secondAttribute="trailing" id="720-Ff-LzP"/>
+                            <constraint firstItem="ub5-YF-K7h" firstAttribute="leading" secondItem="XfA-Gc-sMD" secondAttribute="leading" id="C0Z-h9-qiu"/>
+                            <constraint firstItem="dV3-le-MJH" firstAttribute="leading" secondItem="XfA-Gc-sMD" secondAttribute="leading" id="E3H-oj-OeQ"/>
+                            <constraint firstAttribute="trailing" secondItem="ub5-YF-K7h" secondAttribute="trailing" id="OQb-NH-Joe"/>
+                            <constraint firstItem="wE7-ts-ybn" firstAttribute="leading" secondItem="XfA-Gc-sMD" secondAttribute="leading" id="Vfo-9z-XVv"/>
+                            <constraint firstAttribute="trailing" secondItem="wE7-ts-ybn" secondAttribute="trailing" id="Woh-u4-Rc8"/>
                             <constraint firstItem="zrI-RY-LWV" firstAttribute="top" secondItem="XfA-Gc-sMD" secondAttribute="top" id="YaG-j2-bEp"/>
                             <constraint firstAttribute="trailing" secondItem="zrI-RY-LWV" secondAttribute="trailing" id="bjO-Mq-eob"/>
                             <constraint firstItem="zrI-RY-LWV" firstAttribute="leading" secondItem="XfA-Gc-sMD" secondAttribute="leading" id="hul-po-Avm"/>
+                            <constraint firstItem="wE7-ts-ybn" firstAttribute="top" secondItem="x0M-hJ-qiZ" secondAttribute="bottom" constant="-1" id="pZ7-sF-AnY"/>
+                            <constraint firstItem="x0M-hJ-qiZ" firstAttribute="centerX" secondItem="XfA-Gc-sMD" secondAttribute="centerX" id="qKT-Nv-avd"/>
                             <constraint firstItem="PvB-mB-LCc" firstAttribute="top" secondItem="zrI-RY-LWV" secondAttribute="bottom" id="xYx-2m-C6P"/>
                         </constraints>
                         <variation key="default">
