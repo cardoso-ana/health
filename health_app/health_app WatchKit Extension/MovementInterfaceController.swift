@@ -13,6 +13,7 @@ import CloudKit
 
 class MovementInterfaceController: WKInterfaceController {
     
+    @IBOutlet var movementLabel: WKInterfaceLabel!
     override func awake(withContext context: AnyObject?) {
         super.awake(withContext: context)
         

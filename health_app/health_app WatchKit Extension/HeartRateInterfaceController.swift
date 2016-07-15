@@ -13,6 +13,9 @@ import CloudKit
 
 class HeartRateInterfaceController: WKInterfaceController {
 
+    @IBOutlet var heartBeatLabel: WKInterfaceLabel!
+    @IBOutlet var heartGroup: WKInterfaceGroup!
+    
     override func awake(withContext context: AnyObject?) {
         super.awake(withContext: context)
         

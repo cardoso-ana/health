@@ -451,9 +451,26 @@
                                         </constraints>
                                     </view>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="wKM-HX-bBJ" userLabel="5">
+                                        <subviews>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="monitoramento ativo" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumFontSize="9" translatesAutoresizingMaskIntoConstraints="NO" id="FRC-sb-Mmd">
+                                                <constraints>
+                                                    <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="244" id="olE-Bw-aLa"/>
+                                                </constraints>
+                                                <fontDescription key="fontDescription" type="system" weight="light" pointSize="14"/>
+                                                <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                                <nil key="highlightedColor"/>
+                                            </label>
+                                            <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="active" translatesAutoresizingMaskIntoConstraints="NO" id="7lm-35-8qH"/>
+                                        </subviews>
                                         <color key="tintColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                         <constraints>
+                                            <constraint firstItem="7lm-35-8qH" firstAttribute="centerY" secondItem="wKM-HX-bBJ" secondAttribute="centerY" constant="-6.5" id="6LA-rW-m4d"/>
                                             <constraint firstAttribute="width" secondItem="wKM-HX-bBJ" secondAttribute="height" multiplier="375:161" id="III-fK-T2h"/>
+                                            <constraint firstItem="7lm-35-8qH" firstAttribute="top" secondItem="wKM-HX-bBJ" secondAttribute="top" constant="34" id="Lc8-sh-qbd"/>
+                                            <constraint firstAttribute="bottom" secondItem="FRC-sb-Mmd" secondAttribute="bottom" constant="16" id="UCr-5s-Zip"/>
+                                            <constraint firstItem="FRC-sb-Mmd" firstAttribute="top" secondItem="7lm-35-8qH" secondAttribute="bottom" constant="14" id="icK-e4-fFQ"/>
+                                            <constraint firstItem="FRC-sb-Mmd" firstAttribute="centerX" secondItem="wKM-HX-bBJ" secondAttribute="centerX" id="jpd-mS-wE1"/>
+                                            <constraint firstItem="7lm-35-8qH" firstAttribute="centerX" secondItem="wKM-HX-bBJ" secondAttribute="centerX" id="tgp-wO-b77"/>
                                         </constraints>
                                     </view>
                                 </subviews>
@@ -530,6 +547,7 @@
         </scene>
     </scenes>
     <resources>
+        <image name="active" width="83" height="80"/>
         <image name="heart" width="127" height="120"/>
         <image name="phone" width="22" height="24"/>
         <image name="walking" width="58" height="94"/>
