@@ -10,7 +10,7 @@
             <objects>
                 <controller id="AgC-eL-Hgc" customClass="HeartRateInterfaceController" customModule="health_app_WatchKit_Extension">
                     <items>
-                        <group width="1" height="141" alignment="center" verticalAlignment="center" backgroundImage="heart" contentMode="scaleAspectFit" layout="vertical" id="Jwk-cn-qvl">
+                        <group width="1" height="141" alignment="center" verticalAlignment="center" backgroundImage="watch-heart" contentMode="scaleAspectFit" layout="vertical" id="Jwk-cn-qvl">
                             <items>
                                 <label width="136" height="43" alignment="center" verticalAlignment="center" text="82" textAlignment="center" id="DUb-JW-9u3">
                                     <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
@@ -36,7 +36,7 @@
             <objects>
                 <controller id="VsA-4a-1Hd" customClass="MovementInterfaceController" customModule="health_app_WatchKit_Extension">
                     <items>
-                        <group width="1" height="109" alignment="center" verticalAlignment="bottom" backgroundImage="walking" contentMode="scaleAspectFit" id="2yX-1Z-Zfh"/>
+                        <group width="1" height="109" alignment="center" verticalAlignment="bottom" backgroundImage="watch-walking" contentMode="scaleAspectFit" id="2yX-1Z-Zfh"/>
                         <group width="1" alignment="left" verticalAlignment="bottom" id="2yT-Ek-rgM">
                             <items>
                                 <label height="22" alignment="center" text="está caminhando" textAlignment="center" id="Wrn-gO-HqH">
@@ -73,7 +73,7 @@
             <objects>
                 <controller id="Rcq-NP-ajQ" customClass="MonitorInterfaceController" customModule="health_app_WatchKit_Extension">
                     <items>
-                        <group width="1" height="109" alignment="center" verticalAlignment="bottom" backgroundImage="active" contentMode="scaleAspectFit" id="TVK-0E-2on"/>
+                        <group width="1" height="109" alignment="center" verticalAlignment="bottom" backgroundImage="watch-active" contentMode="scaleAspectFit" id="TVK-0E-2on"/>
                         <group width="1" alignment="left" verticalAlignment="bottom" id="PUE-Qe-GAz">
                             <items>
                                 <label height="22" alignment="center" text="monitoramento ativo" textAlignment="center" id="6DA-Zj-nc2">
@@ -95,6 +95,7 @@
                         <label alignment="left" text="Alert Label" id="IdU-wH-bcW"/>
                     </items>
                     <notificationCategory key="notificationCategory" identifier="myCategory" id="JfB-70-Muf"/>
+                    <color key="backgroundColor" red="0.33725490200000002" green="0.78823529410000004" blue="0.76862745099999996" alpha="1" colorSpace="calibratedRGB"/>
                     <connections>
                         <outlet property="notificationAlertLabel" destination="IdU-wH-bcW" id="JKC-fr-R95"/>
                         <segue destination="4sK-HA-Art" kind="relationship" relationship="dynamicNotificationInterface" id="kXh-Jw-8B1"/>
@@ -106,7 +107,9 @@
         <!--Notification Controller-->
         <scene sceneID="ZPc-GJ-vnh">
             <objects>
-                <controller id="4sK-HA-Art" customClass="NotificationController" customModule="health_app_WatchKit_App" customModuleProvider="target"/>
+                <controller id="4sK-HA-Art" customClass="NotificationController" customModule="health_app_WatchKit_App" customModuleProvider="target">
+                    <color key="backgroundColor" red="0.33725490200000002" green="0.78823529410000004" blue="0.76862745099999996" alpha="1" colorSpace="calibratedRGB"/>
+                </controller>
             </objects>
             <point key="canvasLocation" x="497" y="705"/>
         </scene>
