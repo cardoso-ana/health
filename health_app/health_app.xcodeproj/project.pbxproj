@@ -32,6 +32,8 @@
 		E174DA061D37E3CF00EC9086 /* LocationInterfaceController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E174DA051D37E3CF00EC9086 /* LocationInterfaceController.swift */; };
 		E174DA081D37E3F200EC9086 /* MonitorInterfaceController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E174DA071D37E3F200EC9086 /* MonitorInterfaceController.swift */; };
 		E174DA0A1D37FE0F00EC9086 /* GradiantLayer.swift in Sources */ = {isa = PBXBuildFile; fileRef = E174DA091D37FE0F00EC9086 /* GradiantLayer.swift */; };
+		EB2E2E151D394DE300C50080 /* CloudKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = EB2E2E141D394DE300C50080 /* CloudKit.framework */; };
+		EB2E2E171D394DEC00C50080 /* HealthKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = EB2E2E161D394DEC00C50080 /* HealthKit.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -107,6 +109,9 @@
 		E174DA051D37E3CF00EC9086 /* LocationInterfaceController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LocationInterfaceController.swift; sourceTree = "<group>"; };
 		E174DA071D37E3F200EC9086 /* MonitorInterfaceController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MonitorInterfaceController.swift; sourceTree = "<group>"; };
 		E174DA091D37FE0F00EC9086 /* GradiantLayer.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GradiantLayer.swift; sourceTree = "<group>"; };
+		EB2E2E121D394DCF00C50080 /* health_app.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.xml; path = health_app.entitlements; sourceTree = "<group>"; };
+		EB2E2E141D394DE300C50080 /* CloudKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CloudKit.framework; path = System/Library/Frameworks/CloudKit.framework; sourceTree = SDKROOT; };
+		EB2E2E161D394DEC00C50080 /* HealthKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = HealthKit.framework; path = System/Library/Frameworks/HealthKit.framework; sourceTree = SDKROOT; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -114,6 +119,8 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				EB2E2E151D394DE300C50080 /* CloudKit.framework in Frameworks */,
+				EB2E2E171D394DEC00C50080 /* HealthKit.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -163,6 +170,7 @@
 				E12A85BF1D3567E000FBF7E1 /* health_app WatchKit App */,
 				E12A85CE1D3567E100FBF7E1 /* health_app WatchKit Extension */,
 				E12A85AA1D3567E000FBF7E1 /* Products */,
+				EB2E2E131D394DE300C50080 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -179,6 +187,7 @@
 		E12A85AB1D3567E000FBF7E1 /* health_app */ = {
 			isa = PBXGroup;
 			children = (
+				EB2E2E121D394DCF00C50080 /* health_app.entitlements */,
 				E12A85AC1D3567E000FBF7E1 /* AppDelegate.swift */,
 				E10DDC751D37D9F900355545 /* Model */,
 				E10DDC771D37DA3D00355545 /* Controller */,
@@ -241,6 +250,15 @@
 				E174D9F71D37DD8A00EC9086 /* MonitorViewController.swift */,
 			);
 			name = Caretaker;
+			sourceTree = "<group>";
+		};
+		EB2E2E131D394DE300C50080 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				EB2E2E161D394DEC00C50080 /* HealthKit.framework */,
+				EB2E2E141D394DE300C50080 /* CloudKit.framework */,
+			);
+			name = Frameworks;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -311,20 +329,28 @@
 				TargetAttributes = {
 					E12A85A81D3567E000FBF7E1 = {
 						CreatedOnToolsVersion = 8.0;
-						DevelopmentTeam = A3556U9ESZ;
-						DevelopmentTeamName = "Ana Carolina Nascimento";
+						DevelopmentTeam = 92E4YSM59Z;
+						DevelopmentTeamName = "Pedro de Sá";
 						ProvisioningStyle = Automatic;
+						SystemCapabilities = {
+							com.apple.HealthKit = {
+								enabled = 1;
+							};
+							com.apple.iCloud = {
+								enabled = 1;
+							};
+						};
 					};
 					E12A85BA1D3567E000FBF7E1 = {
 						CreatedOnToolsVersion = 8.0;
-						DevelopmentTeam = A3556U9ESZ;
-						DevelopmentTeamName = "Ana Carolina Nascimento";
+						DevelopmentTeam = 92E4YSM59Z;
+						DevelopmentTeamName = "Pedro de Sá";
 						ProvisioningStyle = Automatic;
 					};
 					E12A85C91D3567E100FBF7E1 = {
 						CreatedOnToolsVersion = 8.0;
-						DevelopmentTeam = A3556U9ESZ;
-						DevelopmentTeamName = "Ana Carolina Nascimento";
+						DevelopmentTeam = 92E4YSM59Z;
+						DevelopmentTeamName = "Pedro de Sá";
 						ProvisioningStyle = Automatic;
 					};
 				};
@@ -611,6 +637,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_ENTITLEMENTS = health_app/health_app.entitlements;
 				INFOPLIST_FILE = health_app/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = "bepid.health-app";
@@ -623,6 +650,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_ENTITLEMENTS = health_app/health_app.entitlements;
 				INFOPLIST_FILE = health_app/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = "bepid.health-app";

@@ -8,12 +8,15 @@
 //
 
 import UIKit
+import WatchConnectivity
+import HealthKit
 
 @UIApplicationMain
-class AppDelegate: UIResponder, UIApplicationDelegate {
+class AppDelegate: UIResponder, UIApplicationDelegate, WCSessionDelegate {
 
     var window: UIWindow?
-
+    let healthStore = HKHealthStore()
+    
 
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [NSObject: AnyObject]?) -> Bool {
         application.statusBarStyle = UIStatusBarStyle.lightContent
@@ -41,7 +44,43 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     func applicationWillTerminate(_ application: UIApplication) {
         // Called when the application is about to terminate. Save data if appropriate. See also applicationDidEnterBackground:.
     }
-
-
+    
+    
+    // authorization from watch
+    func applicationShouldRequestHealthAuthorization(_ application: UIApplication) {
+        
+        
+        let typesToRead = Set([
+            HKObjectType.quantityType(forIdentifier: HKQuantityTypeIdentifier.heartRate)!,
+            
+            ])
+        
+        self.healthStore.requestAuthorization(toShare: Set([HKObjectType.workoutType()]), read: typesToRead) { (sucess, error) in
+            if error != nil {
+                print("MERDA NA REQUEST\n")
+                print(error?.localizedDescription)
+            } else {
+                print(sucess)
+            }
+        }
+        
+        self.healthStore.handleAuthorizationForExtension { (sucess, error) in
+            
+            
+        }
+    }
+    
+    
+    
+    func session(_ session: WCSession, activationDidCompleteWith activationState: WCSessionActivationState, error: NSError?) {
+        
+    }
+    
+    func sessionDidBecomeInactive(_ session: WCSession) {
+        
+    }
+    func sessionDidDeactivate(_ session: WCSession) {
+        
+    }
 }
 
