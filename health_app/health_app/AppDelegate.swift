@@ -10,6 +10,7 @@
 import UIKit
 import WatchConnectivity
 import HealthKit
+import CloudKit
 
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate, WCSessionDelegate {

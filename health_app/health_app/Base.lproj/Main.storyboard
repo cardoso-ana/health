@@ -171,6 +171,7 @@
                                                     <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                                 </state>
                                                 <connections>
+                                                    <action selector="next:" destination="BYZ-38-t0r" eventType="touchUpInside" id="39C-8u-KhQ"/>
                                                     <action selector="presentCaretaker:" destination="CRW-cm-xqe" eventType="touchUpInside" id="Q6s-m5-vjz"/>
                                                     <segue destination="TWr-rc-e3W" kind="show" identifier="wait" id="V5c-xP-Afg"/>
                                                 </connections>

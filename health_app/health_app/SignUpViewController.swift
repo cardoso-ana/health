@@ -44,6 +44,28 @@ class SignUpViewController: UIViewController, UITextFieldDelegate
     
     
     
+    
+    @IBAction func next(_ sender: AnyObject) {
+        
+        Elder.singleton.setElderName(name: self.nameTextfield.text!)
+        Elder.singleton.setElderAge(age: Int(self.ageTextfield.text!)!)
+        Elder.singleton.setElderStreet(street: self.adressTextfield.text!)
+        Elder.singleton.setElderCity(city: self.cityTextfield.text!)
+        Elder.singleton.setElderState(state: self.UFTextfield.text!)
+        Elder.singleton.setElderPhone(phone: self.phoneTextfield.text!)
+        
+        if nameTextfield.text != nil || ageTextfield.text != nil || adressTextfield.text != nil || cityTextfield.text != nil || UFTextfield.text != nil || phoneTextfield.text != nil {
+            
+            CloudKitDAO().loadElderUser(phone: Elder.singleton.getElderPhone()) { (success) in
+                if success {
+                    CloudKitDAO().send2CloudElder(usuario: Elder.singleton)
+                } else {
+                    print("\nUSER ALREADY IN CLOUD\n")
+                }
+            }
+        }
+    }
+    
     // MARK: - TextField Dismiss Stuff
     
     func textFieldShouldReturn(_ textField: UITextField) -> Bool {

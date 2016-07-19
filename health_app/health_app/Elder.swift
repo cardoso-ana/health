@@ -21,9 +21,7 @@ public class Elder {
     var state = ""
     var careTakerId = ""
     
-    private init() {
-        
-    }
+    private init() { }
     
     
     func getElderName() -> String {

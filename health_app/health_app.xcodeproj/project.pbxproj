@@ -35,6 +35,7 @@
 		E174DA0A1D37FE0F00EC9086 /* GradiantLayer.swift in Sources */ = {isa = PBXBuildFile; fileRef = E174DA091D37FE0F00EC9086 /* GradiantLayer.swift */; };
 		E1F4EB0B1D3E7FFB00EBDA3E /* CloudKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E1F4EB0A1D3E7FFB00EBDA3E /* CloudKit.framework */; };
 		EB2E2E171D394DEC00C50080 /* HealthKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = EB2E2E161D394DEC00C50080 /* HealthKit.framework */; };
+		EBC615891D3EB2DB00355AB2 /* CoudKitDAO.swift in Sources */ = {isa = PBXBuildFile; fileRef = EBC615881D3EB2DB00355AB2 /* CoudKitDAO.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -114,6 +115,7 @@
 		E1F4EB0A1D3E7FFB00EBDA3E /* CloudKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CloudKit.framework; path = System/Library/Frameworks/CloudKit.framework; sourceTree = SDKROOT; };
 		EB2E2E121D394DCF00C50080 /* health_app.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.xml; path = health_app.entitlements; sourceTree = "<group>"; };
 		EB2E2E161D394DEC00C50080 /* HealthKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = HealthKit.framework; path = System/Library/Frameworks/HealthKit.framework; sourceTree = SDKROOT; };
+		EBC615881D3EB2DB00355AB2 /* CoudKitDAO.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CoudKitDAO.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -158,6 +160,7 @@
 		E10DDC771D37DA3D00355545 /* Controller */ = {
 			isa = PBXGroup;
 			children = (
+				EBC615881D3EB2DB00355AB2 /* CoudKitDAO.swift */,
 				E174DA011D37E0D500EC9086 /* InitialViewController.swift */,
 				E174D9F41D37DCAD00EC9086 /* Caretaker */,
 				E174D9F31D37DC9400EC9086 /* Elder */,
@@ -423,6 +426,7 @@
 				E174D9F61D37DCDB00EC9086 /* PairViewController.swift in Sources */,
 				E174DA001D37DFE400EC9086 /* MainViewController.swift in Sources */,
 				E174D9F81D37DD8A00EC9086 /* MonitorViewController.swift in Sources */,
+				EBC615891D3EB2DB00355AB2 /* CoudKitDAO.swift in Sources */,
 				E12A85AD1D3567E000FBF7E1 /* AppDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
