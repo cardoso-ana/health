@@ -272,7 +272,9 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="ghl-57-BFm" customClass="GradientView" customModule="health_app" customModuleProvider="target">
+                            <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="ghl-57-BFm" customClass="GradientView" customModule="health_app" customModuleProvider="target">
+                                <frame key="frameInset" width="375" height="667"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                 <accessibility key="accessibilityConfiguration">
                                     <accessibilityTraits key="traits" notEnabled="YES"/>
@@ -292,13 +294,78 @@
                                     </userDefinedRuntimeAttribute>
                                 </userDefinedRuntimeAttributes>
                             </view>
+                            <view contentMode="scaleToFill" ambiguous="YES" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="IuR-a2-Uxp" userLabel="linha1">
+                                <frame key="frameInset" minY="181" width="375" height="1"/>
+                                <color key="backgroundColor" white="1" alpha="0.5" colorSpace="calibratedWhite"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="1" id="OkA-ay-UCQ"/>
+                                </constraints>
+                            </view>
+                            <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Yff-5X-Jrg" userLabel="1">
+                                <frame key="frameInset" width="375" height="181"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <subviews>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Pareamento" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="tJa-hp-2Jc">
+                                        <frame key="frameInset" minX="16" minY="154" width="251" height="22"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="18"/>
+                                        <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                </subviews>
+                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                            </view>
+                            <view contentMode="scaleToFill" ambiguous="YES" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="4Dt-Xj-EuU">
+                                <frame key="frameInset" minY="182" width="375" height="485"/>
+                                <subviews>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="*a pessoa a ser monitorada deve ser cadastrada" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumFontSize="8" translatesAutoresizingMaskIntoConstraints="NO" id="QAj-pJ-Avf">
+                                        <frame key="frameInset" minX="16" minY="8" width="318" height="21"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                        <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="*o telefone informado deve ser o mesmo do cadastro" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumFontSize="8" translatesAutoresizingMaskIntoConstraints="NO" id="AJw-gF-uUe">
+                                        <frame key="frameInset" minX="16" minY="37" width="347" height="21"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                        <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" ambiguous="YES" misplaced="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Telefone do idoso" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="T6U-i6-m4X">
+                                        <frame key="frameInset" minX="16" minY="86" width="343" height="30"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                        <textInputTraits key="textInputTraits"/>
+                                    </textField>
+                                    <button opaque="NO" contentMode="scaleToFill" ambiguous="YES" misplaced="YES" contentHorizontalAlignment="right" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="yHg-k0-aW3">
+                                        <frame key="frameInset" minX="251" minY="170" width="108" height="46"/>
+                                        <constraints>
+                                            <constraint firstAttribute="width" constant="108" id="d18-A8-Xh8"/>
+                                            <constraint firstAttribute="height" constant="46" id="f8G-Iq-O1a"/>
+                                        </constraints>
+                                        <state key="normal" title="parear ▶︎">
+                                            <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                        </state>
+                                        <connections>
+                                            <action selector="presentCaretaker:" destination="CRW-cm-xqe" eventType="touchUpInside" id="WLL-SY-rfC"/>
+                                        </connections>
+                                    </button>
+                                </subviews>
+                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                                <constraints>
+                                    <constraint firstItem="yHg-k0-aW3" firstAttribute="top" secondItem="T6U-i6-m4X" secondAttribute="bottom" constant="54" id="U2L-IY-k7I"/>
+                                    <constraint firstAttribute="trailing" secondItem="yHg-k0-aW3" secondAttribute="trailing" constant="16" id="fJb-1K-tIh"/>
+                                </constraints>
+                            </view>
                         </subviews>
                         <color key="backgroundColor" red="0.32156862749999998" green="0.80392156859999997" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                         <constraints>
-                            <constraint firstItem="ghl-57-BFm" firstAttribute="leading" secondItem="Sdn-6q-fgg" secondAttribute="leading" id="14F-QL-vFP"/>
-                            <constraint firstAttribute="trailing" secondItem="ghl-57-BFm" secondAttribute="trailing" id="UZ9-LV-2OQ"/>
-                            <constraint firstItem="knq-eZ-EGG" firstAttribute="top" secondItem="ghl-57-BFm" secondAttribute="bottom" id="Vwa-0S-dft"/>
-                            <constraint firstItem="ghl-57-BFm" firstAttribute="top" secondItem="Sdn-6q-fgg" secondAttribute="top" id="xfB-qv-NOx"/>
+                            <constraint firstItem="4Dt-Xj-EuU" firstAttribute="top" secondItem="IuR-a2-Uxp" secondAttribute="bottom" id="2gk-8D-WLy"/>
+                            <constraint firstItem="knq-eZ-EGG" firstAttribute="top" secondItem="4Dt-Xj-EuU" secondAttribute="bottom" id="Jlb-SU-bzD"/>
+                            <constraint firstAttribute="trailing" secondItem="IuR-a2-Uxp" secondAttribute="trailing" id="Mfh-wD-wUl"/>
+                            <constraint firstItem="4Dt-Xj-EuU" firstAttribute="leading" secondItem="Sdn-6q-fgg" secondAttribute="leading" id="XWB-oZ-4cU"/>
+                            <constraint firstItem="IuR-a2-Uxp" firstAttribute="leading" secondItem="Sdn-6q-fgg" secondAttribute="leading" id="kkl-Yh-IBk"/>
+                            <constraint firstAttribute="trailing" secondItem="4Dt-Xj-EuU" secondAttribute="trailing" id="wTl-hQ-D5O"/>
                         </constraints>
                     </view>
                     <connections>
@@ -307,7 +374,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="82g-QD-XXi" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-382" y="-207"/>
+            <point key="canvasLocation" x="-383.19999999999999" y="-207.34632683658174"/>
         </scene>
         <!--Wait View Controller-->
         <scene sceneID="7wM-Ef-1QL">
@@ -328,7 +395,7 @@
                                         <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                         <nil key="highlightedColor"/>
                                     </label>
-                                    <activityIndicatorView opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" style="white" translatesAutoresizingMaskIntoConstraints="NO" id="tbH-Ds-i1o"/>
+                                    <activityIndicatorView opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" animating="YES" style="white" translatesAutoresizingMaskIntoConstraints="NO" id="tbH-Ds-i1o"/>
                                 </subviews>
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                 <accessibility key="accessibilityConfiguration">
@@ -366,6 +433,7 @@
                     </view>
                     <connections>
                         <outlet property="gradientView" destination="Vwk-Qh-UT5" id="rnv-r3-p5e"/>
+                        <segue destination="HVc-NE-8Ag" kind="show" id="X3c-vX-rvn"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="5Zg-79-E24" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -441,6 +509,9 @@
                                                 </constraints>
                                                 <fontDescription key="fontDescription" type="system" weight="light" pointSize="14"/>
                                                 <state key="normal" title="editar ▶︎"/>
+                                                <connections>
+                                                    <segue destination="c4t-m1-U8z" kind="presentation" id="Cp0-T9-INw"/>
+                                                </connections>
                                             </button>
                                         </subviews>
                                         <color key="tintColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
