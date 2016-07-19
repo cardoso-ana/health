@@ -790,6 +790,7 @@
                                         </state>
                                         <connections>
                                             <action selector="presentCaretaker:" destination="CRW-cm-xqe" eventType="touchUpInside" id="AzZ-YP-4NO"/>
+                                            <action selector="saveAction:" destination="c4t-m1-U8z" eventType="touchUpInside" id="6pj-i7-Lmi"/>
                                         </connections>
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="mEN-jm-PPe">
@@ -803,6 +804,7 @@
                                             <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                         </state>
                                         <connections>
+                                            <action selector="cancelAction:" destination="c4t-m1-U8z" eventType="touchUpInside" id="yDv-Kr-FKB"/>
                                             <action selector="presentCaretaker:" destination="CRW-cm-xqe" eventType="touchUpInside" id="pNn-qs-SHW"/>
                                         </connections>
                                     </button>
@@ -893,7 +895,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="F5z-8O-gz2" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1904.8" y="492.50374812593708"/>
+            <point key="canvasLocation" x="1908" y="492"/>
         </scene>
         <!--Monitor View Controller-->
         <scene sceneID="AuB-4s-eKg">
@@ -992,8 +994,7 @@
                                             <constraint firstItem="x1s-7w-t11" firstAttribute="centerY" secondItem="RnV-tq-2IO" secondAttribute="centerY" constant="-7.5" id="xLr-lH-GVN"/>
                                         </constraints>
                                     </view>
-                                    <view contentMode="scaleToFill" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="PZp-Ow-j6b" userLabel="3">
-                                        <frame key="frameInset" minX="188" minY="182" width="188" height="161"/>
+                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="PZp-Ow-j6b" userLabel="3">
                                         <subviews>
                                             <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="walking" translatesAutoresizingMaskIntoConstraints="NO" id="GJP-JI-rLW"/>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="está caminhando" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumFontSize="9" translatesAutoresizingMaskIntoConstraints="NO" id="giP-lW-ZrK">

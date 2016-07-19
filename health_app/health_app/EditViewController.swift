@@ -31,15 +31,24 @@ class EditViewController: UIViewController, UITextFieldDelegate
         self.cityTextfield.delegate = self
         self.UFTextfield.delegate = self
         self.phoneTextfield.delegate = self
-        self.view.addGestureRecognizer(UITapGestureRecognizer(target: self, action: #selector(EditViewController.dismiss as (EditViewController) -> () -> ())))
-
+        self.view.addGestureRecognizer(UITapGestureRecognizer(target: self, action: #selector(EditViewController.dismissKeyboard as (EditViewController) -> () -> ())))
         
     }
     
+    @IBAction func cancelAction(_ sender: AnyObject)
+    {
+        self.dismiss(animated: true, completion: nil)
+    }
     
+    @IBAction func saveAction(_ sender: AnyObject)
+    {
+        
+    }
+
     // MARK: - TextField Dismiss Stuff
     
-    func textFieldShouldReturn(_ textField: UITextField) -> Bool {
+    func textFieldShouldReturn(_ textField: UITextField) -> Bool
+    {
         self.view.endEditing(true)
         nameTextfield.resignFirstResponder()
         ageTextfield.resignFirstResponder()
@@ -50,7 +59,8 @@ class EditViewController: UIViewController, UITextFieldDelegate
         return false
     }
     
-    func dismiss() {
+    func dismissKeyboard()
+    {
         nameTextfield.resignFirstResponder()
         ageTextfield.resignFirstResponder()
         adressTextfield.resignFirstResponder()
