@@ -8,21 +8,27 @@
 
 import UIKit
 
-class PairViewController: UIViewController
+class PairViewController: UIViewController, UITextFieldDelegate
 {
-    
+    @IBOutlet weak var phone: UITextField!
     @IBOutlet weak var gradientView: UIView!
     
     override func viewDidLoad()
     {
         super.viewDidLoad()
-        // Do any additional setup after loading the view, typically from a nib.
+        
+        self.phone.delegate = self
+        self.view.addGestureRecognizer(UITapGestureRecognizer(target: self, action: #selector(PairViewController.dismiss as (PairViewController) -> () -> ())))
     }
     
-    override func didReceiveMemoryWarning()
-    {
-        super.didReceiveMemoryWarning()
-        // Dispose of any resources that can be recreated.
+    func textFieldShouldReturn(_ textField: UITextField) -> Bool {
+        self.view.endEditing(true)
+        phone.resignFirstResponder()
+        return false
+    }
+    
+    func dismiss() {
+        phone.resignFirstResponder()
     }
     
     

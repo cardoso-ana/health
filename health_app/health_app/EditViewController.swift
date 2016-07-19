@@ -8,7 +8,7 @@
 
 import UIKit
 
-class EditViewController: UIViewController
+class EditViewController: UIViewController, UITextFieldDelegate
 {
     
     @IBOutlet weak var gradientView: UIView!
@@ -23,14 +23,40 @@ class EditViewController: UIViewController
     override func viewDidLoad()
     {
         super.viewDidLoad()
-        // Do any additional setup after loading the view, typically from a nib.
+        
+        // TextField Stuff
+        self.nameTextfield.delegate = self
+        self.ageTextfield.delegate = self
+        self.adressTextfield.delegate = self
+        self.cityTextfield.delegate = self
+        self.UFTextfield.delegate = self
+        self.phoneTextfield.delegate = self
+        self.view.addGestureRecognizer(UITapGestureRecognizer(target: self, action: #selector(EditViewController.dismiss as (EditViewController) -> () -> ())))
+
+        
     }
     
-    override func didReceiveMemoryWarning()
-    {
-        super.didReceiveMemoryWarning()
-        // Dispose of any resources that can be recreated.
+    
+    // MARK: - TextField Dismiss Stuff
+    
+    func textFieldShouldReturn(_ textField: UITextField) -> Bool {
+        self.view.endEditing(true)
+        nameTextfield.resignFirstResponder()
+        ageTextfield.resignFirstResponder()
+        adressTextfield.resignFirstResponder()
+        cityTextfield.resignFirstResponder()
+        UFTextfield.resignFirstResponder()
+        phoneTextfield.resignFirstResponder()
+        return false
     }
     
+    func dismiss() {
+        nameTextfield.resignFirstResponder()
+        ageTextfield.resignFirstResponder()
+        adressTextfield.resignFirstResponder()
+        cityTextfield.resignFirstResponder()
+        UFTextfield.resignFirstResponder()
+        phoneTextfield.resignFirstResponder()
+    }
     
 }

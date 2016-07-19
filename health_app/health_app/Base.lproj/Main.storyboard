@@ -370,6 +370,7 @@
                     </view>
                     <connections>
                         <outlet property="gradientView" destination="ghl-57-BFm" id="XDX-l8-WRq"/>
+                        <outlet property="phone" destination="T6U-i6-m4X" id="0vk-kT-eQM"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="82g-QD-XXi" userLabel="First Responder" sceneMemberID="firstResponder"/>

@@ -32,7 +32,7 @@ class SignUpViewController: UIViewController, UITextFieldDelegate
         self.cityTextfield.delegate = self
         self.UFTextfield.delegate = self
         self.phoneTextfield.delegate = self
-        self.view.addGestureRecognizer(UITapGestureRecognizer(target: self, action: Selector("dismiss")))
+        self.view.addGestureRecognizer(UITapGestureRecognizer(target: self, action: #selector(SignUpViewController.dismiss as (SignUpViewController) -> () -> ())))
     
     }
 
