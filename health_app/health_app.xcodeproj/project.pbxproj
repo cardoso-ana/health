@@ -33,7 +33,7 @@
 		E174DA061D37E3CF00EC9086 /* LocationInterfaceController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E174DA051D37E3CF00EC9086 /* LocationInterfaceController.swift */; };
 		E174DA081D37E3F200EC9086 /* MonitorInterfaceController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E174DA071D37E3F200EC9086 /* MonitorInterfaceController.swift */; };
 		E174DA0A1D37FE0F00EC9086 /* GradiantLayer.swift in Sources */ = {isa = PBXBuildFile; fileRef = E174DA091D37FE0F00EC9086 /* GradiantLayer.swift */; };
-		EB2E2E151D394DE300C50080 /* CloudKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = EB2E2E141D394DE300C50080 /* CloudKit.framework */; };
+		E1F4EB0B1D3E7FFB00EBDA3E /* CloudKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E1F4EB0A1D3E7FFB00EBDA3E /* CloudKit.framework */; };
 		EB2E2E171D394DEC00C50080 /* HealthKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = EB2E2E161D394DEC00C50080 /* HealthKit.framework */; };
 /* End PBXBuildFile section */
 
@@ -111,8 +111,8 @@
 		E174DA051D37E3CF00EC9086 /* LocationInterfaceController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LocationInterfaceController.swift; sourceTree = "<group>"; };
 		E174DA071D37E3F200EC9086 /* MonitorInterfaceController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MonitorInterfaceController.swift; sourceTree = "<group>"; };
 		E174DA091D37FE0F00EC9086 /* GradiantLayer.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GradiantLayer.swift; sourceTree = "<group>"; };
+		E1F4EB0A1D3E7FFB00EBDA3E /* CloudKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CloudKit.framework; path = System/Library/Frameworks/CloudKit.framework; sourceTree = SDKROOT; };
 		EB2E2E121D394DCF00C50080 /* health_app.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.xml; path = health_app.entitlements; sourceTree = "<group>"; };
-		EB2E2E141D394DE300C50080 /* CloudKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CloudKit.framework; path = System/Library/Frameworks/CloudKit.framework; sourceTree = SDKROOT; };
 		EB2E2E161D394DEC00C50080 /* HealthKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = HealthKit.framework; path = System/Library/Frameworks/HealthKit.framework; sourceTree = SDKROOT; };
 /* End PBXFileReference section */
 
@@ -121,8 +121,8 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				EB2E2E151D394DE300C50080 /* CloudKit.framework in Frameworks */,
 				EB2E2E171D394DEC00C50080 /* HealthKit.framework in Frameworks */,
+				E1F4EB0B1D3E7FFB00EBDA3E /* CloudKit.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -258,8 +258,8 @@
 		EB2E2E131D394DE300C50080 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				E1F4EB0A1D3E7FFB00EBDA3E /* CloudKit.framework */,
 				EB2E2E161D394DEC00C50080 /* HealthKit.framework */,
-				EB2E2E141D394DE300C50080 /* CloudKit.framework */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
