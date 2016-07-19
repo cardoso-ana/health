@@ -19,39 +19,13 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <view userInteractionEnabled="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="CmM-O9-Pi5" customClass="GradientView" customModule="health_app" customModuleProvider="target">
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="CmM-O9-Pi5" customClass="GradientView" customModule="health_app" customModuleProvider="target">
                                 <subviews>
-                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="cyM-6C-g3m">
-                                        <constraints>
-                                            <constraint firstAttribute="height" constant="40" id="2Ul-dP-haK"/>
-                                            <constraint firstAttribute="width" constant="108" id="5ov-zn-T7t"/>
-                                        </constraints>
-                                        <fontDescription key="fontDescription" type="system" pointSize="16"/>
-                                        <state key="normal" title="Idoso ▶︎">
-                                            <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                                        </state>
-                                        <connections>
-                                            <segue destination="BYZ-38-t0r" kind="show" identifier="idoso" id="DDv-1d-6RM"/>
-                                        </connections>
-                                    </button>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="LOGO" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="6xY-hN-WN2">
                                         <fontDescription key="fontDescription" type="system" pointSize="40"/>
                                         <color key="textColor" red="0.95159722219999998" green="0.16161878020000001" blue="0.20046964489999999" alpha="0.96917410709999996" colorSpace="calibratedRGB"/>
                                         <nil key="highlightedColor"/>
                                     </label>
-                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="29s-kp-ABp">
-                                        <constraints>
-                                            <constraint firstAttribute="height" constant="46" id="PQ6-ck-Tv8"/>
-                                            <constraint firstAttribute="width" constant="108" id="aoL-gu-NDI"/>
-                                        </constraints>
-                                        <state key="normal" title="Cuidador ▶︎">
-                                            <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                                        </state>
-                                        <connections>
-                                            <action selector="presentCaretaker:" destination="CRW-cm-xqe" eventType="touchUpInside" id="VFr-om-pEo"/>
-                                            <segue destination="sJq-ML-yP9" kind="show" identifier="cuidador" id="ofo-pl-s6W"/>
-                                        </connections>
-                                    </button>
                                 </subviews>
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                 <accessibility key="accessibilityConfiguration">
@@ -59,12 +33,8 @@
                                 </accessibility>
                                 <constraints>
                                     <constraint firstItem="6xY-hN-WN2" firstAttribute="leading" secondItem="CmM-O9-Pi5" secondAttribute="leading" constant="131" id="11h-5h-TFV"/>
-                                    <constraint firstItem="cyM-6C-g3m" firstAttribute="centerY" secondItem="CmM-O9-Pi5" secondAttribute="centerY" constant="78.5" id="AHF-d1-EJV"/>
                                     <constraint firstItem="6xY-hN-WN2" firstAttribute="top" secondItem="CmM-O9-Pi5" secondAttribute="top" constant="154" id="CyH-7e-o9t"/>
-                                    <constraint firstItem="cyM-6C-g3m" firstAttribute="centerX" secondItem="CmM-O9-Pi5" secondAttribute="centerX" id="hPv-OK-xLz"/>
-                                    <constraint firstItem="29s-kp-ABp" firstAttribute="centerX" secondItem="CmM-O9-Pi5" secondAttribute="centerX" id="kKM-0i-wXF"/>
                                     <constraint firstAttribute="trailing" secondItem="6xY-hN-WN2" secondAttribute="trailing" constant="132" id="ofQ-Zo-e0N"/>
-                                    <constraint firstItem="29s-kp-ABp" firstAttribute="centerY" secondItem="CmM-O9-Pi5" secondAttribute="centerY" constant="10.5" id="xxq-yV-jjA"/>
                                 </constraints>
                                 <userDefinedRuntimeAttributes>
                                     <userDefinedRuntimeAttribute type="color" keyPath="startColor">
@@ -81,10 +51,39 @@
                                     </userDefinedRuntimeAttribute>
                                 </userDefinedRuntimeAttributes>
                             </view>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="29s-kp-ABp">
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="46" id="0yc-fV-yI5"/>
+                                    <constraint firstAttribute="width" constant="108" id="Fng-nL-CiZ"/>
+                                </constraints>
+                                <state key="normal" title="Cuidador ▶︎">
+                                    <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <connections>
+                                    <segue destination="sJq-ML-yP9" kind="show" identifier="cuidador" id="ofo-pl-s6W"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="cyM-6C-g3m">
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="46" id="JMG-Sb-AAz"/>
+                                    <constraint firstAttribute="width" constant="108" id="t0I-ZO-emY"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" pointSize="16"/>
+                                <state key="normal" title="Idoso ▶︎">
+                                    <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <connections>
+                                    <segue destination="BYZ-38-t0r" kind="show" identifier="idoso" id="DDv-1d-6RM"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" red="0.32156862745098036" green="0.80392156862745101" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                         <constraints>
+                            <constraint firstItem="cyM-6C-g3m" firstAttribute="centerY" secondItem="fmU-jb-y93" secondAttribute="centerY" constant="64.5" id="1Rd-Pc-tZc"/>
                             <constraint firstItem="CmM-O9-Pi5" firstAttribute="top" secondItem="fmU-jb-y93" secondAttribute="top" id="42q-tz-3bb"/>
+                            <constraint firstItem="29s-kp-ABp" firstAttribute="centerX" secondItem="fmU-jb-y93" secondAttribute="centerX" id="AUX-SH-KLI"/>
+                            <constraint firstItem="cyM-6C-g3m" firstAttribute="centerX" secondItem="fmU-jb-y93" secondAttribute="centerX" id="Fsx-gr-s2f"/>
+                            <constraint firstItem="29s-kp-ABp" firstAttribute="centerY" secondItem="fmU-jb-y93" secondAttribute="centerY" id="TvQ-gR-hCx"/>
                             <constraint firstItem="xPE-ZZ-CUT" firstAttribute="top" secondItem="CmM-O9-Pi5" secondAttribute="bottom" id="V2o-IA-kaC"/>
                             <constraint firstAttribute="trailing" secondItem="CmM-O9-Pi5" secondAttribute="trailing" id="f3C-gz-8yd"/>
                             <constraint firstItem="CmM-O9-Pi5" firstAttribute="leading" secondItem="fmU-jb-y93" secondAttribute="leading" id="s6R-77-ZWO"/>
@@ -97,7 +96,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="2Ld-mE-COD" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-1234.4000000000001" y="154.27286356821591"/>
+            <point key="canvasLocation" x="-1230" y="141"/>
         </scene>
         <!--Sign Up View Controller-->
         <scene sceneID="tne-QT-ifu">
@@ -111,7 +110,7 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <view userInteractionEnabled="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Shf-ex-0CT" customClass="GradientView" customModule="health_app" customModuleProvider="target">
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Shf-ex-0CT" customClass="GradientView" customModule="health_app" customModuleProvider="target">
                                 <subviews>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="r9N-eA-TQd" userLabel="linha1">
                                         <color key="backgroundColor" white="1" alpha="0.5" colorSpace="calibratedWhite"/>
@@ -173,6 +172,7 @@
                                                 </state>
                                                 <connections>
                                                     <action selector="presentCaretaker:" destination="CRW-cm-xqe" eventType="touchUpInside" id="Q6s-m5-vjz"/>
+                                                    <segue destination="TWr-rc-e3W" kind="show" identifier="wait" id="V5c-xP-Afg"/>
                                                 </connections>
                                             </button>
                                         </subviews>
@@ -272,7 +272,7 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <view userInteractionEnabled="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="ghl-57-BFm" customClass="GradientView" customModule="health_app" customModuleProvider="target">
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="ghl-57-BFm" customClass="GradientView" customModule="health_app" customModuleProvider="target">
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                 <accessibility key="accessibilityConfiguration">
                                     <accessibilityTraits key="traits" notEnabled="YES"/>
@@ -321,11 +321,25 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <view userInteractionEnabled="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Vwk-Qh-UT5" customClass="GradientView" customModule="health_app" customModuleProvider="target">
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Vwk-Qh-UT5" customClass="GradientView" customModule="health_app" customModuleProvider="target">
+                                <subviews>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Aguardando pareamento" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="PaN-LV-q7G">
+                                        <fontDescription key="fontDescription" type="system" pointSize="18"/>
+                                        <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <activityIndicatorView opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" style="white" translatesAutoresizingMaskIntoConstraints="NO" id="tbH-Ds-i1o"/>
+                                </subviews>
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                 <accessibility key="accessibilityConfiguration">
                                     <accessibilityTraits key="traits" notEnabled="YES"/>
                                 </accessibility>
+                                <constraints>
+                                    <constraint firstItem="tbH-Ds-i1o" firstAttribute="top" secondItem="PaN-LV-q7G" secondAttribute="bottom" constant="34" id="5Id-Dk-eyJ"/>
+                                    <constraint firstItem="tbH-Ds-i1o" firstAttribute="centerX" secondItem="Vwk-Qh-UT5" secondAttribute="centerX" id="G8a-Bd-ZJy"/>
+                                    <constraint firstItem="tbH-Ds-i1o" firstAttribute="centerY" secondItem="Vwk-Qh-UT5" secondAttribute="centerY" id="gC8-mQ-u44"/>
+                                    <constraint firstItem="PaN-LV-q7G" firstAttribute="centerX" secondItem="Vwk-Qh-UT5" secondAttribute="centerX" id="hPn-bg-2wI"/>
+                                </constraints>
                                 <userDefinedRuntimeAttributes>
                                     <userDefinedRuntimeAttribute type="color" keyPath="startColor">
                                         <color key="value" red="0.55294117649999996" green="0.99215686270000003" blue="0.74509803919999995" alpha="0.5" colorSpace="calibratedRGB"/>
@@ -356,7 +370,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="5Zg-79-E24" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="382" y="493"/>
+            <point key="canvasLocation" x="381.60000000000002" y="492.50374812593708"/>
         </scene>
         <!--Main View Controller-->
         <scene sceneID="Eeu-7M-VJX">
@@ -370,7 +384,7 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <view userInteractionEnabled="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="6ji-NY-vbb" customClass="GradientView" customModule="health_app" customModuleProvider="target">
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="6ji-NY-vbb" customClass="GradientView" customModule="health_app" customModuleProvider="target">
                                 <subviews>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Ckw-v2-BoF" userLabel="linha1">
                                         <color key="backgroundColor" white="1" alpha="0.5" colorSpace="calibratedWhite"/>
@@ -621,7 +635,7 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <view userInteractionEnabled="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="vop-mJ-2rZ" customClass="GradientView" customModule="health_app" customModuleProvider="target">
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="vop-mJ-2rZ" customClass="GradientView" customModule="health_app" customModuleProvider="target">
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                 <accessibility key="accessibilityConfiguration">
                                     <accessibilityTraits key="traits" notEnabled="YES"/>
@@ -794,7 +808,7 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <view userInteractionEnabled="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="zrI-RY-LWV" customClass="GradientView" customModule="health_app" customModuleProvider="target">
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="zrI-RY-LWV" customClass="GradientView" customModule="health_app" customModuleProvider="target">
                                 <subviews>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="ZAX-eb-hTh" userLabel="linha1">
                                         <color key="backgroundColor" white="1" alpha="0.5" colorSpace="calibratedWhite"/>
