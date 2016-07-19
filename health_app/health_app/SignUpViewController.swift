@@ -8,7 +8,7 @@
 
 import UIKit
 
-class SignUpViewController: UIViewController
+class SignUpViewController: UIViewController, UITextFieldDelegate
 {
 
     @IBOutlet weak var gradientView: UIView!
@@ -25,6 +25,14 @@ class SignUpViewController: UIViewController
     {
         super.viewDidLoad()
         
+        // TextField Stuff
+        self.nameTextfield.delegate = self
+        self.ageTextfield.delegate = self
+        self.adressTextfield.delegate = self
+        self.cityTextfield.delegate = self
+        self.UFTextfield.delegate = self
+        self.phoneTextfield.delegate = self
+        self.view.addGestureRecognizer(UITapGestureRecognizer(target: self, action: Selector("dismiss")))
     
     }
 
@@ -33,7 +41,29 @@ class SignUpViewController: UIViewController
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
     }
-
-
+    
+    
+    
+    // MARK: - TextField Dismiss Stuff
+    
+    func textFieldShouldReturn(_ textField: UITextField) -> Bool {
+        self.view.endEditing(true)
+        nameTextfield.resignFirstResponder()
+        ageTextfield.resignFirstResponder()
+        adressTextfield.resignFirstResponder()
+        cityTextfield.resignFirstResponder()
+        UFTextfield.resignFirstResponder()
+        phoneTextfield.resignFirstResponder()
+        return false
+    }
+    
+    func dismiss() {
+        nameTextfield.resignFirstResponder()
+        ageTextfield.resignFirstResponder()
+        adressTextfield.resignFirstResponder()
+        cityTextfield.resignFirstResponder()
+        UFTextfield.resignFirstResponder()
+        phoneTextfield.resignFirstResponder()
+    }
 }
 
