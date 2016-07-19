@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		655DA1BC1D3E6C69003BDD72 /* CountdownInterfaceController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 655DA1BB1D3E6C69003BDD72 /* CountdownInterfaceController.swift */; };
 		E12A85AD1D3567E000FBF7E1 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = E12A85AC1D3567E000FBF7E1 /* AppDelegate.swift */; };
 		E12A85AF1D3567E000FBF7E1 /* SignUpViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E12A85AE1D3567E000FBF7E1 /* SignUpViewController.swift */; };
 		E12A85B21D3567E000FBF7E1 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = E12A85B01D3567E000FBF7E1 /* Main.storyboard */; };
@@ -79,6 +80,7 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
+		655DA1BB1D3E6C69003BDD72 /* CountdownInterfaceController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CountdownInterfaceController.swift; sourceTree = "<group>"; };
 		E12A85A91D3567E000FBF7E1 /* health_app.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = health_app.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		E12A85AC1D3567E000FBF7E1 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		E12A85AE1D3567E000FBF7E1 /* SignUpViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignUpViewController.swift; sourceTree = "<group>"; };
@@ -217,6 +219,7 @@
 				E174DA071D37E3F200EC9086 /* MonitorInterfaceController.swift */,
 				E12A85D31D3567E100FBF7E1 /* ExtensionDelegate.swift */,
 				E12A85D51D3567E100FBF7E1 /* NotificationController.swift */,
+				655DA1BB1D3E6C69003BDD72 /* CountdownInterfaceController.swift */,
 				E12A85D71D3567E100FBF7E1 /* Assets.xcassets */,
 				E12A85D91D3567E100FBF7E1 /* Info.plist */,
 				E12A85CF1D3567E100FBF7E1 /* Supporting Files */,
@@ -432,6 +435,7 @@
 				E174DA041D37E39000EC9086 /* MovementInterfaceController.swift in Sources */,
 				E12A85D61D3567E100FBF7E1 /* NotificationController.swift in Sources */,
 				E12A85D41D3567E100FBF7E1 /* ExtensionDelegate.swift in Sources */,
+				655DA1BC1D3E6C69003BDD72 /* CountdownInterfaceController.swift in Sources */,
 				E12A85D21D3567E100FBF7E1 /* HeartRateInterfaceController.swift in Sources */,
 				E174DA061D37E3CF00EC9086 /* LocationInterfaceController.swift in Sources */,
 			);
