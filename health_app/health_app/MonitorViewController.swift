@@ -11,9 +11,16 @@ import MapKit
 
 class MonitorViewController: UIViewController
 {
-    
     @IBOutlet weak var gradientView: UIView!
+    
+    @IBOutlet weak var nameLabel: UILabel!
+    @IBOutlet weak var ageLabel: UILabel!
+    @IBOutlet weak var heartRateLabel: UILabel!
+    @IBOutlet weak var movementImage: UIImageView!
+    @IBOutlet weak var movementLabel: UILabel!
     @IBOutlet weak var map: MKMapView!
+    @IBOutlet weak var monitorImage: UIImageView!
+    @IBOutlet weak var monitorLabel: UILabel!
     
     override func viewDidLoad()
     {

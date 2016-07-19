@@ -13,16 +13,19 @@ class SignUpViewController: UIViewController
 
     @IBOutlet weak var gradientView: UIView!
     
-    let gradientlayer = CAGradientLayer()
+    @IBOutlet weak var nameTextfield: UITextField!
+    @IBOutlet weak var ageTextfield: UITextField!
+    @IBOutlet weak var adressTextfield: UITextField!
+    @IBOutlet weak var cityTextfield: UITextField!
+    @IBOutlet weak var UFTextfield: UITextField!
+    @IBOutlet weak var phoneTextfield: UITextField!
     
     
     override func viewDidLoad()
     {
         super.viewDidLoad()
         
-        gradientlayer.frame = gradientView.frame
-        gradientlayer.colors = [UIColor.init(red: 141, green: 253, blue: 190, alpha: 0.5), UIColor.init(white: 0, alpha: 50)]
-        gradientView.layer.addSublayer(gradientlayer)
+    
     }
 
     override func didReceiveMemoryWarning()
