@@ -17,7 +17,7 @@ class HeartRateInterfaceController: WKInterfaceController, HKWorkoutSessionDeleg
     @IBOutlet var heartBeatLabel: WKInterfaceLabel!
     @IBOutlet var heartGroup: WKInterfaceGroup!
     
-    var accelerometerValue = 0.0
+    var accelerometerValue = 3.0
     let motionManager = CMMotionManager()
     var isTrackingMotion = false
     let activityManager = CMMotionActivityManager()
@@ -35,95 +35,73 @@ class HeartRateInterfaceController: WKInterfaceController, HKWorkoutSessionDeleg
     override func awake(withContext context: AnyObject?) {
         super.awake(withContext: context)
         
-        // MARK: - Motion Manager -
+        //        // MARK: Activity Handler -
+        //
+        //        if CMMotionActivityManager.isActivityAvailable() {
+        //
+        //            let activityHandler: CMMotionActivityHandler = { (activityData: CMMotionActivity?) -> Void in
+        //
+        //                // Se estiver sentado ou deitado (parado) ou andando:
+        //
+        //                if activityData?.stationary == true || activityData?.walking == true {
+        //
+        //                    // Piso do acelerômetro 3.0
+        //
+        //                    self.accelerometerValue = 3.0
+        //
+        //                    print("FUNCIONA SAPORRA")
+        //
+        //                    if activityData?.stationary == true {
+        //                        // Mudar estado para parado nas telas
+        //                        // Mudar imagem e descrição
+        //                    } else {
+        //                        // Mudar estado para andando nas telas
+        //                        // Mudar imagem e descrição
+        //                    }
+        //
+        //                } else {
+        //
+        //                    if activityData?.running == true {
+        //                        // Mudar estado para correndo nas telas
+        //                        // Mudar imagem e descrição
+        //
+        //                        print("NAO FUNCIONA SAPORRA")
+        //                    } else {
+        //                        // Mudar estado para de carro
+        //                        // Mudar imagem e descrição
+        //                    }
+        //                    // Piso do acelerômetro 5.0
+        //
+        //                    self.accelerometerValue = 5.0
+        //                }
+        //
+        //            }
+        //
+        //            self.activityManager.startActivityUpdates(to: OperationQueue.main, withHandler: activityHandler)
         
         motionManager.accelerometerUpdateInterval = 0.2
         
-        // MARK: Activity Handler -
-        
-        if CMMotionActivityManager.isActivityAvailable() {
+        if motionManager.isAccelerometerAvailable {
             
-            let activityHandler: CMMotionActivityHandler = { (activityData: CMMotionActivity?) -> Void in
-                
-                // Se estiver sentado ou deitado (parado) ou andando:
-                
-                if activityData?.stationary == true || activityData?.walking == true {
+            let accelerometerHandler: CMAccelerometerHandler = { (accelerometerData: CMAccelerometerData?, error: NSError?) -> Void in
+                if (fabs(accelerometerData!.acceleration.x) >= 3.0 || fabs(accelerometerData!.acceleration.y) >= 3.0 || fabs(accelerometerData!.acceleration.z) >= 3.0) {
                     
-                    // Piso do acelerômetro 3.0
+                    print("\n\nVelho caiu!!\n\n")
+                    print("\(accelerometerData?.acceleration.x)\n\(accelerometerData?.acceleration.y)\n\(accelerometerData?.acceleration.z)\n")
                     
-                    self.accelerometerValue = 3.0
+                    // NOTIFICAÇÃO PRO CUIDADOR E BOTÃO DE EMERGENCIA PRO VELHO
                     
-                    if activityData?.stationary == true {
-                        // Mudar estado para parado nas telas
-                        // Mudar imagem e descrição
-                    } else {
-                        // Mudar estado para andando nas telas
-                        // Mudar imagem e descrição
-                    }
+                    self.motionManager.stopAccelerometerUpdates()
+                    self.presentController(withName: "CountdownInterfaceController", context: self)
                     
                 } else {
-                    
-                    if activityData?.running == true {
-                        // Mudar estado para correndo nas telas
-                        // Mudar imagem e descrição
-                    } else {
-                        // Mudar estado para de carro
-                        // Mudar imagem e descrição
-                    }
-                    // Piso do acelerômetro 5.0
-                    
-                    self.accelerometerValue = 5.0
+                    print("Velho ta de boa")
                 }
-                
-                // MARK: Accelerometer -
-                
-                if self.motionManager.isAccelerometerAvailable {
-                    
-                    let accelerometerHandler: CMAccelerometerHandler = { (accelerometerData: CMAccelerometerData?, error: NSError?) -> Void in
-                        
-                        // Se passar do piso manda as notificações
-                        
-                        if (fabs(accelerometerData!.acceleration.x) >= self.accelerometerValue || fabs(accelerometerData!.acceleration.y) >= self.accelerometerValue || fabs(accelerometerData!.acceleration.z) >= self.accelerometerValue) {
-                            
-                            print("\n\nVelho caiu!!\n\n")
-                            print("\(accelerometerData?.acceleration.x)\n\(accelerometerData?.acceleration.y)\n\(accelerometerData?.acceleration.z)\n")
-                            
-                            self.motionManager.stopAccelerometerUpdates()
-                            
-                            // NOTIFICAÇÃO PRO CUIDADOR E BOTÃO DE EMERGENCIA PRO VELHO
-                            
-                        } else {
-                            print("Velho ta de boa")
-                        }
-                    }
-                    
-                    self.motionManager.startAccelerometerUpdates(to: OperationQueue.current!, withHandler: accelerometerHandler)
-                    
-                } else {
-                    print("\nAccelerometer not avaiable\n")
-                }
-                
             }
             
-            self.activityManager.startActivityUpdates(to: OperationQueue.main, withHandler: activityHandler)
+            motionManager.startAccelerometerUpdates(to: OperationQueue.current!, withHandler: accelerometerHandler)
             
         }
-        
-        //        if motionManager.isAccelerometerAvailable {
-        //
-        //            let accelerometerHandler: CMAccelerometerHandler = { (accelerometerData: CMAccelerometerData?, error: NSError?) -> Void in
-        //                if (fabs(accelerometerData!.acceleration.x) >= 3.0 || fabs(accelerometerData!.acceleration.y) >= 3.0 || fabs(accelerometerData!.acceleration.z) >= 3.0) {
-        //                    print("\n\nVelho caiu!!\n\n")
-        //                    print("\(accelerometerData?.acceleration.x)\n\(accelerometerData?.acceleration.y)\n\(accelerometerData?.acceleration.z)\n")
-        //                    // NOTIFICAÇÃO PRO CUIDADOR E BOTÃO DE EMERGENCIA PRO VELHO
-        //                    self.motionManager.stopAccelerometerUpdates()
-        //                } else {
-        //                    print("Velho ta de boa")
-        //                }
-        //            }
-        //            motionManager.startAccelerometerUpdates(to: OperationQueue.current!, withHandler: accelerometerHandler)
-        //
-        //        }
         
         if (self.workoutActive) {
             //finish the current workout
@@ -137,6 +115,53 @@ class HeartRateInterfaceController: WKInterfaceController, HKWorkoutSessionDeleg
             startWorkout()
         }
     }
+    
+    
+    //    override func didAppear() {
+    //
+    //        super.didAppear()
+    //
+    //        // MARK: Accelerometer -
+    //
+    //        if self.isTrackingMotion == false {
+    //
+    //            self.isTrackingMotion = true
+    //
+    //            motionManager.accelerometerUpdateInterval = 0.2
+    //
+    //            if self.motionManager.isAccelerometerAvailable {
+    //
+    //                let accelerometerHandler: CMAccelerometerHandler = { (accelerometerData: CMAccelerometerData?, error: NSError?) -> Void in
+    //
+    //                    // Se passar do piso manda as notificações
+    //
+    //                    if (fabs(accelerometerData!.acceleration.x) >= self.accelerometerValue || fabs(accelerometerData!.acceleration.y) >= self.accelerometerValue || fabs(accelerometerData!.acceleration.z) >= self.accelerometerValue) {
+    //
+    //                        print("\n\nVelho caiu!!\n\n")
+    //                        print("\(accelerometerData?.acceleration.x)\n\(accelerometerData?.acceleration.y)\n\(accelerometerData?.acceleration.z)\n")
+    //
+    //                        self.motionManager.stopAccelerometerUpdates()
+    //
+    //                        self.isTrackingMotion = false
+    //
+    //                        // NOTIFICAÇÃO PRO CUIDADOR E BOTÃO DE EMERGENCIA PRO VELHO
+    //
+    //                        self.presentController(withName: "CountdownInterfaceController", context: self)
+    //
+    //                    } else {
+    //                        print("Velho ta de boa")
+    //                    }
+    //                }
+    //
+    //                self.motionManager.startAccelerometerUpdates(to: OperationQueue.current!, withHandler: accelerometerHandler)
+    //
+    //            } else {
+    //                print("\nAccelerometer not avaiable\n")
+    //            }
+    //
+    //        }
+    //
+    //    }
     
     override func willActivate() {
         

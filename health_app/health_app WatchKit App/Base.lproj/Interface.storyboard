@@ -4,6 +4,11 @@
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="11143.2"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBWatchKitPlugin" version="11071"/>
     </dependencies>
+    <customFonts key="customFonts">
+        <array key="SFCompactText-Regular.otf">
+            <string>.SFCompactText-Regular</string>
+        </array>
+    </customFonts>
     <scenes>
         <!--Heart Rate Interface Controller-->
         <scene sceneID="aou-V4-d1y">
@@ -87,10 +92,32 @@
             </objects>
             <point key="canvasLocation" x="1049" y="345"/>
         </scene>
-        <!--Countdown Interface Controller-->
+        <!--CountdownInterfaceController-->
         <scene sceneID="NPm-bf-flt">
             <objects>
-                <controller identifier="Countdown Interface Controller" id="0Ab-eT-bcR" customClass="CountdownInterfaceController" customModule="health_app_WatchKit_Extension"/>
+                <controller identifier="CountdownInterfaceController" id="0Ab-eT-bcR" customClass="CountdownInterfaceController" customModule="health_app_WatchKit_Extension">
+                    <items>
+                        <group width="1" height="0.69999999999999996" alignment="left" id="hHL-9v-ErV">
+                            <items>
+                                <label alignment="center" verticalAlignment="center" text="30" id="hri-kR-bed">
+                                    <fontDescription key="font" name=".SFCompactText-Regular" family=".SF Compact Text" pointSize="50"/>
+                                </label>
+                            </items>
+                        </group>
+                        <group width="1" height="0.29999999999999999" alignment="left" id="1uw-It-TSb">
+                            <items>
+                                <button width="1" height="1" alignment="left" title="Ta tudo beleza" id="WXk-k8-s0e">
+                                    <connections>
+                                        <action selector="okButtonAction" destination="0Ab-eT-bcR" id="0iF-2U-KFy"/>
+                                    </connections>
+                                </button>
+                            </items>
+                        </group>
+                    </items>
+                    <connections>
+                        <outlet property="timerLabel" destination="hri-kR-bed" id="znI-7A-mfp"/>
+                    </connections>
+                </controller>
             </objects>
             <point key="canvasLocation" x="1344" y="345"/>
         </scene>
