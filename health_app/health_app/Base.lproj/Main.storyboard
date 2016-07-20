@@ -272,9 +272,7 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="ghl-57-BFm" customClass="GradientView" customModule="health_app" customModuleProvider="target">
-                                <frame key="frameInset" width="375" height="667"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="ghl-57-BFm" customClass="GradientView" customModule="health_app" customModuleProvider="target">
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                 <accessibility key="accessibilityConfiguration">
                                     <accessibilityTraits key="traits" notEnabled="YES"/>
@@ -407,12 +405,16 @@
                             <constraint firstItem="knq-eZ-EGG" firstAttribute="top" secondItem="4Dt-Xj-EuU" secondAttribute="bottom" id="EG8-Fe-1o2"/>
                             <constraint firstItem="4Dt-Xj-EuU" firstAttribute="leading" secondItem="Sdn-6q-fgg" secondAttribute="leading" id="Fe2-KJ-jeD"/>
                             <constraint firstItem="4Dt-Xj-EuU" firstAttribute="top" secondItem="IuR-a2-Uxp" secondAttribute="bottom" id="GzW-XI-ShW"/>
+                            <constraint firstAttribute="trailing" secondItem="ghl-57-BFm" secondAttribute="trailing" id="Lm3-c7-9kl"/>
+                            <constraint firstItem="knq-eZ-EGG" firstAttribute="top" secondItem="ghl-57-BFm" secondAttribute="bottom" id="PiD-Ui-kso"/>
                             <constraint firstAttribute="trailing" secondItem="4Dt-Xj-EuU" secondAttribute="trailing" id="Uvq-13-cN3"/>
                             <constraint firstItem="IuR-a2-Uxp" firstAttribute="leading" secondItem="Sdn-6q-fgg" secondAttribute="leading" id="XGU-UM-iVp"/>
                             <constraint firstItem="IuR-a2-Uxp" firstAttribute="top" secondItem="Yff-5X-Jrg" secondAttribute="bottom" id="Xf3-QS-ryi"/>
                             <constraint firstAttribute="trailing" secondItem="IuR-a2-Uxp" secondAttribute="trailing" id="jlX-RJ-79G"/>
+                            <constraint firstItem="ghl-57-BFm" firstAttribute="leading" secondItem="Sdn-6q-fgg" secondAttribute="leading" id="kgU-UA-zgP"/>
                             <constraint firstAttribute="trailing" secondItem="IuR-a2-Uxp" secondAttribute="trailing" id="swr-MM-yI6"/>
                             <constraint firstAttribute="trailing" secondItem="Yff-5X-Jrg" secondAttribute="trailing" id="tih-eG-mia"/>
+                            <constraint firstItem="ghl-57-BFm" firstAttribute="top" secondItem="Sdn-6q-fgg" secondAttribute="top" id="vhS-n3-QQq"/>
                             <constraint firstItem="Yff-5X-Jrg" firstAttribute="top" secondItem="Sdn-6q-fgg" secondAttribute="top" id="vqQ-fY-wuU"/>
                         </constraints>
                     </view>
@@ -579,7 +581,7 @@
                                                 <fontDescription key="fontDescription" type="system" weight="light" pointSize="14"/>
                                                 <state key="normal" title="editar ▶︎"/>
                                                 <connections>
-                                                    <segue destination="c4t-m1-U8z" kind="presentation" id="Cp0-T9-INw"/>
+                                                    <segue destination="c4t-m1-U8z" kind="presentation" identifier="editar" id="Cp0-T9-INw"/>
                                                 </connections>
                                             </button>
                                         </subviews>
@@ -954,6 +956,9 @@
                                 <subviews>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="ZAX-eb-hTh" userLabel="linha1">
                                         <color key="backgroundColor" white="1" alpha="0.5" colorSpace="calibratedWhite"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="1" id="5zj-or-ozm"/>
+                                        </constraints>
                                     </view>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="pmr-z2-E8y" userLabel="linha2">
                                         <color key="backgroundColor" white="1" alpha="0.5" colorSpace="calibratedWhite"/>
@@ -1123,8 +1128,6 @@
                                     <constraint firstAttribute="trailing" secondItem="ZAX-eb-hTh" secondAttribute="trailing" id="XyQ-YL-Ynp"/>
                                     <constraint firstItem="PZp-Ow-j6b" firstAttribute="leading" secondItem="pmr-z2-E8y" secondAttribute="trailing" id="ZXe-3C-Ly8"/>
                                     <constraint firstItem="Tmv-r3-K6w" firstAttribute="leading" secondItem="zrI-RY-LWV" secondAttribute="leading" id="dKd-d6-7Oa"/>
-                                    <constraint firstItem="PZp-Ow-j6b" firstAttribute="top" secondItem="Tmv-r3-K6w" secondAttribute="bottom" constant="1" id="ef9-XU-GG3"/>
-                                    <constraint firstItem="RnV-tq-2IO" firstAttribute="top" secondItem="Tmv-r3-K6w" secondAttribute="bottom" constant="1" id="fOQ-ks-eqB"/>
                                     <constraint firstItem="PZp-Ow-j6b" firstAttribute="leading" secondItem="RnV-tq-2IO" secondAttribute="trailing" constant="1" id="gwH-Tr-JJx"/>
                                     <constraint firstItem="Tmv-r3-K6w" firstAttribute="top" secondItem="zrI-RY-LWV" secondAttribute="top" id="hFK-9c-noT"/>
                                     <constraint firstAttribute="trailing" secondItem="wKM-HX-bBJ" secondAttribute="trailing" id="jdt-RC-7nE"/>
@@ -1151,10 +1154,10 @@
                         </subviews>
                         <color key="backgroundColor" red="0.32156862749999998" green="0.80392156859999997" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                         <constraints>
-                            <constraint firstItem="zrI-RY-LWV" firstAttribute="top" secondItem="XfA-Gc-sMD" secondAttribute="top" constant="-1" id="YaG-j2-bEp"/>
-                            <constraint firstAttribute="trailing" secondItem="zrI-RY-LWV" secondAttribute="trailing" id="bjO-Mq-eob"/>
-                            <constraint firstItem="zrI-RY-LWV" firstAttribute="leading" secondItem="XfA-Gc-sMD" secondAttribute="leading" id="hul-po-Avm"/>
-                            <constraint firstItem="PvB-mB-LCc" firstAttribute="top" secondItem="zrI-RY-LWV" secondAttribute="bottom" id="xYx-2m-C6P"/>
+                            <constraint firstAttribute="bottom" secondItem="zrI-RY-LWV" secondAttribute="bottom" id="FIQ-aN-aC9"/>
+                            <constraint firstItem="zrI-RY-LWV" firstAttribute="leading" secondItem="XfA-Gc-sMD" secondAttribute="leading" id="bpU-B6-bpT"/>
+                            <constraint firstItem="zrI-RY-LWV" firstAttribute="top" secondItem="XfA-Gc-sMD" secondAttribute="top" id="eHs-M1-eYc"/>
+                            <constraint firstAttribute="trailing" secondItem="zrI-RY-LWV" secondAttribute="trailing" id="un6-OJ-KJM"/>
                         </constraints>
                     </view>
                     <connections>
@@ -1181,6 +1184,6 @@
         <image name="walking" width="58" height="94"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="fpc-Qd-2mI"/>
+        <segue reference="X3c-vX-rvn"/>
     </inferredMetricsTieBreakers>
 </document>
