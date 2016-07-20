@@ -34,6 +34,7 @@
 		E174DA081D37E3F200EC9086 /* MonitorInterfaceController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E174DA071D37E3F200EC9086 /* MonitorInterfaceController.swift */; };
 		E174DA0A1D37FE0F00EC9086 /* GradiantLayer.swift in Sources */ = {isa = PBXBuildFile; fileRef = E174DA091D37FE0F00EC9086 /* GradiantLayer.swift */; };
 		E1D631B11D3FCCD6007FF5D2 /* CTSignupViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E1D631B01D3FCCD6007FF5D2 /* CTSignupViewController.swift */; };
+		E1D631B31D3FE093007FF5D2 /* CoreLocation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E1D631B21D3FE093007FF5D2 /* CoreLocation.framework */; };
 		E1F4EB0B1D3E7FFB00EBDA3E /* CloudKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E1F4EB0A1D3E7FFB00EBDA3E /* CloudKit.framework */; };
 		EB2E2E171D394DEC00C50080 /* HealthKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = EB2E2E161D394DEC00C50080 /* HealthKit.framework */; };
 		EBC615891D3EB2DB00355AB2 /* CoudKitDAO.swift in Sources */ = {isa = PBXBuildFile; fileRef = EBC615881D3EB2DB00355AB2 /* CoudKitDAO.swift */; };
@@ -114,6 +115,7 @@
 		E174DA071D37E3F200EC9086 /* MonitorInterfaceController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MonitorInterfaceController.swift; sourceTree = "<group>"; };
 		E174DA091D37FE0F00EC9086 /* GradiantLayer.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GradiantLayer.swift; sourceTree = "<group>"; };
 		E1D631B01D3FCCD6007FF5D2 /* CTSignupViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CTSignupViewController.swift; sourceTree = "<group>"; };
+		E1D631B21D3FE093007FF5D2 /* CoreLocation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreLocation.framework; path = System/Library/Frameworks/CoreLocation.framework; sourceTree = SDKROOT; };
 		E1F4EB0A1D3E7FFB00EBDA3E /* CloudKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CloudKit.framework; path = System/Library/Frameworks/CloudKit.framework; sourceTree = SDKROOT; };
 		EB2E2E121D394DCF00C50080 /* health_app.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.xml; path = health_app.entitlements; sourceTree = "<group>"; };
 		EB2E2E161D394DEC00C50080 /* HealthKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = HealthKit.framework; path = System/Library/Frameworks/HealthKit.framework; sourceTree = SDKROOT; };
@@ -125,6 +127,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				E1D631B31D3FE093007FF5D2 /* CoreLocation.framework in Frameworks */,
 				EB2E2E171D394DEC00C50080 /* HealthKit.framework in Frameworks */,
 				E1F4EB0B1D3E7FFB00EBDA3E /* CloudKit.framework in Frameworks */,
 			);
@@ -143,6 +146,7 @@
 		E10DDC751D37D9F900355545 /* Model */ = {
 			isa = PBXGroup;
 			children = (
+				EBC615881D3EB2DB00355AB2 /* CoudKitDAO.swift */,
 				E174D9F91D37DF0200EC9086 /* Elder.swift */,
 				E174D9FB1D37DF1A00EC9086 /* Caretaker.swift */,
 				E174DA091D37FE0F00EC9086 /* GradiantLayer.swift */,
@@ -162,7 +166,6 @@
 		E10DDC771D37DA3D00355545 /* Controller */ = {
 			isa = PBXGroup;
 			children = (
-				EBC615881D3EB2DB00355AB2 /* CoudKitDAO.swift */,
 				E174DA011D37E0D500EC9086 /* InitialViewController.swift */,
 				E174D9F41D37DCAD00EC9086 /* Caretaker */,
 				E174D9F31D37DC9400EC9086 /* Elder */,
@@ -264,6 +267,7 @@
 		EB2E2E131D394DE300C50080 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				E1D631B21D3FE093007FF5D2 /* CoreLocation.framework */,
 				E1F4EB0A1D3E7FFB00EBDA3E /* CloudKit.framework */,
 				EB2E2E161D394DEC00C50080 /* HealthKit.framework */,
 			);

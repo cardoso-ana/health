@@ -313,6 +313,7 @@
                                                     <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                                 </state>
                                                 <connections>
+                                                    <action selector="continueAction:" destination="jOE-Y9-gl3" eventType="touchUpInside" id="Xve-6R-afz"/>
                                                     <action selector="presentCaretaker:" destination="CRW-cm-xqe" eventType="touchUpInside" id="WrL-eY-BiE"/>
                                                     <segue destination="sJq-ML-yP9" kind="show" identifier="pareamento" id="duT-Km-dTf"/>
                                                 </connections>
@@ -837,6 +838,13 @@
                     </view>
                     <connections>
                         <outlet property="gradientView" destination="6ji-NY-vbb" id="6ay-Vf-pBV"/>
+                        <outlet property="heartRateLabel" destination="mcw-p4-RXk" id="BPk-XX-Mfq"/>
+                        <outlet property="map" destination="SAU-8D-89A" id="15G-Rc-JkJ"/>
+                        <outlet property="monitorImage" destination="dPD-OI-YDR" id="IHo-HN-NkF"/>
+                        <outlet property="monitorLabel" destination="44B-Vn-zyT" id="rrM-wu-KAl"/>
+                        <outlet property="movementImage" destination="9I4-K0-vTO" id="bFv-ZI-vlM"/>
+                        <outlet property="movementLabel" destination="Z0e-AB-TDi" id="74Z-Xh-5Id"/>
+                        <outlet property="nameLabel" destination="uBp-zS-dNl" id="Lwy-WJ-iHE"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Oiz-36-Xoi" userLabel="First Responder" sceneMemberID="firstResponder"/>

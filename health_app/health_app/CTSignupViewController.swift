@@ -24,6 +24,11 @@ class CTSignupViewController: UIViewController, UITextFieldDelegate
         self.view.addGestureRecognizer(UITapGestureRecognizer(target: self, action: #selector(CTSignupViewController.dismiss as (CTSignupViewController) -> () -> ())))
     }
     
+    @IBAction func continueAction(_ sender: AnyObject)
+    {
+        
+    }
+    
     func textFieldShouldReturn(_ textField: UITextField) -> Bool
     {
         self.view.endEditing(true)
