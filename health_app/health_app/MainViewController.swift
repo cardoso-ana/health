@@ -9,7 +9,7 @@
 import UIKit
 import MapKit
 
-class MainViewController: UIViewController, CLLocationManagerDelegate
+class MainViewController: UIViewController, CLLocationManagerDelegate, MKMapViewDelegate
 {
     let locationManager = CLLocationManager()
     @IBOutlet weak var gradientView: UIView!
@@ -26,7 +26,11 @@ class MainViewController: UIViewController, CLLocationManagerDelegate
     override func viewDidLoad()
     {
         super.viewDidLoad()
-        // Do any additional setup after loading the view, typically from a nib.
+
+        userLocation()
+        
+        map.delegate = self
+        map.showsUserLocation = true
     }
     
     override func didReceiveMemoryWarning()
@@ -39,13 +43,50 @@ class MainViewController: UIViewController, CLLocationManagerDelegate
     {
         locationManager.delegate = self
         locationManager.desiredAccuracy = kCLLocationAccuracyBest
-        locationManager.requestWhenInUseAuthorization()
+        locationManager.requestAlwaysAuthorization()
         locationManager.startUpdatingLocation()
+    }
+    
+    func mapView(_ mapView: MKMapView, viewFor annotation: MKAnnotation) -> MKAnnotationView?
+    {
+        
+        return nil
+        
     }
     
     func locationManager(_ manager: CLLocationManager, didUpdateLocations locations: [CLLocation])
     {
-
+        CLGeocoder().reverseGeocodeLocation(manager.location!, completionHandler: {(placemarks, error)-> Void in
+            if (error != nil)
+            {
+                print("Reverse geocoder failed with error" + (error?.localizedDescription)!)
+                return
+            }
+            
+            if placemarks?.count > 0
+            {
+                let pm = (placemarks?[0])! as CLPlacemark
+                self.displayLocationInfo(placemark: pm)
+            }
+            else
+            {
+                print("Problem with the data received from geocoder")
+            }
+        })
+    }
+    
+    func displayLocationInfo(placemark: CLPlacemark)
+    {
+        //stop updating location to save battery life
+        //locationManager.stopUpdatingLocation()
+        
+        let center = CLLocationCoordinate2D(latitude: locationManager.location!.coordinate.latitude, longitude: locationManager.location!.coordinate.longitude)
+        let region = MKCoordinateRegion(center: center, span: MKCoordinateSpan(latitudeDelta: 0.026, longitudeDelta: 0.026))
+        self.map.setRegion(region, animated: true)
+        
+        print(placemark.location)
+        print(placemark.addressDictionary?["FormattedAddressLines"])
+        
     }
     
     func locationManager(_ manager: CLLocationManager, didFailWithError error: NSError)

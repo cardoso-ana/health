@@ -21,6 +21,11 @@ class PairViewController: UIViewController, UITextFieldDelegate
         self.view.addGestureRecognizer(UITapGestureRecognizer(target: self, action: #selector(PairViewController.dismiss as (PairViewController) -> () -> ())))
     }
     
+    @IBAction func pairAction(_ sender: AnyObject)
+    {
+        
+    }
+    
     func textFieldShouldReturn(_ textField: UITextField) -> Bool {
         self.view.endEditing(true)
         phoneTextfield.resignFirstResponder()
