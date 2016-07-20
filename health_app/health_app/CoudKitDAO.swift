@@ -19,6 +19,7 @@ public class CloudKitDAO {
     func send2CloudElder(usuario: Elder) {
         print("got hereeeeeeee")
         
+        
         let user = CKRecord(recordType: "Elder")
         
         user["name"] = usuario.getElderName()
@@ -136,6 +137,50 @@ public class CloudKitDAO {
                 else {
                     //self.aux = true
                     completionHandler(success: true)
+                }
+            }
+        }
+    }
+    
+    func pareamento(phone: String, ctid: String) {
+        ctUsers = [CKRecord]()
+        print("O TELEFONE É: \(phone)\n")
+        
+        let publicData = CKContainer.default().publicCloudDatabase
+        let predicate = Predicate(format: "phone == %@", phone)
+        let query = CKQuery(recordType: "Elder", predicate: predicate)
+        
+        publicData.perform(query, inZoneWith: nil) { (results: [CKRecord]?, error: NSError?) -> Void in
+            if error != nil {
+                print(error?.localizedDescription)
+            }
+            
+            if let users = results {
+                self.ctUsers = users
+                print("\nHow many users in cloud: \(self.ctUsers.count)\n")
+                
+                if self.ctUsers.count != 0 {
+                    
+                    let user =  users.first //CKRecord(recordType: "Elder")
+                    user?["careTakerId"] = ctid
+                    
+                    let publicData = CKContainer.default().publicCloudDatabase
+                    publicData.save(user!, completionHandler: { (record: CKRecord?, error: NSError?) in
+                        if error == nil {
+                            
+                            DispatchQueue.main.asynchronously(execute: { () -> Void in
+                                print("CUIDADOR atualizado com sucesso\n")
+                            })
+                        }
+                        else {
+                            print("\nHUEHUEHUEHUE\n")
+                            print(error?.localizedDescription)
+                        }
+                    })
+                }
+                else {
+                    print("\nIDOSO NÃO ENCONTRADO NA CLOUD\n")
+                    print(error?.localizedDescription)
                 }
             }
         }

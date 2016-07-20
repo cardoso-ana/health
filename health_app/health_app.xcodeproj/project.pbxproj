@@ -257,8 +257,8 @@
 		E174D9F41D37DCAD00EC9086 /* Caretaker */ = {
 			isa = PBXGroup;
 			children = (
-				E174D9F51D37DCDB00EC9086 /* PairViewController.swift */,
 				E1D631B01D3FCCD6007FF5D2 /* CTSignupViewController.swift */,
+				E174D9F51D37DCDB00EC9086 /* PairViewController.swift */,
 				E174D9F71D37DD8A00EC9086 /* MonitorViewController.swift */,
 			);
 			name = Caretaker;

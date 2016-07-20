@@ -8,10 +8,11 @@
 
 import UIKit
 
-class PairViewController: UIViewController, UITextFieldDelegate
-{
+class PairViewController: UIViewController, UITextFieldDelegate {
     @IBOutlet weak var phoneTextfield: UITextField!
     @IBOutlet weak var gradientView: UIView!
+    
+    var idCT = ""
     
     override func viewDidLoad()
     {
@@ -19,10 +20,14 @@ class PairViewController: UIViewController, UITextFieldDelegate
         
         self.phoneTextfield.delegate = self
         self.view.addGestureRecognizer(UITapGestureRecognizer(target: self, action: #selector(PairViewController.dismiss as (PairViewController) -> () -> ())))
+        
+        
+        
     }
     
-    @IBAction func pairAction(_ sender: AnyObject)
-    {
+    @IBAction func pairAction(_ sender: AnyObject) {
+        CloudKitDAO().pareamento(phone: phoneTextfield.text!, ctid: idCT)
+        
         
     }
     
