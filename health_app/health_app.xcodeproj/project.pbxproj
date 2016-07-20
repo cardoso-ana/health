@@ -9,7 +9,7 @@
 /* Begin PBXBuildFile section */
 		655DA1BC1D3E6C69003BDD72 /* CountdownInterfaceController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 655DA1BB1D3E6C69003BDD72 /* CountdownInterfaceController.swift */; };
 		E12A85AD1D3567E000FBF7E1 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = E12A85AC1D3567E000FBF7E1 /* AppDelegate.swift */; };
-		E12A85AF1D3567E000FBF7E1 /* SignUpViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E12A85AE1D3567E000FBF7E1 /* SignUpViewController.swift */; };
+		E12A85AF1D3567E000FBF7E1 /* ElderSignUpViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E12A85AE1D3567E000FBF7E1 /* ElderSignUpViewController.swift */; };
 		E12A85B21D3567E000FBF7E1 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = E12A85B01D3567E000FBF7E1 /* Main.storyboard */; };
 		E12A85B41D3567E000FBF7E1 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = E12A85B31D3567E000FBF7E1 /* Assets.xcassets */; };
 		E12A85B71D3567E000FBF7E1 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = E12A85B51D3567E000FBF7E1 /* LaunchScreen.storyboard */; };
@@ -33,6 +33,7 @@
 		E174DA061D37E3CF00EC9086 /* LocationInterfaceController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E174DA051D37E3CF00EC9086 /* LocationInterfaceController.swift */; };
 		E174DA081D37E3F200EC9086 /* MonitorInterfaceController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E174DA071D37E3F200EC9086 /* MonitorInterfaceController.swift */; };
 		E174DA0A1D37FE0F00EC9086 /* GradiantLayer.swift in Sources */ = {isa = PBXBuildFile; fileRef = E174DA091D37FE0F00EC9086 /* GradiantLayer.swift */; };
+		E1D631B11D3FCCD6007FF5D2 /* CTSignupViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E1D631B01D3FCCD6007FF5D2 /* CTSignupViewController.swift */; };
 		E1F4EB0B1D3E7FFB00EBDA3E /* CloudKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E1F4EB0A1D3E7FFB00EBDA3E /* CloudKit.framework */; };
 		EB2E2E171D394DEC00C50080 /* HealthKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = EB2E2E161D394DEC00C50080 /* HealthKit.framework */; };
 		EBC615891D3EB2DB00355AB2 /* CoudKitDAO.swift in Sources */ = {isa = PBXBuildFile; fileRef = EBC615881D3EB2DB00355AB2 /* CoudKitDAO.swift */; };
@@ -84,7 +85,7 @@
 		655DA1BB1D3E6C69003BDD72 /* CountdownInterfaceController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CountdownInterfaceController.swift; sourceTree = "<group>"; };
 		E12A85A91D3567E000FBF7E1 /* health_app.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = health_app.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		E12A85AC1D3567E000FBF7E1 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		E12A85AE1D3567E000FBF7E1 /* SignUpViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignUpViewController.swift; sourceTree = "<group>"; };
+		E12A85AE1D3567E000FBF7E1 /* ElderSignUpViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ElderSignUpViewController.swift; sourceTree = "<group>"; };
 		E12A85B11D3567E000FBF7E1 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		E12A85B31D3567E000FBF7E1 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		E12A85B61D3567E000FBF7E1 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
@@ -112,6 +113,7 @@
 		E174DA051D37E3CF00EC9086 /* LocationInterfaceController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LocationInterfaceController.swift; sourceTree = "<group>"; };
 		E174DA071D37E3F200EC9086 /* MonitorInterfaceController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MonitorInterfaceController.swift; sourceTree = "<group>"; };
 		E174DA091D37FE0F00EC9086 /* GradiantLayer.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GradiantLayer.swift; sourceTree = "<group>"; };
+		E1D631B01D3FCCD6007FF5D2 /* CTSignupViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CTSignupViewController.swift; sourceTree = "<group>"; };
 		E1F4EB0A1D3E7FFB00EBDA3E /* CloudKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CloudKit.framework; path = System/Library/Frameworks/CloudKit.framework; sourceTree = SDKROOT; };
 		EB2E2E121D394DCF00C50080 /* health_app.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.xml; path = health_app.entitlements; sourceTree = "<group>"; };
 		EB2E2E161D394DEC00C50080 /* HealthKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = HealthKit.framework; path = System/Library/Frameworks/HealthKit.framework; sourceTree = SDKROOT; };
@@ -241,7 +243,7 @@
 		E174D9F31D37DC9400EC9086 /* Elder */ = {
 			isa = PBXGroup;
 			children = (
-				E12A85AE1D3567E000FBF7E1 /* SignUpViewController.swift */,
+				E12A85AE1D3567E000FBF7E1 /* ElderSignUpViewController.swift */,
 				E174D9F11D37DBE400EC9086 /* WaitViewController.swift */,
 				E174D9FF1D37DFE400EC9086 /* MainViewController.swift */,
 				E174D9FD1D37DFAF00EC9086 /* EditViewController.swift */,
@@ -253,6 +255,7 @@
 			isa = PBXGroup;
 			children = (
 				E174D9F51D37DCDB00EC9086 /* PairViewController.swift */,
+				E1D631B01D3FCCD6007FF5D2 /* CTSignupViewController.swift */,
 				E174D9F71D37DD8A00EC9086 /* MonitorViewController.swift */,
 			);
 			name = Caretaker;
@@ -417,8 +420,9 @@
 			buildActionMask = 2147483647;
 			files = (
 				E174D9FE1D37DFAF00EC9086 /* EditViewController.swift in Sources */,
-				E12A85AF1D3567E000FBF7E1 /* SignUpViewController.swift in Sources */,
+				E12A85AF1D3567E000FBF7E1 /* ElderSignUpViewController.swift in Sources */,
 				E174D9F21D37DBE400EC9086 /* WaitViewController.swift in Sources */,
+				E1D631B11D3FCCD6007FF5D2 /* CTSignupViewController.swift in Sources */,
 				E174D9FA1D37DF0200EC9086 /* Elder.swift in Sources */,
 				E174D9FC1D37DF1A00EC9086 /* Caretaker.swift in Sources */,
 				E174DA021D37E0D500EC9086 /* InitialViewController.swift in Sources */,

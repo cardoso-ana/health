@@ -10,25 +10,25 @@ import UIKit
 
 class PairViewController: UIViewController, UITextFieldDelegate
 {
-    @IBOutlet weak var phone: UITextField!
+    @IBOutlet weak var phoneTextfield: UITextField!
     @IBOutlet weak var gradientView: UIView!
     
     override func viewDidLoad()
     {
         super.viewDidLoad()
         
-        self.phone.delegate = self
+        self.phoneTextfield.delegate = self
         self.view.addGestureRecognizer(UITapGestureRecognizer(target: self, action: #selector(PairViewController.dismiss as (PairViewController) -> () -> ())))
     }
     
     func textFieldShouldReturn(_ textField: UITextField) -> Bool {
         self.view.endEditing(true)
-        phone.resignFirstResponder()
+        phoneTextfield.resignFirstResponder()
         return false
     }
     
     func dismiss() {
-        phone.resignFirstResponder()
+        phoneTextfield.resignFirstResponder()
     }
     
     
