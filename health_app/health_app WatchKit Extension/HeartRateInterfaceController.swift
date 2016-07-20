@@ -12,14 +12,15 @@ import CloudKit
 import HealthKit
 import CoreMotion
 
+let motionManager = CMMotionManager()
+
 class HeartRateInterfaceController: WKInterfaceController, HKWorkoutSessionDelegate {
     
     @IBOutlet var heartBeatLabel: WKInterfaceLabel!
     @IBOutlet var heartGroup: WKInterfaceGroup!
     
     var accelerometerValue = 3.0
-    let motionManager = CMMotionManager()
-    var isTrackingMotion = false
+//    let motionManager = CMMotionManager()
     let activityManager = CMMotionActivityManager()
     
     let healthStore = HKHealthStore()
@@ -49,7 +50,7 @@ class HeartRateInterfaceController: WKInterfaceController, HKWorkoutSessionDeleg
         //
         //                    self.accelerometerValue = 3.0
         //
-        //                    print("FUNCIONA SAPORRA")
+        //                    print("FUNCIONA")
         //
         //                    if activityData?.stationary == true {
         //                        // Mudar estado para parado nas telas
@@ -65,7 +66,7 @@ class HeartRateInterfaceController: WKInterfaceController, HKWorkoutSessionDeleg
         //                        // Mudar estado para correndo nas telas
         //                        // Mudar imagem e descrição
         //
-        //                        print("NAO FUNCIONA SAPORRA")
+        //                        print("NAO FUNCIONA")
         //                    } else {
         //                        // Mudar estado para de carro
         //                        // Mudar imagem e descrição
@@ -79,29 +80,29 @@ class HeartRateInterfaceController: WKInterfaceController, HKWorkoutSessionDeleg
         //
         //            self.activityManager.startActivityUpdates(to: OperationQueue.main, withHandler: activityHandler)
         
-        motionManager.accelerometerUpdateInterval = 0.2
-        
-        if motionManager.isAccelerometerAvailable {
-            
-            let accelerometerHandler: CMAccelerometerHandler = { (accelerometerData: CMAccelerometerData?, error: NSError?) -> Void in
-                if (fabs(accelerometerData!.acceleration.x) >= 3.0 || fabs(accelerometerData!.acceleration.y) >= 3.0 || fabs(accelerometerData!.acceleration.z) >= 3.0) {
-                    
-                    print("\n\nVelho caiu!!\n\n")
-                    print("\(accelerometerData?.acceleration.x)\n\(accelerometerData?.acceleration.y)\n\(accelerometerData?.acceleration.z)\n")
-                    
-                    // NOTIFICAÇÃO PRO CUIDADOR E BOTÃO DE EMERGENCIA PRO VELHO
-                    
-                    self.motionManager.stopAccelerometerUpdates()
-                    self.presentController(withName: "CountdownInterfaceController", context: self)
-                    
-                } else {
-                    print("Velho ta de boa")
-                }
-            }
-            
-            motionManager.startAccelerometerUpdates(to: OperationQueue.current!, withHandler: accelerometerHandler)
-            
-        }
+//        motionManager.accelerometerUpdateInterval = 0.2
+//        
+//        if motionManager.isAccelerometerAvailable {
+//            
+//            let accelerometerHandler: CMAccelerometerHandler = { (accelerometerData: CMAccelerometerData?, error: NSError?) -> Void in
+//                if (fabs(accelerometerData!.acceleration.x) >= 3.0 || fabs(accelerometerData!.acceleration.y) >= 3.0 || fabs(accelerometerData!.acceleration.z) >= 3.0) {
+//                    
+//                    print("\n\nCaiu!!\n\n")
+//                    print("\(accelerometerData?.acceleration.x)\n\(accelerometerData?.acceleration.y)\n\(accelerometerData?.acceleration.z)\n")
+//                    
+//                    // NOTIFICAÇÃO PRO CUIDADOR E BOTÃO DE EMERGENCIA PRO IDOSO
+//                    
+//                    motionManager.stopAccelerometerUpdates()
+//                    self.presentController(withName: "CountdownInterfaceController", context: self)
+//                    
+//                } else {
+//                    print("Ta de boa")
+//                }
+//            }
+//            
+//            motionManager.startAccelerometerUpdates(to: OperationQueue.current!, withHandler: accelerometerHandler)
+//            
+//        }
         
         if (self.workoutActive) {
             //finish the current workout
@@ -137,19 +138,19 @@ class HeartRateInterfaceController: WKInterfaceController, HKWorkoutSessionDeleg
     //
     //                    if (fabs(accelerometerData!.acceleration.x) >= self.accelerometerValue || fabs(accelerometerData!.acceleration.y) >= self.accelerometerValue || fabs(accelerometerData!.acceleration.z) >= self.accelerometerValue) {
     //
-    //                        print("\n\nVelho caiu!!\n\n")
+    //                        print("\n\nCaiu!!\n\n")
     //                        print("\(accelerometerData?.acceleration.x)\n\(accelerometerData?.acceleration.y)\n\(accelerometerData?.acceleration.z)\n")
     //
     //                        self.motionManager.stopAccelerometerUpdates()
     //
     //                        self.isTrackingMotion = false
     //
-    //                        // NOTIFICAÇÃO PRO CUIDADOR E BOTÃO DE EMERGENCIA PRO VELHO
+    //                        // NOTIFICAÇÃO PRO CUIDADOR E BOTÃO DE EMERGENCIA PRO IDOSO
     //
     //                        self.presentController(withName: "CountdownInterfaceController", context: self)
     //
     //                    } else {
-    //                        print("Velho ta de boa")
+    //                        print("Ta de boa")
     //                    }
     //                }
     //
@@ -163,9 +164,44 @@ class HeartRateInterfaceController: WKInterfaceController, HKWorkoutSessionDeleg
     //
     //    }
     
+    override func didAppear() {
+
+        if !motionManager.isAccelerometerActive {
+            
+            print(motionManager.isAccelerometerActive)
+            
+            motionManager.accelerometerUpdateInterval = 0.2
+            
+            if motionManager.isAccelerometerAvailable {
+                
+                let accelerometerHandler: CMAccelerometerHandler = { (accelerometerData: CMAccelerometerData?, error: NSError?) -> Void in
+                    if (fabs(accelerometerData!.acceleration.x) >= 3.0 || fabs(accelerometerData!.acceleration.y) >= 3.0 || fabs(accelerometerData!.acceleration.z) >= 3.0) {
+                        
+                        print("\n\nCaiu!!\n\n")
+                        print("\(accelerometerData?.acceleration.x)\n\(accelerometerData?.acceleration.y)\n\(accelerometerData?.acceleration.z)\n")
+                        
+                        // NOTIFICAÇÃO PRO CUIDADOR E BOTÃO DE EMERGENCIA PRO IDOSO
+                        
+                        motionManager.stopAccelerometerUpdates()
+                        self.presentController(withName: "CountdownInterfaceController", context: self)
+                        
+                    } else {
+                        print("Ta de boa")
+                    }
+                }
+                
+                motionManager.startAccelerometerUpdates(to: OperationQueue.current!, withHandler: accelerometerHandler)
+                
+            }
+            
+        }
+        
+    }
+    
     override func willActivate() {
         
         super.willActivate()
+        
         
         
         guard HKHealthStore.isHealthDataAvailable() == true else {

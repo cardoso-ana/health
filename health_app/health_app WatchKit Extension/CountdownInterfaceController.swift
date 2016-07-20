@@ -24,6 +24,13 @@ class CountdownInterfaceController: WKInterfaceController {
         super.awake(withContext: context)
         
         timer = Timer.scheduledTimer(timeInterval: 1, target: self, selector: #selector(CountdownInterfaceController.countdown), userInfo: nil, repeats: true)
+        timer.fire()
+        
+    }
+    
+    override func didAppear() {
+        
+        timer.fire()
         
     }
     
@@ -62,36 +69,38 @@ class CountdownInterfaceController: WKInterfaceController {
             
             timer.invalidate()
             
-            motionManager.accelerometerUpdateInterval = 0.2
-            
-            if self.motionManager.isAccelerometerAvailable {
-                
-                let accelerometerHandler: CMAccelerometerHandler = { (accelerometerData: CMAccelerometerData?, error: NSError?) -> Void in
-                    
-                    // Se passar do piso manda as notificações
-                    
-                    if (fabs(accelerometerData!.acceleration.x) >= self.accelerometerValue || fabs(accelerometerData!.acceleration.y) >= self.accelerometerValue || fabs(accelerometerData!.acceleration.z) >= self.accelerometerValue) {
-                        
-                        print("\n\nVelho caiu!!\n\n")
-                        print("\(accelerometerData?.acceleration.x)\n\(accelerometerData?.acceleration.y)\n\(accelerometerData?.acceleration.z)\n")
-                        
-                        self.motionManager.stopAccelerometerUpdates()
-                        
-                        // NOTIFICAÇÃO PRO CUIDADOR E BOTÃO DE EMERGENCIA PRO VELHO
-                        
-                        self.motionManager.stopAccelerometerUpdates()
-                        self.presentController(withName: "CountdownInterfaceController", context: self)
-                        
-                    } else {
-                        print("Velho ta de boa")
-                    }
-                }
-                
-                self.motionManager.startAccelerometerUpdates(to: OperationQueue.current!, withHandler: accelerometerHandler)
-                
-            } else {
-                print("\nAccelerometer not avaiable\n")
-            }
+//            motionManager.accelerometerUpdateInterval = 0.2
+//            
+//            if self.motionManager.isAccelerometerAvailable {
+//                
+//                let accelerometerHandler: CMAccelerometerHandler = { (accelerometerData: CMAccelerometerData?, error: NSError?) -> Void in
+//                    
+//                    // Se passar do piso manda as notificações
+//                    
+//                    if (fabs(accelerometerData!.acceleration.x) >= self.accelerometerValue || fabs(accelerometerData!.acceleration.y) >= self.accelerometerValue || fabs(accelerometerData!.acceleration.z) >= self.accelerometerValue) {
+//                        
+//                        print("\n\nCaiu!!\n\n")
+//                        print("\(accelerometerData?.acceleration.x)\n\(accelerometerData?.acceleration.y)\n\(accelerometerData?.acceleration.z)\n")
+//                        
+//                        
+//                        // NOTIFICAÇÃO PRO CUIDADOR E BOTÃO DE EMERGENCIA PRO IDOSO
+//                        
+//                        self.presentController(withName: "CountdownInterfaceController", context: self)
+//
+//                        self.motionManager.stopAccelerometerUpdates()
+//
+//                        //self.dismiss()
+//                        
+//                    } else {
+//                        print("Ta de boa")
+//                    }
+//                }
+//                
+//                self.motionManager.startAccelerometerUpdates(to: OperationQueue.current!, withHandler: accelerometerHandler)
+//                
+//            } else {
+//                print("\nAccelerometer not avaiable\n")
+//            }
             dismiss()
         }
     }

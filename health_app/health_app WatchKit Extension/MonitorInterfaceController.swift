@@ -9,7 +9,7 @@
 import WatchKit
 import Foundation
 import CloudKit
-
+import CoreMotion
 
 class MonitorInterfaceController: WKInterfaceController {
     
@@ -19,9 +19,41 @@ class MonitorInterfaceController: WKInterfaceController {
         // Configure interface objects here.
     }
     
+    override func didAppear() {
+        
+        if !motionManager.isAccelerometerActive {
+            
+            motionManager.accelerometerUpdateInterval = 0.2
+            
+            if motionManager.isAccelerometerAvailable {
+                
+                let accelerometerHandler: CMAccelerometerHandler = { (accelerometerData: CMAccelerometerData?, error: NSError?) -> Void in
+                    if (fabs(accelerometerData!.acceleration.x) >= 3.0 || fabs(accelerometerData!.acceleration.y) >= 3.0 || fabs(accelerometerData!.acceleration.z) >= 3.0) {
+                        
+                        print("\n\nCaiu!!\n\n")
+                        print("\(accelerometerData?.acceleration.x)\n\(accelerometerData?.acceleration.y)\n\(accelerometerData?.acceleration.z)\n")
+                        
+                        // NOTIFICAÇÃO PRO CUIDADOR E BOTÃO DE EMERGENCIA PRO IDOSO
+                        
+                        motionManager.stopAccelerometerUpdates()
+                        self.presentController(withName: "CountdownInterfaceController", context: self)
+                        
+                    } else {
+                        print("Ta de boa")
+                    }
+                }
+                
+                motionManager.startAccelerometerUpdates(to: OperationQueue.current!, withHandler: accelerometerHandler)
+                
+            }
+            
+        }
+        
+    }
+
     override func willActivate() {
-        // This method is called when watch view controller is about to be visible to user
         super.willActivate()
+                
     }
     
     override func didDeactivate() {
