@@ -169,7 +169,7 @@ public class CloudKitDAO {
                         if error == nil {
                             
                             DispatchQueue.main.asynchronously(execute: { () -> Void in
-                                print("CUIDADOR atualizado com sucesso\n")
+                                print("IDOSO atualizado com sucesso\n")
                             })
                         }
                         else {
@@ -184,6 +184,51 @@ public class CloudKitDAO {
                 }
             }
         }
+    }
+    
+    func pegaIdoso(id: String) {
+        
+        ctUsers = [CKRecord]()
+        print("O ID DO CUIDADOR É: \(id)\n")
+        
+        var nome = ""
+        var idade = ""
+        var tel = ""
+        var rua = ""
+        var cidade = ""
+        var estado = ""
+        var idCuidador = ""
+        
+        
+        let publicData = CKContainer.default().publicCloudDatabase
+        let predicate = Predicate(format: "careTakerId == %@", id)
+        let query = CKQuery(recordType: "Elder", predicate: predicate)
+        
+        publicData.perform(query, inZoneWith: nil) { (results: [CKRecord]?, error: NSError?) -> Void in
+            if error != nil {
+                print(error?.localizedDescription)
+            }
+            
+            if let users = results {
+                
+                nome = (users[0].value(forKey: "name") as? String)!
+                idade = (users[0].value(forKey: "age") as? String)!
+                tel = (users[0].value(forKey: "phone") as? String)!
+                rua = (users[0].value(forKey: "street") as? String)!
+                cidade = (users[0].value(forKey: "city") as? String)!
+                estado = (users[0].value(forKey: "state") as? String)!
+                idCuidador = (users[0].value(forKey: "careTakerId") as? String)!
+                
+                let myDict = [ "name": nome, "age":idade, "phone" : tel, "street" : rua, "city" : cidade, "state" : estado, "careTakerId" : idCuidador]
+                
+                
+                print("\n PRINTAANDO O NOME DO pegaIdoso: \(nome)\n")
+                
+                NotificationCenter.default.post(name: "véioChegando" as NSNotification.Name, object: myDict)
+                
+            }
+        }
+        
     }
     
     

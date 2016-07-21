@@ -462,7 +462,7 @@
                                         <connections>
                                             <action selector="pairAction:" destination="sJq-ML-yP9" eventType="touchUpInside" id="HZl-PX-wYv"/>
                                             <action selector="presentCaretaker:" destination="CRW-cm-xqe" eventType="touchUpInside" id="WLL-SY-rfC"/>
-                                            <segue destination="CQZ-ph-Z1k" kind="show" id="gQX-zC-JcF"/>
+                                            <segue destination="CQZ-ph-Z1k" kind="show" identifier="monitorar" id="gQX-zC-JcF"/>
                                         </connections>
                                     </button>
                                 </subviews>

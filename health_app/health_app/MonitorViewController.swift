@@ -22,18 +22,36 @@ class MonitorViewController: UIViewController, WCSessionDelegate {
     @IBOutlet weak var map: MKMapView!
     @IBOutlet weak var monitorImage: UIImageView!
     @IBOutlet weak var monitorLabel: UILabel!
-        
+    
+    
+    var idCt = ""
+    
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        CloudKitDAO().pegaIdoso(id: self.idCt)
         
+        NotificationCenter.default.addObserver(self, selector: #selector(MonitorViewController.malandramente), name: "véioChegando" as NSNotification.Name, object: nil)
         
     }
     
-    override func didReceiveMemoryWarning(){
-        super.didReceiveMemoryWarning()
-        // Dispose of any resources that can be recreated.
+    
+    func malandramente(notification: NSNotification) {
+        let dict = notification.object as! NSDictionary
+        
+        print("PRINTAAANDO OIEEEE")
+        print("PRINTAAANDO O NOME: \(dict["name"]!)")
+        
+        nameLabel.text = dict["name"]! as! String
+        ageLabel.text = "\(dict["age"]! as! String) anos"
     }
+    
+    
+    
+    
+    
+    // ************************* COISAS DO BENDIA *************************
     
     func session(_ session: WCSession, activationDidCompleteWith activationState: WCSessionActivationState, error: NSError?) {
         print("Ativou a conexão")
@@ -73,5 +91,7 @@ class MonitorViewController: UIViewController, WCSessionDelegate {
 
         }
     }
+    
+    // ************************* FIM DAS COISAS DO BENDIA *************************
     
 }

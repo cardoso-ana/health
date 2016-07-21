@@ -18,6 +18,8 @@ class PairViewController: UIViewController, UITextFieldDelegate {
     {
         super.viewDidLoad()
         
+        print("PRINTANDO O IDCT: \(self.idCT)")
+        
         self.phoneTextfield.delegate = self
         self.view.addGestureRecognizer(UITapGestureRecognizer(target: self, action: #selector(PairViewController.dismiss as (PairViewController) -> () -> ())))
         
@@ -29,6 +31,16 @@ class PairViewController: UIViewController, UITextFieldDelegate {
         CloudKitDAO().pareamento(phone: phoneTextfield.text!, ctid: idCT)
         
         
+    }
+    
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: AnyObject?) {
+        if segue.identifier == "monitorar" {
+            
+            let vc = segue.destinationViewController as! MonitorViewController
+            vc.idCt = self.idCT
+            
+        }
     }
     
     func textFieldShouldReturn(_ textField: UITextField) -> Bool {

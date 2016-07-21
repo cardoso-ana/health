@@ -19,8 +19,7 @@ class CTSignupViewController: UIViewController, UITextFieldDelegate {
     var idCT = ""
     var users = [CKRecord]()
     
-    override func viewDidLoad()
-    {
+    override func viewDidLoad() {
         super.viewDidLoad()
         
         self.phoneTextfield.delegate = self
@@ -44,9 +43,9 @@ class CTSignupViewController: UIViewController, UITextFieldDelegate {
         }
     }
     
-    @IBAction func continueAction(_ sender: AnyObject)
-    {
-        if nameTextfield.text != nil || phoneTextfield.text != nil {
+    @IBAction func continueAction(_ sender: AnyObject) {
+        
+        if nameTextfield.text != nil && phoneTextfield.text != nil {
             
             loadUser(idfb: self.idCT, completionHandler: { (success) in
                 if success {
