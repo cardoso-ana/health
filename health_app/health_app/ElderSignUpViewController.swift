@@ -66,6 +66,14 @@ class SignUpViewController: UIViewController, UITextFieldDelegate
         }
     }
     
+    override func prepare(for segue: UIStoryboardSegue, sender: AnyObject?) {
+        if segue.identifier == "wait" {
+            
+            let vc = segue.destinationViewController as! WaitViewController
+            vc.phone = phoneTextfield.text!
+        }
+    }
+    
     // MARK: - TextField Dismiss Stuff
     
     func textFieldShouldReturn(_ textField: UITextField) -> Bool {

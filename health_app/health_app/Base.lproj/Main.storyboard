@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="11173.2" systemVersion="15G31" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="CRW-cm-xqe">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="11163.2" systemVersion="15F34" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="CRW-cm-xqe">
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="11143.2"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="11133"/>
         <capability name="Aspect ratio constraints" minToolsVersion="5.1"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
@@ -170,8 +170,6 @@
                                                 </state>
                                                 <connections>
                                                     <action selector="next:" destination="BYZ-38-t0r" eventType="touchUpInside" id="39C-8u-KhQ"/>
-                                                    <action selector="presentCaretaker:" destination="CRW-cm-xqe" eventType="touchUpInside" id="Q6s-m5-vjz"/>
-                                                    <segue destination="TWr-rc-e3W" kind="show" identifier="wait" id="V5c-xP-Afg"/>
                                                 </connections>
                                             </button>
                                         </subviews>
@@ -251,6 +249,7 @@
                         <outlet property="gradientView" destination="Shf-ex-0CT" id="cRg-GH-yyv"/>
                         <outlet property="nameTextfield" destination="1VK-zS-sOn" id="Ana-pQ-g4P"/>
                         <outlet property="phoneTextfield" destination="eEq-Pp-BrU" id="Ksf-Zl-qAp"/>
+                        <segue destination="TWr-rc-e3W" kind="show" identifier="wait" id="lRw-eD-JOZ"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
@@ -315,7 +314,6 @@
                                                 <connections>
                                                     <action selector="continueAction:" destination="jOE-Y9-gl3" eventType="touchUpInside" id="Xve-6R-afz"/>
                                                     <action selector="presentCaretaker:" destination="CRW-cm-xqe" eventType="touchUpInside" id="WrL-eY-BiE"/>
-                                                    <segue destination="sJq-ML-yP9" kind="show" identifier="pareamento" id="duT-Km-dTf"/>
                                                 </connections>
                                             </button>
                                         </subviews>
@@ -374,6 +372,7 @@
                         <outlet property="gradientView" destination="bB8-lt-7N9" id="aUb-2Z-tAW"/>
                         <outlet property="nameTextfield" destination="0AC-bv-Wrk" id="09o-8L-cxQ"/>
                         <outlet property="phoneTextfield" destination="K86-9j-EEb" id="SYE-xB-5yP"/>
+                        <segue destination="sJq-ML-yP9" kind="show" identifier="pareamento" id="7jw-De-j6s"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="p3g-ZA-Ko1" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -462,7 +461,6 @@
                                         <connections>
                                             <action selector="pairAction:" destination="sJq-ML-yP9" eventType="touchUpInside" id="HZl-PX-wYv"/>
                                             <action selector="presentCaretaker:" destination="CRW-cm-xqe" eventType="touchUpInside" id="WLL-SY-rfC"/>
-                                            <segue destination="CQZ-ph-Z1k" kind="show" identifier="monitorar" id="gQX-zC-JcF"/>
                                         </connections>
                                     </button>
                                 </subviews>
@@ -503,6 +501,7 @@
                     <connections>
                         <outlet property="gradientView" destination="ghl-57-BFm" id="XDX-l8-WRq"/>
                         <outlet property="phoneTextfield" destination="T6U-i6-m4X" id="d2d-qv-XpT"/>
+                        <segue destination="CQZ-ph-Z1k" kind="show" identifier="monitorar" id="Erf-3B-Bvg"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="82g-QD-XXi" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -585,7 +584,7 @@
                     </view>
                     <connections>
                         <outlet property="gradientView" destination="Vwk-Qh-UT5" id="rnv-r3-p5e"/>
-                        <segue destination="HVc-NE-8Ag" kind="show" id="X3c-vX-rvn"/>
+                        <segue destination="HVc-NE-8Ag" kind="show" identifier="pareado" id="X3c-vX-rvn"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="5Zg-79-E24" userLabel="First Responder" sceneMemberID="firstResponder"/>

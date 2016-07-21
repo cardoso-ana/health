@@ -228,7 +228,25 @@ public class CloudKitDAO {
                 
             }
         }
+    }
+    
+    func verificaPareamento() {
         
+        ctUsers = [CKRecord]()
+        
+        let publicData = CKContainer.default().publicCloudDatabase
+        let predicate = Predicate(format: "careTakerId != nil")
+        let query = CKQuery(recordType: "Elder", predicate: predicate)
+        
+        publicData.perform(query, inZoneWith: nil) { (results: [CKRecord]?, error: NSError?) -> Void in
+            if error != nil {
+                print(error?.localizedDescription)
+            }
+            
+            if let users = results {
+                
+            }
+        }
     }
     
     
