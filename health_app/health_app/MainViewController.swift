@@ -120,74 +120,28 @@ class MainViewController: UIViewController, CLLocationManagerDelegate, MKMapView
             }
         })
         
-        print(self.adress)
-        
-        if adress.thoroughfare != nil && adress.subThoroughfare != nil && adress.country != nil
-        {
-            annotation.title = (self.adress.thoroughfare! + ", " + self.adress.subThoroughfare!)
-            annotation.subtitle = (self.adress.country!)
-        }
-        
         self.map.removeAnnotations(self.map.annotations)
         self.map.addAnnotation(annotation)
-        
-    
+  
     }
     
     func mapView(_ mapView: MKMapView, viewFor annotation: MKAnnotation) -> MKAnnotationView?
     {
         let userIdentifier = "UserLocation"
-        var annotationView = mapView.dequeueReusableAnnotationView(withIdentifier: userIdentifier)
         
+        var annotationView = mapView.dequeueReusableAnnotationView(withIdentifier: userIdentifier)
         if annotationView == nil
         {
-            annotationView = MKPinAnnotationView(annotation:annotation, reuseIdentifier:userIdentifier)
+            annotationView = MKAnnotationView(annotation: annotation, reuseIdentifier: userIdentifier)
+            annotationView!.canShowCallout = true
+            annotationView!.image = UIImage(named: "location")
         }
-        annotationView!.annotation = annotation
-
-        annotationView!.canShowCallout = true
+        else
+        {
+            annotationView!.annotation = annotation
+        }
         
-        //annotationView!.image = UIImage(named: "geo")
         return annotationView
-        //return nil
-    }
-    
-    func getAdress() //-> [String]
-    {
-//        var adressString = [String]()
-        CLGeocoder().reverseGeocodeLocation(locationManager.location!, completionHandler: {(placemarks, error)-> Void in
-            if (error != nil)
-            {
-                print("Reverse geocoder failed with error" + (error?.localizedDescription)!)
-                return
-            }
-            
-            if placemarks!.count > 0
-            {
-                let pm = (placemarks?[0])! as CLPlacemark
-                print("\n\n\n************aqui******************\n\n\n")
-                print([String(pm.location?.coordinate), String(pm.thoroughfare), String(pm.subThoroughfare), String(pm.subLocality), String(pm.locality), String(pm.administrativeArea)])
-                
-//                self.adress = [String((pm.location?.coordinate)) ?? "", String((pm.thoroughfare)) ?? "", String((pm.subThoroughfare)) ?? "", String((pm.subLocality)) ?? "", String((pm.locality)) ?? "", String((pm.administrativeArea)) ?? "", String((pm.country)) ?? ""]
-                
-                self.adress.coordinate = pm.location?.coordinate
-                self.adress.thoroughfare = String((pm.thoroughfare))
-                self.adress.subThoroughfare = String((pm.subThoroughfare))
-                self.adress.subLocality = String((pm.subLocality))
-                self.adress.locality = String((pm.locality))
-                self.adress.administrativeArea = String((pm.administrativeArea))
-                self.adress.country = String((pm.country))
-                
-                print(self.adress)
-                
-            }
-            else
-            {
-                print("Problem with the data received from geocoder")
-            }
-        })
-    
-//        return adressString
     }
     
     func locationManager(_ manager: CLLocationManager, didUpdateLocations locations: [CLLocation])
