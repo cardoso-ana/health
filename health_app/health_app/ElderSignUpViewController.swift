@@ -48,7 +48,7 @@ class SignUpViewController: UIViewController, UITextFieldDelegate
     @IBAction func next(_ sender: AnyObject) {
         
         Elder.singleton.setElderName(name: self.nameTextfield.text!)
-        Elder.singleton.setElderAge(age: Int(self.ageTextfield.text!)!)
+        Elder.singleton.setElderAge(age: self.ageTextfield.text!)
         Elder.singleton.setElderStreet(street: self.adressTextfield.text!)
         Elder.singleton.setElderCity(city: self.cityTextfield.text!)
         Elder.singleton.setElderState(state: self.UFTextfield.text!)

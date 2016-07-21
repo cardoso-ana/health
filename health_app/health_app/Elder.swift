@@ -13,7 +13,7 @@ public class Elder {
     static let singleton = Elder()
     
     var name = ""
-    var age = 0
+    var age = ""
     var phone = ""
     var street = ""
     var houseNumber = ""
@@ -34,11 +34,11 @@ public class Elder {
     }
     
     
-    func getElderAge() -> Int {
+    func getElderAge() -> String {
         return age
     }
     
-    func setElderAge(age: Int) {
+    func setElderAge(age: String) {
         self.age = age
     }
     
