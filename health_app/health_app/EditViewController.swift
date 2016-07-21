@@ -8,8 +8,7 @@
 
 import UIKit
 
-class EditViewController: UIViewController, UITextFieldDelegate
-{
+class EditViewController: UIViewController, UITextFieldDelegate {
     
     @IBOutlet weak var gradientView: UIView!
     
@@ -20,8 +19,7 @@ class EditViewController: UIViewController, UITextFieldDelegate
     @IBOutlet weak var UFTextfield: UITextField!
     @IBOutlet weak var phoneTextfield: UITextField!
     
-    override func viewDidLoad()
-    {
+    override func viewDidLoad() {
         super.viewDidLoad()
         
         // TextField Stuff
@@ -35,20 +33,17 @@ class EditViewController: UIViewController, UITextFieldDelegate
         
     }
     
-    @IBAction func cancelAction(_ sender: AnyObject)
-    {
+    @IBAction func cancelAction(_ sender: AnyObject) {
         self.dismiss(animated: true, completion: nil)
     }
     
-    @IBAction func saveAction(_ sender: AnyObject)
-    {
+    @IBAction func saveAction(_ sender: AnyObject) {
         
     }
 
     // MARK: - TextField Dismiss Stuff
     
-    func textFieldShouldReturn(_ textField: UITextField) -> Bool
-    {
+    func textFieldShouldReturn(_ textField: UITextField) -> Bool {
         self.view.endEditing(true)
         nameTextfield.resignFirstResponder()
         ageTextfield.resignFirstResponder()
@@ -59,8 +54,7 @@ class EditViewController: UIViewController, UITextFieldDelegate
         return false
     }
     
-    func dismissKeyboard()
-    {
+    func dismissKeyboard() {
         nameTextfield.resignFirstResponder()
         ageTextfield.resignFirstResponder()
         adressTextfield.resignFirstResponder()

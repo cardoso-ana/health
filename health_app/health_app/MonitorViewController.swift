@@ -8,9 +8,10 @@
 
 import UIKit
 import MapKit
+import WatchConnectivity
 
-class MonitorViewController: UIViewController
-{
+class MonitorViewController: UIViewController, WCSessionDelegate {
+    
     @IBOutlet weak var gradientView: UIView!
     
     @IBOutlet weak var nameLabel: UILabel!
@@ -21,18 +22,56 @@ class MonitorViewController: UIViewController
     @IBOutlet weak var map: MKMapView!
     @IBOutlet weak var monitorImage: UIImageView!
     @IBOutlet weak var monitorLabel: UILabel!
-    
-    override func viewDidLoad()
-    {
+        
+    override func viewDidLoad() {
         super.viewDidLoad()
-        // Do any additional setup after loading the view, typically from a nib.
+        
+        
+        
     }
     
-    override func didReceiveMemoryWarning()
-    {
+    override func didReceiveMemoryWarning(){
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
     }
     
+    func session(_ session: WCSession, activationDidCompleteWith activationState: WCSessionActivationState, error: NSError?) {
+        print("Ativou a conexão")
+    }
+    
+    func session(_ session: WCSession, didReceiveMessage message: [String : AnyObject]) {
+        if message["fall"] as! String == "Detected" {
+            
+            // manda pro cloud
+            
+            print("Recebi \(message["fall"])")
+            
+        } else {
+            print("\n\n\n\n\nTA BUGADO\n\n\n\n\n")
+        }
+        movementLabel.text = "RECEBI PORRA!!!!"
+    }
+    
+    func sessionDidBecomeInactive(_ session: WCSession) {
+        print("DidBecomeInactive")
+    }
+    
+    func sessionDidDeactivate(_ session: WCSession) {
+        print("DidDeactivate")
+    }
+    
+    func session(_ session: WCSession, didReceiveUserInfo userInfo: [String : AnyObject] = [:]) {
+        if userInfo["fall"] as! String == "Detected"{
+         
+            // manda pro cloud
+            
+            print("Recebi \(userInfo["fall"])")
+            
+        } else {
+            
+            print("\n\n\n\n\nTA BUGADO PRA KCT LALALALLALA\n\n\n\n\n")
+
+        }
+    }
     
 }

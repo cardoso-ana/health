@@ -102,6 +102,7 @@ class CountdownInterfaceController: WKInterfaceController {
 //                print("\nAccelerometer not avaiable\n")
 //            }
             dismiss()
+            
         }
     }
     

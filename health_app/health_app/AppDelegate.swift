@@ -11,6 +11,7 @@ import UIKit
 import WatchConnectivity
 import HealthKit
 import CloudKit
+import WatchConnectivity
 
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate, WCSessionDelegate {
@@ -21,6 +22,13 @@ class AppDelegate: UIResponder, UIApplicationDelegate, WCSessionDelegate {
 
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [NSObject: AnyObject]?) -> Bool {
         application.statusBarStyle = UIStatusBarStyle.lightContent
+        
+        if WCSession.isSupported() {
+            let wcSession = WCSession.default()
+            wcSession.delegate = self
+            wcSession.activate()
+        }
+        
         return true
     }
 
@@ -71,17 +79,47 @@ class AppDelegate: UIResponder, UIApplicationDelegate, WCSessionDelegate {
         }
     }
     
-    
-    
     func session(_ session: WCSession, activationDidCompleteWith activationState: WCSessionActivationState, error: NSError?) {
-        
+        if error != nil {
+            print(error)
+        }
     }
     
     func sessionDidBecomeInactive(_ session: WCSession) {
         
     }
+    
     func sessionDidDeactivate(_ session: WCSession) {
         
+    }
+    
+    func session(_ session: WCSession, didReceiveMessage message: [String : AnyObject], replyHandler: ([String : AnyObject]) -> Void) {
+        print("\n\n*************************       AGORA TO RECEBENDO A MESSAGEM        ***************************\n\n")
+        
+        if message["fall"] as! String == "Detected" {
+            
+            // manda pro cloud
+            
+            print("Recebi \(message["fall"])")
+            
+        } else {
+            print("\n\n\n\n\n*************************       TA BUGADO       ***************************\n\n\n\n\n")
+        }
+        
+    }
+    
+    func session(_ session: WCSession, didReceiveUserInfo userInfo: [String : AnyObject] = [:]) {
+        print("\n\n*************************       AGORA TO RECEBENDO A INFO       ***************************\n\n")
+        
+        if userInfo["fall"] as! String == "Detected"{
+            
+            // manda pro cloud
+            
+            print("Recebi \(userInfo["fall"])\n\n")
+            
+        } else {
+            print("MENTIRA!!!\n\n")
+        }
     }
 }
 

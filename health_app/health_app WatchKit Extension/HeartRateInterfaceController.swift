@@ -11,16 +11,17 @@ import Foundation
 import CloudKit
 import HealthKit
 import CoreMotion
+import WatchConnectivity
 
 let motionManager = CMMotionManager()
 
-class HeartRateInterfaceController: WKInterfaceController, HKWorkoutSessionDelegate {
+class HeartRateInterfaceController: WKInterfaceController, HKWorkoutSessionDelegate, WCSessionDelegate {
     
     @IBOutlet var heartBeatLabel: WKInterfaceLabel!
     @IBOutlet var heartGroup: WKInterfaceGroup!
     
     var accelerometerValue = 3.0
-//    let motionManager = CMMotionManager()
+    //    let motionManager = CMMotionManager()
     let activityManager = CMMotionActivityManager()
     
     let healthStore = HKHealthStore()
@@ -36,73 +37,12 @@ class HeartRateInterfaceController: WKInterfaceController, HKWorkoutSessionDeleg
     override func awake(withContext context: AnyObject?) {
         super.awake(withContext: context)
         
-        //        // MARK: Activity Handler -
-        //
-        //        if CMMotionActivityManager.isActivityAvailable() {
-        //
-        //            let activityHandler: CMMotionActivityHandler = { (activityData: CMMotionActivity?) -> Void in
-        //
-        //                // Se estiver sentado ou deitado (parado) ou andando:
-        //
-        //                if activityData?.stationary == true || activityData?.walking == true {
-        //
-        //                    // Piso do acelerômetro 3.0
-        //
-        //                    self.accelerometerValue = 3.0
-        //
-        //                    print("FUNCIONA")
-        //
-        //                    if activityData?.stationary == true {
-        //                        // Mudar estado para parado nas telas
-        //                        // Mudar imagem e descrição
-        //                    } else {
-        //                        // Mudar estado para andando nas telas
-        //                        // Mudar imagem e descrição
-        //                    }
-        //
-        //                } else {
-        //
-        //                    if activityData?.running == true {
-        //                        // Mudar estado para correndo nas telas
-        //                        // Mudar imagem e descrição
-        //
-        //                        print("NAO FUNCIONA")
-        //                    } else {
-        //                        // Mudar estado para de carro
-        //                        // Mudar imagem e descrição
-        //                    }
-        //                    // Piso do acelerômetro 5.0
-        //
-        //                    self.accelerometerValue = 5.0
-        //                }
-        //
-        //            }
-        //
-        //            self.activityManager.startActivityUpdates(to: OperationQueue.main, withHandler: activityHandler)
-        
-//        motionManager.accelerometerUpdateInterval = 0.2
-//        
-//        if motionManager.isAccelerometerAvailable {
-//            
-//            let accelerometerHandler: CMAccelerometerHandler = { (accelerometerData: CMAccelerometerData?, error: NSError?) -> Void in
-//                if (fabs(accelerometerData!.acceleration.x) >= 3.0 || fabs(accelerometerData!.acceleration.y) >= 3.0 || fabs(accelerometerData!.acceleration.z) >= 3.0) {
-//                    
-//                    print("\n\nCaiu!!\n\n")
-//                    print("\(accelerometerData?.acceleration.x)\n\(accelerometerData?.acceleration.y)\n\(accelerometerData?.acceleration.z)\n")
-//                    
-//                    // NOTIFICAÇÃO PRO CUIDADOR E BOTÃO DE EMERGENCIA PRO IDOSO
-//                    
-//                    motionManager.stopAccelerometerUpdates()
-//                    self.presentController(withName: "CountdownInterfaceController", context: self)
-//                    
-//                } else {
-//                    print("Ta de boa")
-//                }
-//            }
-//            
-//            motionManager.startAccelerometerUpdates(to: OperationQueue.current!, withHandler: accelerometerHandler)
-//            
-//        }
+        if WCSession.isSupported() {
+            let wcSession = WCSession.default()
+            wcSession.delegate = self
+            wcSession.activate()
+            print("TA FUNFANDO")
+        }
         
         if (self.workoutActive) {
             //finish the current workout
@@ -115,61 +55,25 @@ class HeartRateInterfaceController: WKInterfaceController, HKWorkoutSessionDeleg
             self.workoutActive = true
             startWorkout()
         }
+        
+//        if WCSession.default().isReachable {
+//            WCSession.default().sendMessage(["fall":"Detected"],
+//                                            replyHandler: { (handler) -> Void in print(handler)},
+//                                            errorHandler: { (error) -> Void in print(error) })
+//            print("ERA PRA TA MANDANDO, PQ EU CHEGUEI AQUI")
+//        } else {
+//            
+//            _ = WCSession.default().transferUserInfo(["fall":"Detected"])
+//            print("DEVERIA TA MANDANDO ATE AQUI, MAS NAAAAAAO, O XCODE NAO GOSTA DE AJUDAR OS MIGOS")
+//            
+//        }
+        
     }
     
-    
-    //    override func didAppear() {
-    //
-    //        super.didAppear()
-    //
-    //        // MARK: Accelerometer -
-    //
-    //        if self.isTrackingMotion == false {
-    //
-    //            self.isTrackingMotion = true
-    //
-    //            motionManager.accelerometerUpdateInterval = 0.2
-    //
-    //            if self.motionManager.isAccelerometerAvailable {
-    //
-    //                let accelerometerHandler: CMAccelerometerHandler = { (accelerometerData: CMAccelerometerData?, error: NSError?) -> Void in
-    //
-    //                    // Se passar do piso manda as notificações
-    //
-    //                    if (fabs(accelerometerData!.acceleration.x) >= self.accelerometerValue || fabs(accelerometerData!.acceleration.y) >= self.accelerometerValue || fabs(accelerometerData!.acceleration.z) >= self.accelerometerValue) {
-    //
-    //                        print("\n\nCaiu!!\n\n")
-    //                        print("\(accelerometerData?.acceleration.x)\n\(accelerometerData?.acceleration.y)\n\(accelerometerData?.acceleration.z)\n")
-    //
-    //                        self.motionManager.stopAccelerometerUpdates()
-    //
-    //                        self.isTrackingMotion = false
-    //
-    //                        // NOTIFICAÇÃO PRO CUIDADOR E BOTÃO DE EMERGENCIA PRO IDOSO
-    //
-    //                        self.presentController(withName: "CountdownInterfaceController", context: self)
-    //
-    //                    } else {
-    //                        print("Ta de boa")
-    //                    }
-    //                }
-    //
-    //                self.motionManager.startAccelerometerUpdates(to: OperationQueue.current!, withHandler: accelerometerHandler)
-    //
-    //            } else {
-    //                print("\nAccelerometer not avaiable\n")
-    //            }
-    //
-    //        }
-    //
-    //    }
-    
     override func didAppear() {
-
+        
         if !motionManager.isAccelerometerActive {
-            
-            print(motionManager.isAccelerometerActive)
-            
+                        
             motionManager.accelerometerUpdateInterval = 0.2
             
             if motionManager.isAccelerometerAvailable {
@@ -181,6 +85,16 @@ class HeartRateInterfaceController: WKInterfaceController, HKWorkoutSessionDeleg
                         print("\(accelerometerData?.acceleration.x)\n\(accelerometerData?.acceleration.y)\n\(accelerometerData?.acceleration.z)\n")
                         
                         // NOTIFICAÇÃO PRO CUIDADOR E BOTÃO DE EMERGENCIA PRO IDOSO
+                        
+                        if WCSession.default().isReachable {
+                            WCSession.default().sendMessage(["fall":"Detected"],
+                                                            replyHandler: { (handler) -> Void in print(handler)},
+                                                            errorHandler: { (error) -> Void in print(error) })
+                            print("\n\n*************************       AGORA TO ENVIANDO A MESSAGEM        ***************************\n\n")
+                        } else {
+                            _ = WCSession.default().transferUserInfo(["fall":"Detected"])
+                            print("\n\n*************************       TRASNFER USER INFO        ***************************\n\n")
+                        }
                         
                         motionManager.stopAccelerometerUpdates()
                         self.presentController(withName: "CountdownInterfaceController", context: self)
@@ -286,6 +200,9 @@ class HeartRateInterfaceController: WKInterfaceController, HKWorkoutSessionDeleg
         }
     }
     
+    func session(_ session: WCSession, activationDidCompleteWith activationState: WCSessionActivationState, error: NSError?) {
+        print("Ativou a conexão")
+    }
     
     override func didDeactivate() {
         super.didDeactivate()

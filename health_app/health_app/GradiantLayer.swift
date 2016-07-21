@@ -8,8 +8,7 @@
 
 import UIKit
 
-@IBDesignable class GradientView: UIView
-{
+@IBDesignable class GradientView: UIView {
     
     @IBInspectable var startColor: UIColor = UIColor.white()
     @IBInspectable var endColor:   UIColor = UIColor.black()
@@ -45,4 +44,5 @@ import UIKit
         layer.locations = [startLocation     , endLocation]
         layer.colors    = [startColor.cgColor, endColor.cgColor]
     }
+    
 }
