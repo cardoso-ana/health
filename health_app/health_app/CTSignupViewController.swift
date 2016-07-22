@@ -103,11 +103,11 @@ class CTSignupViewController: UIViewController, UITextFieldDelegate {
                 self.users = users
                 print("\nHow many users in cloud: \(self.users.count)\n")
                 if self.users.count != 0 {
-                    //self.aux = false
+                    
                     completionHandler(success: false)
                 }
                 else {
-                    //self.aux = true
+                    
                     completionHandler(success: true)
                 }
             }

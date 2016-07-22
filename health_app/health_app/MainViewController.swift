@@ -22,11 +22,16 @@ struct Adress
 
 class MainViewController: UIViewController, CLLocationManagerDelegate, MKMapViewDelegate
 {
+    
+    var telefoneIdoso = ""
+    
     let locationManager = CLLocationManager()
     @IBOutlet weak var gradientView: UIView!
     
     //var adress: [String] = [""]
     var adress = Adress()
+    
+    var telefoneCuidador = ""
     
     @IBOutlet weak var nameLabel: UILabel!
     @IBOutlet weak var heartRateLabel: UILabel!
@@ -45,6 +50,20 @@ class MainViewController: UIViewController, CLLocationManagerDelegate, MKMapView
         
         map.delegate = self
         map.showsUserLocation = true
+        
+        CloudKitDAO().pegaIdCuidador(telefone: telefoneIdoso)
+        
+        NotificationCenter.default.addObserver(self, selector: #selector(MainViewController.atualizaLabels), name: "cuidadorChegando" as NSNotification.Name, object: nil)
+        
+        
+    }
+    
+    func atualizaLabels(notification: NSNotification) {
+        
+        let dict = notification.object as! NSDictionary
+        nameLabel.text = dict["name"]! as? String
+        telefoneCuidador = (dict["phone"] as! String)
+        
     }
     
     override func didReceiveMemoryWarning()

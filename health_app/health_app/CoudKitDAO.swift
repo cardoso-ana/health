@@ -13,6 +13,8 @@ public class CloudKitDAO {
     
     var ctUsers = [CKRecord]()
     
+    var idCuidador = ""
+    
     
     // Mandando o idoso pra nuvem:
     
@@ -88,7 +90,7 @@ public class CloudKitDAO {
         let publicData = CKContainer.default().publicCloudDatabase
         let predicate = Predicate(format: "phone == %@", phone)
         let query = CKQuery(recordType: "Elder", predicate: predicate)
-        //var sucess = true
+        
         publicData.perform(query, inZoneWith: nil) { (results: [CKRecord]?, error: NSError?) -> Void in
             if error != nil {
                 print(error?.localizedDescription)
@@ -98,11 +100,11 @@ public class CloudKitDAO {
                 self.ctUsers = users
                 print("\nHow many users in cloud: \(self.ctUsers.count)\n")
                 if self.ctUsers.count != 0 {
-                    //self.aux = false
+                    
                     completionHandler(success: false)
                 }
                 else {
-                    //self.aux = true
+                    
                     completionHandler(success: true)
                 }
             }
@@ -131,11 +133,11 @@ public class CloudKitDAO {
                 self.ctUsers = users
                 print("\nHow many users in cloud: \(self.ctUsers.count)\n")
                 if self.ctUsers.count != 0 {
-                    //self.aux = false
+                    
                     completionHandler(success: false)
                 }
                 else {
-                    //self.aux = true
+                    
                     completionHandler(success: true)
                 }
             }
@@ -169,7 +171,9 @@ public class CloudKitDAO {
                         if error == nil {
                             
                             DispatchQueue.main.asynchronously(execute: { () -> Void in
+                                
                                 print("IDOSO atualizado com sucesso\n")
+                                //self.atualizaCuidadorComOsDadosDoIdoso(results: results!)
                             })
                         }
                         else {
@@ -185,6 +189,60 @@ public class CloudKitDAO {
             }
         }
     }
+    
+    func pegaIdCuidador(telefone: String) {
+        
+        ctUsers = [CKRecord]()
+        
+        let publicData = CKContainer.default().publicCloudDatabase
+        let predicate = Predicate(format: "phone == %@", telefone)
+        let query = CKQuery(recordType: "Elder", predicate: predicate)
+        
+        publicData.perform(query, inZoneWith: nil) { (results, error) in
+            
+            if error != nil {
+                print("DEU MERDA MT GRANDE!!\n\n\n\n\n")
+                print(error?.localizedDescription)
+            } else {
+                
+                print("MALANDRAMENTE  \(results?.first?.value(forKey: "careTakerId"))  \nMALANDRAMENTE")
+                
+                if results?.first?.value(forKey: "careTakerId") != nil {
+                    self.idCuidador = results?.first?.value(forKey: "careTakerId") as! String
+                    
+                    self.atualizaCuidadorComOsDadosDoIdoso(id: self.idCuidador, resultados: results!)
+                    
+                } else {
+                    print("AAAAAA O idCuidador NA CLOUDDAO É NULO!!!")
+                }
+            }
+        }
+    }
+    
+    func atualizaCuidadorComOsDadosDoIdoso(id: String, resultados: [CKRecord]) { // resultados = velhos
+        
+        ctUsers = [CKRecord]()
+        print("\nO TELEFONE É:\(id)")
+        
+        let publicData = CKContainer.default().publicCloudDatabase
+        let predicate = Predicate(format: "id == %@", id)
+        let query = CKQuery(recordType: "Caretaker", predicate: predicate)
+        
+        publicData.perform(query, inZoneWith: nil) { (results: [CKRecord]?, error: NSError?) -> Void in
+            if error != nil {
+                print(error?.localizedDescription)
+            }
+            
+            if let user = results?.first {
+                
+                user["elderName"] = resultados.first?.value(forKey: "name") as? String
+                user["elderAge"] = resultados.first?.value(forKey: "age") as? String
+                user["elderPhone"] = resultados.first?.value(forKey: "phone") as? String
+                
+            }
+        }
+    }
+    
     
     func pegaIdoso(id: String) {
         
@@ -230,5 +288,36 @@ public class CloudKitDAO {
         }
     }
     
+    func pegaCuidador(phone: String) {
+        
+        ctUsers = [CKRecord]()
+        
+        var nome = ""
+        var tel = ""
+        
+        let publicData = CKContainer.default().publicCloudDatabase
+        let predicate = Predicate(format: "elderPhone == %@", phone)
+        let query = CKQuery(recordType: "Caretaker", predicate: predicate)
+        
+        publicData.perform(query, inZoneWith: nil) { (results: [CKRecord]?, error: NSError?) -> Void in
+            if error != nil {
+                print(error?.localizedDescription)
+            }
+            
+            if let users = results {
+                
+                nome = (users[0].value(forKey: "name") as? String)!
+                tel = (users[0].value(forKey: "phone") as? String)!
+                
+                let myDict = ["name" : nome, "tel" : tel]
+                
+                print("\n PRINTAANDO O NOME DO pegaCuidador: \(nome)\n")
+                
+                NotificationCenter.default.post(name: "cuidadorChegando" as NSNotification.Name, object: myDict)
+                
+            }
+        }
+        
+    }
     
 }
