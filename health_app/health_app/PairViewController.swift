@@ -30,7 +30,7 @@ class PairViewController: UIViewController, UITextFieldDelegate {
     @IBAction func pairAction(_ sender: AnyObject) {
         CloudKitDAO().pareamento(phone: phoneTextfield.text!, ctid: idCT)
         
-        
+        performSegue(withIdentifier: "monitorar", sender: self)
     }
     
     

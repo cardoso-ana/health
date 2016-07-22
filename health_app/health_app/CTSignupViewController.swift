@@ -58,6 +58,7 @@ class CTSignupViewController: UIViewController, UITextFieldDelegate {
                 }
             })
         }
+        performSegue(withIdentifier: "pareamento", sender: self)
     }
     
     func send2Cloud() {
