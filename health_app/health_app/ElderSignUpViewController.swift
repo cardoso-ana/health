@@ -54,7 +54,7 @@ class SignUpViewController: UIViewController, UITextFieldDelegate
         Elder.singleton.setElderState(state: self.UFTextfield.text!)
         Elder.singleton.setElderPhone(phone: self.phoneTextfield.text!)
         
-        if nameTextfield.text != nil || ageTextfield.text != nil || adressTextfield.text != nil || cityTextfield.text != nil || UFTextfield.text != nil || phoneTextfield.text != nil {
+        if nameTextfield.text != nil && ageTextfield.text != nil && adressTextfield.text != nil && cityTextfield.text != nil && UFTextfield.text != nil && phoneTextfield.text != nil {
             
             CloudKitDAO().loadElderUser(phone: Elder.singleton.getElderPhone()) { (success) in
                 if success {
@@ -64,6 +64,10 @@ class SignUpViewController: UIViewController, UITextFieldDelegate
                 }
             }
             performSegue(withIdentifier: "wait", sender: self)
+        } else {
+            
+            print("AAAAAAAAAAAAAAA")
+            
         }
     }
     
