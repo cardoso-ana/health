@@ -60,9 +60,10 @@ class SignUpViewController: UIViewController, UITextFieldDelegate
                 if success {
                     CloudKitDAO().send2CloudElder(usuario: Elder.singleton)
                 } else {
-                    print("\nUSER ALREADY IN CLOUD\n")
+                    print("\nELDER ALREADY IN CLOUD\n")
                 }
             }
+            performSegue(withIdentifier: "wait", sender: self)
         }
     }
     
