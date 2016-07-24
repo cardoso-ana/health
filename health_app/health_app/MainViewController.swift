@@ -33,6 +33,8 @@ class MainViewController: UIViewController, CLLocationManagerDelegate, MKMapView
     
     var telefoneCuidador = ""
     
+    let progressHUD = ProgressHUD(text: "Carregando")
+    
     @IBOutlet weak var nameLabel: UILabel!
     @IBOutlet weak var heartRateLabel: UILabel!
     @IBOutlet weak var movementImage: UIImageView!
@@ -50,6 +52,9 @@ class MainViewController: UIViewController, CLLocationManagerDelegate, MKMapView
         
         map.delegate = self
         map.showsUserLocation = true
+        
+        self.view.addSubview(progressHUD)
+        progressHUD.show()
         
         CloudKitDAO().pegaIdCuidador(telefone: telefoneIdoso)
         
@@ -81,6 +86,8 @@ class MainViewController: UIViewController, CLLocationManagerDelegate, MKMapView
         nameLabel.text = dict["name"]! as? String
         telefoneCuidador = (dict["tel"] as! String)
         print("TELEFONE DO CUIDADOR NA MainViewController: \(telefoneCuidador)")
+        
+        progressHUD.hide()
     }
     
     override func didReceiveMemoryWarning()

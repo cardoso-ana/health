@@ -25,14 +25,18 @@ class MonitorViewController: UIViewController, WCSessionDelegate {
     
     
     var idCt = ""
-    
+    let progressHUD = ProgressHUD(text: "Carregando")
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        self.view.addSubview(progressHUD)
+        progressHUD.show()
+        
         CloudKitDAO().pegaIdoso(id: self.idCt)
         
         NotificationCenter.default.addObserver(self, selector: #selector(MonitorViewController.malandramente), name: "véioChegando" as NSNotification.Name, object: nil)
+        
         
     }
     
@@ -43,8 +47,12 @@ class MonitorViewController: UIViewController, WCSessionDelegate {
         print("PRINTAAANDO OIEEEE")
         print("PRINTAAANDO O NOME: \(dict["name"]!)")
         
-        nameLabel.text = dict["name"]! as! String
+        nameLabel.text = dict["name"]! as? String
         ageLabel.text = "\(dict["age"]! as! String) anos"
+        
+        
+        progressHUD.hide()
+        
     }
     
     
