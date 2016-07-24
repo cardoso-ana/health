@@ -15,6 +15,7 @@ class ProgressHUD: UIVisualEffectView {
             label.text = text
         }
     }
+    
     let activityIndictor: UIActivityIndicatorView = UIActivityIndicatorView(activityIndicatorStyle: UIActivityIndicatorViewStyle.white)
     let label: UILabel = UILabel()
     let blurEffect = UIBlurEffect(style: .dark)

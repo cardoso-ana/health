@@ -53,17 +53,34 @@ class MainViewController: UIViewController, CLLocationManagerDelegate, MKMapView
         
         CloudKitDAO().pegaIdCuidador(telefone: telefoneIdoso)
         
+        NotificationCenter.default.addObserver(self, selector: #selector(MainViewController.enviaCuidadorProDAO), name: "idDoCuidador" as NSNotification.Name, object: nil)
+        
+        
         NotificationCenter.default.addObserver(self, selector: #selector(MainViewController.atualizaLabels), name: "cuidadorChegando" as NSNotification.Name, object: nil)
         
         
     }
     
+    func enviaCuidadorProDAO(notification: NSNotification) {
+        
+        let dict = notification.object as! NSDictionary
+        print("OOOOOOOOOO\n \(dict["careTakerId"]) \nOOOOOOOOOOOO")
+        if let idzinho = dict["careTakerId"] as? String {
+            print("OOOOO ENTROU AQUI")
+            CloudKitDAO().pegaCuidador(id: idzinho)
+        }
+        
+        
+    }
+    
+    
     func atualizaLabels(notification: NSNotification) {
         
         let dict = notification.object as! NSDictionary
+        print("AAAAI SAFADAAA\n \(dict["nome"]) \nAAAAI SAFADAAA")
         nameLabel.text = dict["name"]! as? String
-        telefoneCuidador = (dict["phone"] as! String)
-        
+        telefoneCuidador = (dict["tel"] as! String)
+        print("TELEFONE DO CUIDADOR NA MainViewController: \(telefoneCuidador)")
     }
     
     override func didReceiveMemoryWarning()

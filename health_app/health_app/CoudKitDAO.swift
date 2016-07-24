@@ -210,7 +210,11 @@ public class CloudKitDAO {
                 if results?.first?.value(forKey: "careTakerId") != nil {
                     self.idCuidador = results?.first?.value(forKey: "careTakerId") as! String
                     
-                    self.atualizaCuidadorComOsDadosDoIdoso(id: self.idCuidador, resultados: results!)
+                    let dict = ["careTakerId" : self.idCuidador]
+                    
+                    NotificationCenter.default.post(name: "idDoCuidador" as NSNotification.Name, object: dict)
+                    
+                    //self.atualizaCuidadorComOsDadosDoIdoso(id: self.idCuidador, resultados: results!)
                     
                 } else {
                     print("AAAAAA O idCuidador NA CLOUDDAO É NULO!!!")
@@ -288,7 +292,7 @@ public class CloudKitDAO {
         }
     }
     
-    func pegaCuidador(phone: String) {
+    func pegaCuidador(id: String) {
         
         ctUsers = [CKRecord]()
         
@@ -296,7 +300,7 @@ public class CloudKitDAO {
         var tel = ""
         
         let publicData = CKContainer.default().publicCloudDatabase
-        let predicate = Predicate(format: "elderPhone == %@", phone)
+        let predicate = Predicate(format: "id == %@", id)
         let query = CKQuery(recordType: "Caretaker", predicate: predicate)
         
         publicData.perform(query, inZoneWith: nil) { (results: [CKRecord]?, error: NSError?) -> Void in
@@ -317,7 +321,5 @@ public class CloudKitDAO {
                 
             }
         }
-        
     }
-    
 }
