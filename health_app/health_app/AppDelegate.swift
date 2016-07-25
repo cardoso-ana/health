@@ -81,7 +81,9 @@ class AppDelegate: UIResponder, UIApplicationDelegate, WCSessionDelegate {
     
     func session(_ session: WCSession, activationDidCompleteWith activationState: WCSessionActivationState, error: NSError?) {
         if error != nil {
-            print(error)
+            print(error?.localizedDescription)
+        } else {
+            print(activationState)
         }
     }
     
@@ -96,14 +98,37 @@ class AppDelegate: UIResponder, UIApplicationDelegate, WCSessionDelegate {
     func session(_ session: WCSession, didReceiveMessage message: [String : AnyObject], replyHandler: ([String : AnyObject]) -> Void) {
         print("\n\n*************************       AGORA TO RECEBENDO A MESSAGEM        ***************************\n\n")
         
-        if message["fall"] as! String == "Detected" {
+        if message["fall"] as? String == "Detected" {
             
-            // manda pro cloud
+            // Manda pro cloud avisando que caiu
+            // Vem como dicionario ["fall":"Detected"]
+            let teste = CKRecord(recordType: "Teste")
+            teste["teste"] = 1
+            let publicData = CKContainer.default().publicCloudDatabase
+            publicData.save(teste, completionHandler: { (record, error) in
+                if error != nil {
+                    print("NOVINHA SAFADINHA HOJE EU VOU FALAR PRA TU, EU TO DANDO ERRO")
+                    print(error?.localizedDescription)
+                } else {
+                    print("NOVINHA SAFADINHA HOJE EU VOU FALAR PRA TU, EU MANDEI O TESTE COM SUCESSO")
+                }
+            })
+            
             
             print("Recebi \(message["fall"])")
             
         } else {
-            print("\n\n\n\n\n*************************       TA BUGADO       ***************************\n\n\n\n\n")
+            print("\n\n\n\n\n*************************       TA BUGADO A QUEDA       ***************************\n\n\n\n\n")
+        }
+        
+        // Mensagem do batimento
+        
+        if message["heartRate"] != nil {
+            
+            // Manda batimento pra cloud
+            // Vem como dicionario ["heartRate":Int]
+            // Fazer tratamento do batimento na própria cloud pra mandar a notificação ou com aquele bagulho de predicate que tu falou
+            
         }
         
     }
@@ -111,15 +136,39 @@ class AppDelegate: UIResponder, UIApplicationDelegate, WCSessionDelegate {
     func session(_ session: WCSession, didReceiveUserInfo userInfo: [String : AnyObject] = [:]) {
         print("\n\n*************************       AGORA TO RECEBENDO A INFO       ***************************\n\n")
         
-        if userInfo["fall"] as! String == "Detected"{
+        if userInfo["fall"] as? String == "Detected"{
             
-            // manda pro cloud
+            // Manda pro cloud avisando que caiu
+            // Vem como dicionario ["fall":"Detected"]
+            // Fazer tratamento do batimento
+            let teste = CKRecord(recordType: "Teste2")
+            teste["teste"] = 1
+            let publicData = CKContainer.default().publicCloudDatabase
+            publicData.save(teste, completionHandler: { (record, error) in
+                if error != nil {
+                    print("NOVINHA SAFADINHA HOJE EU VOU FALAR PRA TU, EU TO DANDO ERRO")
+                    print(error?.localizedDescription)
+                } else {
+                    print("NOVINHA SAFADINHA HOJE EU VOU FALAR PRA TU, EU MANDEI O TESTE COM SUCESSO")
+                }
+            })
             
             print("Recebi \(userInfo["fall"])\n\n")
             
         } else {
-            print("MENTIRA!!!\n\n")
+            print("NAO FOI A QUEDA!!!\n\n")
+        }
+        
+        // Informação de batimento:
+        
+        if userInfo["heartRate"] != nil {
+            
+            // Manda batimento pra cloud
+            // Vem como dicionario ["heartRate":Int]
+            // Fazer tratamento do batimenro na própria cloud pra mandar a notificação ou com aquele bagulho de predicate que tu falou
+            
         }
     }
+    
 }
 
