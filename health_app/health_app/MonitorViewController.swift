@@ -10,7 +10,7 @@ import UIKit
 import MapKit
 import WatchConnectivity
 
-class MonitorViewController: UIViewController, WCSessionDelegate {
+class MonitorViewController: UIViewController/*, WCSessionDelegate*/ {
     
     @IBOutlet weak var gradientView: UIView!
     
@@ -23,6 +23,8 @@ class MonitorViewController: UIViewController, WCSessionDelegate {
     @IBOutlet weak var monitorImage: UIImageView!
     @IBOutlet weak var monitorLabel: UILabel!
     
+    @IBOutlet weak var heartViewBackground: UIView!
+    @IBOutlet weak var movementViewBackground: UIView!
     
     var idCt = ""
     let progressHUD = ProgressHUD(text: "Carregando")
@@ -60,50 +62,49 @@ class MonitorViewController: UIViewController, WCSessionDelegate {
         progressHUD.hide()
     }
     
-    
-    
-    
-    
     // ************************* COISAS DO BENDIA *************************
     
-    func session(_ session: WCSession, activationDidCompleteWith activationState: WCSessionActivationState, error: NSError?) {
-        print("Ativou a conexão")
-    }
-    
-    func session(_ session: WCSession, didReceiveMessage message: [String : AnyObject]) {
-        if message["fall"] as! String == "Detected" {
-            
-            // manda pro cloud
-            
-            print("Recebi \(message["fall"])")
-            
-        } else {
-            print("\n\n\n\n\nTA BUGADO\n\n\n\n\n")
-        }
-        movementLabel.text = "RECEBI PORRA!!!!"
-    }
-    
-    func sessionDidBecomeInactive(_ session: WCSession) {
-        print("DidBecomeInactive")
-    }
-    
-    func sessionDidDeactivate(_ session: WCSession) {
-        print("DidDeactivate")
-    }
-    
-    func session(_ session: WCSession, didReceiveUserInfo userInfo: [String : AnyObject] = [:]) {
-        if userInfo["fall"] as! String == "Detected"{
-         
-            // manda pro cloud
-            
-            print("Recebi \(userInfo["fall"])")
-            
-        } else {
-            
-            print("\n\n\n\n\nTA BUGADO PRA KCT LALALALLALA\n\n\n\n\n")
-
-        }
-    }
+//    func session(_ session: WCSession, activationDidCompleteWith activationState: WCSessionActivationState, error: NSError?) {
+//        print("Ativou a conexão")
+//    }
+//    
+//    func session(_ session: WCSession, didReceiveMessage message: [String : AnyObject]) {
+//        if message["fall"] as! String == "Detected" {
+//            
+//            // manda pro cloud
+//            
+//            movementViewBackground.backgroundColor = UIColor.orange()
+//            
+//            print("Recebi \(message["fall"])")
+//            
+//        } else {
+//            print("\n\n\n\n\nTA BUGADO\n\n\n\n\n")
+//        }
+//    }
+//    
+//    func sessionDidBecomeInactive(_ session: WCSession) {
+//        print("DidBecomeInactive")
+//    }
+//    
+//    func sessionDidDeactivate(_ session: WCSession) {
+//        print("DidDeactivate")
+//    }
+//    
+//    func session(_ session: WCSession, didReceiveUserInfo userInfo: [String : AnyObject] = [:]) {
+//        if userInfo["fall"] as! String == "Detected"{
+//         
+//            // manda pro cloud
+//            
+//            movementViewBackground.backgroundColor = UIColor.orange()
+//            
+//            print("Recebi \(userInfo["fall"])")
+//            
+//        } else {
+//            
+//            print("\n\n\n\n\nTA BUGADO PRA KCT LALALALLALA\n\n\n\n\n")
+//
+//        }
+//    }
     
     // ************************* FIM DAS COISAS DO BENDIA *************************
     

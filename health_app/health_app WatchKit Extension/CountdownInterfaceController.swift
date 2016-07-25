@@ -55,7 +55,7 @@ class CountdownInterfaceController: WKInterfaceController {
             
         } else {
             
-            WKInterfaceDevice.current().play(.click)
+//            WKInterfaceDevice.current().play(.click)
             timerLabel.setText("\(remainingTime)")
             remainingTime -= 1
             
