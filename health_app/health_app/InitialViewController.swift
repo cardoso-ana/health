@@ -22,7 +22,6 @@ class InitialViewController: UIViewController, WCSessionDelegate {
             wcSession.activate()
             print("TA FUNFANDO")
         }
-        
     }
     
     func session(_ session: WCSession, activationDidCompleteWith activationState: WCSessionActivationState, error: NSError?) {

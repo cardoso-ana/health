@@ -18,7 +18,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate, WCSessionDelegate {
 
     var window: UIWindow?
     let healthStore = HKHealthStore()
-    
+    var id = ""
 
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [NSObject: AnyObject]?) -> Bool {
         application.statusBarStyle = UIStatusBarStyle.lightContent
@@ -29,7 +29,45 @@ class AppDelegate: UIResponder, UIApplicationDelegate, WCSessionDelegate {
             wcSession.activate()
         }
         
+        // PEGA ID DO CLOUDKIT
+        let container = CKContainer.default()
+        container.fetchUserRecordID { (userID, error) in
+            if error != nil {
+                print("** ERRO AO PEGAR ID DO USUARIO **\n")
+                print(error?.localizedDescription)
+                
+                // ***************** CRIAR ALERT NOTIFICANDO PARA ENTRAR COM O iCLOUD *****************
+            } else {
+                print("O ID DO USUÁRIO É:\n")
+                print(userID!)
+                print("BIIIIIIRL \(userID!.recordName)  BIIIIIIIRL\n")
+                print("\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n")
+                
+                self.id = String(userID!.recordName)
+                
+                CloudKitDAO().pegaCuidador(id: self.id)
+                NotificationCenter.default.addObserver(self, selector: #selector(AppDelegate.mandaPraMonitorVC), name: "cuidadorChegando" as NSNotification.Name, object: nil)
+            }
+        }
+        
         return true
+    }
+    
+    func mandaPraMonitorVC(notification: Notification) {
+        let dict = notification.object as! NSDictionary
+        
+        if dict["name"]! as? String != nil {
+            print("PRINTAAAANDO DA APP DELEGATE O NOME DO CUIDADOR: \(dict["name"] as? String)")
+            
+//            self.window = UIWindow(frame: UIScreen.main().bounds)
+//            
+//            let mainStoryboardIpad : UIStoryboard = UIStoryboard(name: "Main", bundle: nil)
+//            let initialViewControlleripad : UIViewController = mainStoryboardIpad.instantiateViewController(withIdentifier: "Cuidador") as UIViewController
+//            self.window = UIWindow(frame: UIScreen.main().bounds)
+//            self.window?.rootViewController = initialViewControlleripad
+//            self.window?.makeKeyAndVisible()
+            
+        }
     }
 
     func applicationWillResignActive(_ application: UIApplication) {

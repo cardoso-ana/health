@@ -323,6 +323,8 @@ public class CloudKitDAO {
                 
                 NotificationCenter.default.post(name: "cuidadorChegando" as NSNotification.Name, object: myDict)
                 
+                //NotificationCenter.default.post(name: "eita" as NSNotification.Name, object: myDict)
+                
             }
         }
     }
@@ -364,5 +366,31 @@ public class CloudKitDAO {
                 })
             }
         }
+    }
+    
+    func idCaretaker(id: String) {
+        
+        ctUsers = [CKRecord]()
+        let publicData = CKContainer.default().publicCloudDatabase
+        let predicate = Predicate(format: "id == %@", id)
+        let query = CKQuery(recordType: "Caretaker", predicate: predicate)
+        
+        publicData.perform(query, inZoneWith: nil) { (results: [CKRecord]?, error: NSError?) -> Void in
+            if error != nil {
+                print(error?.localizedDescription)
+            }
+            if let users = results?.first {
+                
+                print("TEM CARETAKER JÁ CADASTRADO, O NOME É: \(users["name"])")
+                
+                let myDict = ["name"]
+            }
+        }
+    }
+    
+    func idIdoso(id: String) {
+        
+        
+        
     }
 }

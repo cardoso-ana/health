@@ -594,7 +594,7 @@
         <!--Main View Controller-->
         <scene sceneID="Eeu-7M-VJX">
             <objects>
-                <viewController id="HVc-NE-8Ag" customClass="MainViewController" customModule="health_app" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="Idoso" id="HVc-NE-8Ag" customClass="MainViewController" customModule="health_app" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="q1a-ek-1ml"/>
                         <viewControllerLayoutGuide type="bottom" id="2Ym-GY-iRd"/>
@@ -1027,7 +1027,7 @@
         <!--Monitor View Controller-->
         <scene sceneID="AuB-4s-eKg">
             <objects>
-                <viewController id="CQZ-ph-Z1k" customClass="MonitorViewController" customModule="health_app" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="Cuidador" id="CQZ-ph-Z1k" customClass="MonitorViewController" customModule="health_app" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="GwT-XT-aWd"/>
                         <viewControllerLayoutGuide type="bottom" id="PvB-mB-LCc"/>
