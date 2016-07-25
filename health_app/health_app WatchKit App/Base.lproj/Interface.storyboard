@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder.WatchKit.Storyboard" version="3.0" toolsVersion="11173.2" systemVersion="15F34" targetRuntime="watchKit" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="AgC-eL-Hgc">
+<document type="com.apple.InterfaceBuilder.WatchKit.Storyboard" version="3.0" toolsVersion="11163.2" systemVersion="15F34" targetRuntime="watchKit" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="AgC-eL-Hgc">
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="11143.2"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBWatchKitPlugin" version="11071"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="11133"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBWatchKitPlugin" version="11064"/>
     </dependencies>
     <customFonts key="customFonts">
         <array key="SFCompactText-Regular.otf">
@@ -97,20 +97,27 @@
             <objects>
                 <controller identifier="CountdownInterfaceController" id="0Ab-eT-bcR" customClass="CountdownInterfaceController" customModule="health_app_WatchKit_Extension">
                     <items>
-                        <group width="1" height="0.69999999999999996" alignment="left" id="hHL-9v-ErV">
+                        <group width="1" height="0.29999999999999999" alignment="left" verticalAlignment="bottom" layout="vertical" id="1uw-It-TSb">
                             <items>
-                                <label alignment="center" verticalAlignment="center" text="30" id="hri-kR-bed">
-                                    <fontDescription key="font" name=".SFCompactText-Regular" family=".SF Compact Text" pointSize="50"/>
-                                </label>
-                            </items>
-                        </group>
-                        <group width="1" height="0.29999999999999999" alignment="left" id="1uw-It-TSb">
-                            <items>
-                                <button width="1" height="1" alignment="left" title="Ta tudo beleza" id="WXk-k8-s0e">
+                                <button width="1" height="1" alignment="left" title="Estou bem!" id="WXk-k8-s0e">
+                                    <color key="backgroundColor" red="0.33725490196078434" green="0.78823529411764703" blue="0.7686274509803922" alpha="1" colorSpace="calibratedRGB"/>
                                     <connections>
                                         <action selector="okButtonAction" destination="0Ab-eT-bcR" id="0iF-2U-KFy"/>
                                     </connections>
                                 </button>
+                            </items>
+                        </group>
+                        <group alignment="center" layout="vertical" id="JYK-yn-CT6">
+                            <items>
+                                <label alignment="center" text="Queda detectada!" textAlignment="center" id="06H-Db-uLi"/>
+                            </items>
+                        </group>
+                        <group height="78" alignment="center" layout="vertical" id="hHL-9v-ErV">
+                            <items>
+                                <label height="55" alignment="center" verticalAlignment="center" text="30" textAlignment="center" id="hri-kR-bed">
+                                    <color key="textColor" red="1" green="0.66274509800000003" blue="0.41176470590000003" alpha="1" colorSpace="calibratedRGB"/>
+                                    <fontDescription key="font" name=".SFCompactText-Regular" family=".SF Compact Text" pointSize="50"/>
+                                </label>
                             </items>
                         </group>
                     </items>
