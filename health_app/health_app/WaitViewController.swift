@@ -32,9 +32,6 @@ class WaitViewController: UIViewController
         
         
         timer2 = Timer.scheduledTimer(timeInterval: TimeInterval(5), target: self, selector: #selector(WaitViewController.passa), userInfo: nil, repeats: true)
-        
-        
-        
     }
     
     

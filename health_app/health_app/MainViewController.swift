@@ -35,6 +35,8 @@ class MainViewController: UIViewController, CLLocationManagerDelegate, MKMapView
     
     let progressHUD = ProgressHUD(text: "Carregando")
     
+    var firstTime = true
+    
     @IBOutlet weak var nameLabel: UILabel!
     @IBOutlet weak var heartRateLabel: UILabel!
     @IBOutlet weak var movementImage: UIImageView!
@@ -44,8 +46,7 @@ class MainViewController: UIViewController, CLLocationManagerDelegate, MKMapView
     @IBOutlet weak var monitorLabel: UILabel!
     
     
-    override func viewDidLoad()
-    {
+    override func viewDidLoad() {
         super.viewDidLoad()
         
         userLocation()
@@ -74,8 +75,6 @@ class MainViewController: UIViewController, CLLocationManagerDelegate, MKMapView
             print("OOOOO ENTROU AQUI")
             CloudKitDAO().pegaCuidador(id: idzinho)
         }
-        
-        
     }
     
     
@@ -140,6 +139,8 @@ class MainViewController: UIViewController, CLLocationManagerDelegate, MKMapView
                 self.adress.administrativeArea = String((pm.administrativeArea)) ?? ""
                 self.adress.country = String((pm.country)) ?? ""
                 
+                
+                
                 print(self.adress)
                 
                 if self.adress.thoroughfare != nil && self.adress.subThoroughfare != nil && self.adress.administrativeArea != nil && self.adress.locality != nil && self.adress.country != nil
@@ -189,7 +190,18 @@ class MainViewController: UIViewController, CLLocationManagerDelegate, MKMapView
     
     func locationManager(_ manager: CLLocationManager, didUpdateLocations locations: [CLLocation])
     {
-        
+        if firstTime == true {
+            
+            CloudKitDAO().enviaCoordsPraCloud(lat: String(locationManager.location!.coordinate.latitude), long: String(locationManager.location!.coordinate.longitude), tel: self.telefoneIdoso)
+            firstTime = false
+            
+        } else {
+            if locations.last != locations[locations.endIndex-1] {
+                
+            } else {
+                
+            }
+        }
     }
     
     func locationManager(_ manager: CLLocationManager, didFailWithError error: NSError)

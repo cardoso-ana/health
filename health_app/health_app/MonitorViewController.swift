@@ -27,6 +27,9 @@ class MonitorViewController: UIViewController, WCSessionDelegate {
     var idCt = ""
     let progressHUD = ProgressHUD(text: "Carregando")
     
+    var latIodoso = ""
+    var longIdoso = ""
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -49,10 +52,12 @@ class MonitorViewController: UIViewController, WCSessionDelegate {
         
         nameLabel.text = dict["name"]! as? String
         ageLabel.text = "\(dict["age"]! as! String) anos"
+        latIodoso = (dict["lat"] as? String)!
+        longIdoso = (dict["long"] as? String)!
         
+        print("PRINTAAANDO LAT E LONG: \(latIodoso) e \(longIdoso)")
         
         progressHUD.hide()
-        
     }
     
     

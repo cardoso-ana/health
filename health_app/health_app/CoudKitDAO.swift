@@ -260,6 +260,8 @@ public class CloudKitDAO {
         var cidade = ""
         var estado = ""
         var idCuidador = ""
+        var lat = ""
+        var long = ""
         
         
         let publicData = CKContainer.default().publicCloudDatabase
@@ -280,8 +282,10 @@ public class CloudKitDAO {
                 cidade = (users[0].value(forKey: "city") as? String)!
                 estado = (users[0].value(forKey: "state") as? String)!
                 idCuidador = (users[0].value(forKey: "careTakerId") as? String)!
+                lat = (users[0].value(forKey: "lat") as? String)!
+                long = (users[0].value(forKey: "long") as? String)!
                 
-                let myDict = [ "name": nome, "age":idade, "phone" : tel, "street" : rua, "city" : cidade, "state" : estado, "careTakerId" : idCuidador]
+                let myDict = [ "name": nome, "age":idade, "phone" : tel, "street" : rua, "city" : cidade, "state" : estado, "careTakerId" : idCuidador, "lat" : lat, "long" : long]
                 
                 
                 print("\n PRINTAANDO O NOME DO pegaIdoso: \(nome)\n")
@@ -319,6 +323,45 @@ public class CloudKitDAO {
                 
                 NotificationCenter.default.post(name: "cuidadorChegando" as NSNotification.Name, object: myDict)
                 
+            }
+        }
+    }
+    
+    func enviaCoordsPraCloud(lat: String, long: String, tel: String) {
+        
+        ctUsers = [CKRecord]()
+        
+        let publicData = CKContainer.default().publicCloudDatabase
+        let predicate = Predicate(format: "phone == %@", tel)
+        let query = CKQuery(recordType: "Elder", predicate: predicate)
+        
+        publicData.perform(query, inZoneWith: nil) { (results: [CKRecord]?, error: NSError?) -> Void in
+            if error != nil {
+                print(error?.localizedDescription)
+            }
+            
+            if let users = results?.first {
+                
+                print("MANDOU NOME: \(users["name"])")
+                users["lat"] = lat
+                users["long"] = long
+                print("AAAAAAAAAAAAAAAAAA MANDOU AAAAAAAAAAAAAAAA")
+                print("MANDOU LAT: \(lat)")
+                print("MANDOU lONG: \(long)")
+                
+                let publicData = CKContainer.default().publicCloudDatabase
+                publicData.save(users, completionHandler: { (record: CKRecord?, error: NSError?) in
+                    if error == nil {
+                        
+                        print("IDOSO atualizado com sucesso\n")
+                        //self.atualizaCuidadorComOsDadosDoIdoso(results: results!)
+                        
+                    }
+                    else {
+                        print("\nHUEHUEHUEHUE\n")
+                        print(error?.localizedDescription)
+                    }
+                })
             }
         }
     }
