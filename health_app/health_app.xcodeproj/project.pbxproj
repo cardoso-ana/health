@@ -8,6 +8,9 @@
 
 /* Begin PBXBuildFile section */
 		655DA1BC1D3E6C69003BDD72 /* CountdownInterfaceController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 655DA1BB1D3E6C69003BDD72 /* CountdownInterfaceController.swift */; };
+		65D4A6FC1D47CF5B0089C1FE /* NotificationManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 65D4A6FB1D47CF5B0089C1FE /* NotificationManager.swift */; };
+		65D4A6FF1D47D28B0089C1FE /* UserNotifications.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 65D4A6FD1D47D28B0089C1FE /* UserNotifications.framework */; };
+		65D4A7001D47D28B0089C1FE /* UserNotificationsUI.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 65D4A6FE1D47D28B0089C1FE /* UserNotificationsUI.framework */; };
 		E12A85AD1D3567E000FBF7E1 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = E12A85AC1D3567E000FBF7E1 /* AppDelegate.swift */; };
 		E12A85AF1D3567E000FBF7E1 /* ElderSignUpViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E12A85AE1D3567E000FBF7E1 /* ElderSignUpViewController.swift */; };
 		E12A85B41D3567E000FBF7E1 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = E12A85B31D3567E000FBF7E1 /* Assets.xcassets */; };
@@ -87,6 +90,9 @@
 
 /* Begin PBXFileReference section */
 		655DA1BB1D3E6C69003BDD72 /* CountdownInterfaceController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CountdownInterfaceController.swift; sourceTree = "<group>"; };
+		65D4A6FB1D47CF5B0089C1FE /* NotificationManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NotificationManager.swift; sourceTree = "<group>"; };
+		65D4A6FD1D47D28B0089C1FE /* UserNotifications.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UserNotifications.framework; path = System/Library/Frameworks/UserNotifications.framework; sourceTree = SDKROOT; };
+		65D4A6FE1D47D28B0089C1FE /* UserNotificationsUI.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UserNotificationsUI.framework; path = System/Library/Frameworks/UserNotificationsUI.framework; sourceTree = SDKROOT; };
 		E12A85A91D3567E000FBF7E1 /* health_app.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = health_app.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		E12A85AC1D3567E000FBF7E1 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		E12A85AE1D3567E000FBF7E1 /* ElderSignUpViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ElderSignUpViewController.swift; sourceTree = "<group>"; };
@@ -133,6 +139,8 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				65D4A6FF1D47D28B0089C1FE /* UserNotifications.framework in Frameworks */,
+				65D4A7001D47D28B0089C1FE /* UserNotificationsUI.framework in Frameworks */,
 				EB30366F1D4263BB00A5B46E /* MapKit.framework in Frameworks */,
 				E1D631B31D3FE093007FF5D2 /* CoreLocation.framework in Frameworks */,
 				EB2E2E171D394DEC00C50080 /* HealthKit.framework in Frameworks */,
@@ -156,6 +164,7 @@
 				EBC615881D3EB2DB00355AB2 /* CoudKitDAO.swift */,
 				E174D9F91D37DF0200EC9086 /* Elder.swift */,
 				E174D9FB1D37DF1A00EC9086 /* Caretaker.swift */,
+				65D4A6FB1D47CF5B0089C1FE /* NotificationManager.swift */,
 			);
 			name = Model;
 			sourceTree = "<group>";
@@ -276,6 +285,8 @@
 		EB2E2E131D394DE300C50080 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				65D4A6FD1D47D28B0089C1FE /* UserNotifications.framework */,
+				65D4A6FE1D47D28B0089C1FE /* UserNotificationsUI.framework */,
 				EB30366E1D4263BB00A5B46E /* MapKit.framework */,
 				E1D631B21D3FE093007FF5D2 /* CoreLocation.framework */,
 				E1F4EB0A1D3E7FFB00EBDA3E /* CloudKit.framework */,
@@ -439,6 +450,7 @@
 				E174D9F21D37DBE400EC9086 /* WaitViewController.swift in Sources */,
 				E1D631B11D3FCCD6007FF5D2 /* CTSignupViewController.swift in Sources */,
 				E174D9FA1D37DF0200EC9086 /* Elder.swift in Sources */,
+				65D4A6FC1D47CF5B0089C1FE /* NotificationManager.swift in Sources */,
 				E174D9FC1D37DF1A00EC9086 /* Caretaker.swift in Sources */,
 				E1458FD51D41674000D17EB3 /* ProgressHUD.swift in Sources */,
 				E174DA021D37E0D500EC9086 /* InitialViewController.swift in Sources */,

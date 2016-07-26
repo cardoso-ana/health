@@ -139,8 +139,12 @@ class MonitorViewController: UIViewController/*, WCSessionDelegate*/, MKMapViewD
         self.map.removeAnnotations(self.map.annotations)
         self.map.addAnnotation(annotation)
 
-        
+
         progressHUD.hide()
+        
+        let notificationManager = NotificationManager()
+        notificationManager.registerForNotifications()
+
     }
     
     func mapView(_ mapView: MKMapView, viewFor annotation: MKAnnotation) -> MKAnnotationView?

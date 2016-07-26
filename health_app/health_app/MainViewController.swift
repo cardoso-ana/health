@@ -62,6 +62,9 @@ class MainViewController: UIViewController, CLLocationManagerDelegate, MKMapView
         
         CloudKitDAO().pegaIdCuidador(telefone: telefoneIdoso)
         
+        let notificationManager = NotificationManager()
+        notificationManager.registerForNotifications()
+        
         NotificationCenter.default.addObserver(self, selector: #selector(MainViewController.enviaCuidadorProDAO), name: "idDoCuidador" as NSNotification.Name, object: nil)
         
         

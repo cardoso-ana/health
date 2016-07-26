@@ -13,6 +13,8 @@ import HealthKit
 import CloudKit
 import WatchConnectivity
 
+var notificationAvaiable = true
+
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate, WCSessionDelegate {
 
@@ -167,6 +169,55 @@ class AppDelegate: UIResponder, UIApplicationDelegate, WCSessionDelegate {
             // Vem como dicionario ["heartRate":Int]
             // Fazer tratamento do batimento na própria cloud pra mandar a notificação ou com aquele bagulho de predicate que tu falou
             
+            if message["heartRate"] as? Int > 120 && notificationAvaiable {
+                
+                // Manda notificação de batimento alto
+                
+                let notificationManager = NotificationManager()
+                
+                notificationManager.setupAndGenerateLocalHighHeartRateNotification()
+                
+                let elderVC: MainViewController = MainViewController()
+                elderVC.heartRateLabel.text = String(message["heartRate"])
+                elderVC.heartRateLabel.textColor = UIColor.orange()
+                
+                
+                let caretakerVC: MonitorViewController = MonitorViewController()
+                caretakerVC.heartRateLabel.text = String(message["heartRate"])
+                caretakerVC.heartRateLabel.textColor = UIColor.orange()
+                caretakerVC.heartViewBackground.backgroundColor = UIColor.orange()
+                
+            } else {
+                
+                if (message["heartRate"] as? Int) < 50 && notificationAvaiable {
+                    
+                    let notificationManager = NotificationManager()
+                    
+                    notificationManager.setupAndGenerateLocalLowHeartRateNotification()
+                    
+                    let elderVC: MainViewController = MainViewController()
+                    elderVC.heartRateLabel.text = String(message["heartRate"])
+                    elderVC.heartRateLabel.textColor = UIColor.orange()
+                    
+                    
+                    let caretakerVC: MonitorViewController = MonitorViewController()
+                    caretakerVC.heartRateLabel.text = String(message["heartRate"])
+                    caretakerVC.heartRateLabel.textColor = UIColor.orange()
+                    caretakerVC.heartViewBackground.backgroundColor = UIColor.orange()
+                    
+                } else {
+                    
+                    let elderVC: MainViewController = MainViewController()
+                    elderVC.heartRateLabel.text = String(message["heartRate"])
+                    
+                    let caretakerVC: MonitorViewController = MonitorViewController()
+                    caretakerVC.heartRateLabel.text = String(message["heartRate"])
+                    
+                    notificationAvaiable = true
+                    
+                }
+            }
+            
         }
         
     }
@@ -204,6 +255,55 @@ class AppDelegate: UIResponder, UIApplicationDelegate, WCSessionDelegate {
             // Manda batimento pra cloud
             // Vem como dicionario ["heartRate":Int]
             // Fazer tratamento do batimenro na própria cloud pra mandar a notificação ou com aquele bagulho de predicate que tu falou
+            
+            if userInfo["heartRate"] as? Int > 120 && notificationAvaiable {
+                
+                // Manda notificação de batimento alto
+                
+                let notificationManager = NotificationManager()
+                
+                notificationManager.setupAndGenerateLocalHighHeartRateNotification()
+                
+                let elderVC: MainViewController = MainViewController()
+                elderVC.heartRateLabel.text = String(userInfo["heartRate"])
+                elderVC.heartRateLabel.textColor = UIColor.orange()
+                
+                
+                let caretakerVC: MonitorViewController = MonitorViewController()
+                caretakerVC.heartRateLabel.text = String(userInfo["heartRate"])
+                caretakerVC.heartRateLabel.textColor = UIColor.orange()
+                caretakerVC.heartViewBackground.backgroundColor = UIColor.orange()
+                
+            } else {
+                
+                if (userInfo["heartRate"] as? Int) < 50 && notificationAvaiable {
+                    
+                    let notificationManager = NotificationManager()
+                    
+                    notificationManager.setupAndGenerateLocalLowHeartRateNotification()
+                    
+                    let elderVC: MainViewController = MainViewController()
+                    elderVC.heartRateLabel.text = String(userInfo["heartRate"])
+                    elderVC.heartRateLabel.textColor = UIColor.orange()
+                    
+                    
+                    let caretakerVC: MonitorViewController = MonitorViewController()
+                    caretakerVC.heartRateLabel.text = String(userInfo["heartRate"])
+                    caretakerVC.heartRateLabel.textColor = UIColor.orange()
+                    caretakerVC.heartViewBackground.backgroundColor = UIColor.orange()
+                    
+                } else {
+                    
+                    let elderVC: MainViewController = MainViewController()
+                    elderVC.heartRateLabel.text = String(userInfo["heartRate"])
+                    
+                    let caretakerVC: MonitorViewController = MonitorViewController()
+                    caretakerVC.heartRateLabel.text = String(userInfo["heartRate"])
+
+                    notificationAvaiable = true
+                    
+                }
+            }
             
         }
     }
