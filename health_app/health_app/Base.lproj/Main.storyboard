@@ -45,21 +45,9 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="CmM-O9-Pi5" customClass="GradientView" customModule="health_app" customModuleProvider="target">
-                                <subviews>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="LOGO" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="6xY-hN-WN2">
-                                        <fontDescription key="fontDescription" type="system" pointSize="40"/>
-                                        <color key="textColor" red="0.95159722219999998" green="0.16161878020000001" blue="0.20046964489999999" alpha="0.96917410709999996" colorSpace="calibratedRGB"/>
-                                        <nil key="highlightedColor"/>
-                                    </label>
-                                </subviews>
                                 <accessibility key="accessibilityConfiguration">
                                     <accessibilityTraits key="traits" notEnabled="YES"/>
                                 </accessibility>
-                                <constraints>
-                                    <constraint firstItem="6xY-hN-WN2" firstAttribute="leading" secondItem="CmM-O9-Pi5" secondAttribute="leading" constant="131" id="11h-5h-TFV"/>
-                                    <constraint firstItem="6xY-hN-WN2" firstAttribute="top" secondItem="CmM-O9-Pi5" secondAttribute="top" constant="154" id="CyH-7e-o9t"/>
-                                    <constraint firstAttribute="trailing" secondItem="6xY-hN-WN2" secondAttribute="trailing" constant="132" id="ofQ-Zo-e0N"/>
-                                </constraints>
                                 <userDefinedRuntimeAttributes>
                                     <userDefinedRuntimeAttribute type="color" keyPath="startColor">
                                         <color key="value" red="0.55294117649999996" green="0.99215686270000003" blue="0.74509803919999995" alpha="0.5" colorSpace="calibratedRGB"/>
@@ -185,6 +173,20 @@
                                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                                 <textInputTraits key="textInputTraits" keyboardType="phonePad"/>
                                             </textField>
+                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="zcd-m1-u4m">
+                                                <constraints>
+                                                    <constraint firstAttribute="width" constant="108" id="6d9-f6-pxA"/>
+                                                    <constraint firstAttribute="height" constant="46" id="9No-f4-iiR"/>
+                                                </constraints>
+                                                <state key="normal" title="◀︎ voltar">
+                                                    <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                                </state>
+                                                <connections>
+                                                    <action selector="cancelAction:" destination="c4t-m1-U8z" eventType="touchUpInside" id="0ey-vO-Mo0"/>
+                                                    <action selector="presentCaretaker:" destination="CRW-cm-xqe" eventType="touchUpInside" id="yGK-lM-O3L"/>
+                                                    <segue destination="CRW-cm-xqe" kind="show" id="N3O-Gh-Com"/>
+                                                </connections>
+                                            </button>
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="right" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="vfV-PG-03o">
                                                 <constraints>
                                                     <constraint firstAttribute="height" constant="46" id="9Nm-Ja-zal"/>
@@ -199,6 +201,7 @@
                                             </button>
                                         </subviews>
                                         <constraints>
+                                            <constraint firstItem="zcd-m1-u4m" firstAttribute="leading" secondItem="UaN-Ms-2HL" secondAttribute="leading" constant="16" id="10B-Sz-9rj"/>
                                             <constraint firstAttribute="trailing" secondItem="Aog-YF-CzH" secondAttribute="trailing" constant="16" id="6F0-aP-iVU"/>
                                             <constraint firstItem="1VK-zS-sOn" firstAttribute="leading" secondItem="UaN-Ms-2HL" secondAttribute="leading" constant="16" id="7IZ-An-bs6"/>
                                             <constraint firstItem="VO8-vl-5M4" firstAttribute="top" secondItem="1VK-zS-sOn" secondAttribute="bottom" constant="16" id="AhA-9b-bru"/>
@@ -220,6 +223,7 @@
                                             <constraint firstItem="q7y-0K-u7P" firstAttribute="top" secondItem="Aog-YF-CzH" secondAttribute="bottom" constant="16" id="fmO-Ab-IVp"/>
                                             <constraint firstItem="eEq-Pp-BrU" firstAttribute="leading" secondItem="UaN-Ms-2HL" secondAttribute="leading" constant="16" id="nsG-nf-c6J"/>
                                             <constraint firstItem="VO8-vl-5M4" firstAttribute="leading" secondItem="UaN-Ms-2HL" secondAttribute="leading" constant="16" id="qTN-mb-1Oc"/>
+                                            <constraint firstItem="zcd-m1-u4m" firstAttribute="top" secondItem="eEq-Pp-BrU" secondAttribute="bottom" constant="40" id="wEt-gC-Hwg"/>
                                             <constraint firstItem="eEq-Pp-BrU" firstAttribute="leading" secondItem="UaN-Ms-2HL" secondAttribute="leading" constant="16" id="y2f-OV-G46"/>
                                             <constraint firstItem="1VK-zS-sOn" firstAttribute="top" secondItem="UaN-Ms-2HL" secondAttribute="top" constant="25" id="zlM-3Y-O85"/>
                                         </constraints>
@@ -341,12 +345,28 @@
                                                     <action selector="presentCaretaker:" destination="CRW-cm-xqe" eventType="touchUpInside" id="WrL-eY-BiE"/>
                                                 </connections>
                                             </button>
+                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="LZ0-wT-klh">
+                                                <constraints>
+                                                    <constraint firstAttribute="height" constant="46" id="Ud6-vC-YpP"/>
+                                                    <constraint firstAttribute="width" constant="108" id="lVW-Bn-Y5g"/>
+                                                </constraints>
+                                                <state key="normal" title="◀︎ voltar">
+                                                    <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                                </state>
+                                                <connections>
+                                                    <action selector="cancelAction:" destination="c4t-m1-U8z" eventType="touchUpInside" id="0Dz-hS-844"/>
+                                                    <action selector="presentCaretaker:" destination="CRW-cm-xqe" eventType="touchUpInside" id="FdK-wZ-kUB"/>
+                                                    <segue destination="CRW-cm-xqe" kind="show" id="Oby-7h-HH8"/>
+                                                </connections>
+                                            </button>
                                         </subviews>
                                         <constraints>
+                                            <constraint firstItem="LZ0-wT-klh" firstAttribute="leading" secondItem="aDG-Ad-KjX" secondAttribute="leading" constant="16" id="E9x-Bz-U54"/>
                                             <constraint firstItem="K86-9j-EEb" firstAttribute="leading" secondItem="aDG-Ad-KjX" secondAttribute="leading" constant="16" id="XIl-lP-dPE"/>
                                             <constraint firstAttribute="trailing" secondItem="K86-9j-EEb" secondAttribute="trailing" constant="16" id="bEF-rp-gyj"/>
                                             <constraint firstAttribute="trailing" secondItem="0AC-bv-Wrk" secondAttribute="trailing" constant="16" id="dEb-lE-Cvg"/>
                                             <constraint firstItem="odm-ol-Grw" firstAttribute="top" secondItem="K86-9j-EEb" secondAttribute="bottom" constant="54" id="gA8-iQ-Nhk"/>
+                                            <constraint firstItem="LZ0-wT-klh" firstAttribute="top" secondItem="K86-9j-EEb" secondAttribute="bottom" constant="54" id="ixH-xO-oT0"/>
                                             <constraint firstItem="0AC-bv-Wrk" firstAttribute="top" secondItem="aDG-Ad-KjX" secondAttribute="top" constant="25" id="lVa-QP-ilS"/>
                                             <constraint firstItem="K86-9j-EEb" firstAttribute="top" secondItem="0AC-bv-Wrk" secondAttribute="bottom" constant="16" id="n4H-Yv-tMp"/>
                                             <constraint firstItem="0AC-bv-Wrk" firstAttribute="leading" secondItem="aDG-Ad-KjX" secondAttribute="leading" constant="16" id="uPs-Nh-2oa"/>
@@ -556,30 +576,13 @@
                                         <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                         <nil key="highlightedColor"/>
                                     </label>
-                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="right" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="aBS-by-sjU">
-                                        <constraints>
-                                            <constraint firstAttribute="height" relation="greaterThanOrEqual" constant="46" id="J2b-nO-UPP"/>
-                                            <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="108" id="P3b-Vw-otU"/>
-                                            <constraint firstAttribute="height" constant="46" id="V2t-a4-BFx"/>
-                                            <constraint firstAttribute="width" constant="108" id="gdc-Dp-0SM"/>
-                                        </constraints>
-                                        <state key="normal" title="fake ▶︎">
-                                            <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                                        </state>
-                                        <connections>
-                                            <action selector="presentCaretaker:" destination="CRW-cm-xqe" eventType="touchUpInside" id="78g-ed-8GF"/>
-                                            <segue destination="HVc-NE-8Ag" kind="show" id="fpc-Qd-2mI"/>
-                                        </connections>
-                                    </button>
                                 </subviews>
                                 <accessibility key="accessibilityConfiguration">
                                     <accessibilityTraits key="traits" notEnabled="YES"/>
                                 </accessibility>
                                 <constraints>
                                     <constraint firstItem="tbH-Ds-i1o" firstAttribute="top" secondItem="PaN-LV-q7G" secondAttribute="bottom" constant="34" id="5Id-Dk-eyJ"/>
-                                    <constraint firstAttribute="trailing" secondItem="aBS-by-sjU" secondAttribute="trailing" constant="24" id="BEX-Ce-jkn"/>
                                     <constraint firstItem="tbH-Ds-i1o" firstAttribute="centerX" secondItem="Vwk-Qh-UT5" secondAttribute="centerX" id="G8a-Bd-ZJy"/>
-                                    <constraint firstAttribute="bottom" secondItem="aBS-by-sjU" secondAttribute="bottom" constant="57" id="Jes-PI-39z"/>
                                     <constraint firstItem="tbH-Ds-i1o" firstAttribute="centerY" secondItem="Vwk-Qh-UT5" secondAttribute="centerY" id="gC8-mQ-u44"/>
                                     <constraint firstItem="PaN-LV-q7G" firstAttribute="centerX" secondItem="Vwk-Qh-UT5" secondAttribute="centerX" id="hPn-bg-2wI"/>
                                 </constraints>
@@ -1301,6 +1304,6 @@
         <image name="walking" width="57" height="94"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="X3c-vX-rvn"/>
+        <segue reference="Oby-7h-HH8"/>
     </inferredMetricsTieBreakers>
 </document>
