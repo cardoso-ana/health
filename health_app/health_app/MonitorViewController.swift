@@ -47,6 +47,7 @@ class MonitorViewController: UIViewController/*, WCSessionDelegate*/, MKMapViewD
     
     var latIodoso = ""
     var longIdoso = ""
+    var telIdoso = ""
     
     override func viewDidLoad()
     {
@@ -76,6 +77,7 @@ class MonitorViewController: UIViewController/*, WCSessionDelegate*/, MKMapViewD
         ageLabel.text = "\(dict["age"]! as! String) anos"
         latIodoso = (dict["lat"] as? String)!
         longIdoso = (dict["long"] as? String)!
+        telIdoso = (dict["phone"] as? String)!
         
         print("PRINTAAANDO LAT E LONG: \(latIodoso) e \(longIdoso)")
         
@@ -207,11 +209,7 @@ class MonitorViewController: UIViewController/*, WCSessionDelegate*/, MKMapViewD
     
     @IBAction func callElder(_ sender: AnyObject) {
         
-        // Pegar telefone do idoso na Cloud
-        
-        var elderPhone: String!
-        
-        if let url = NSURL(string: "tel://\(elderPhone)") {
+        if let url = NSURL(string: "tel://\(telIdoso)") {
             UIApplication.shared().open(url as URL)
         }
         

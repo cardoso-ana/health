@@ -211,11 +211,7 @@ class MainViewController: UIViewController, CLLocationManagerDelegate, MKMapView
     
     @IBAction func callCaretaker(_ sender: AnyObject) {
         
-        // Pegar telefone do idoso na Cloud
-        
-        var caretakerPhone: String!
-        
-        if let url = NSURL(string: "tel://\(caretakerPhone)") {
+        if let url = NSURL(string: "tel://\(telefoneCuidador)") {
             UIApplication.shared().open(url as URL)
         }
         
