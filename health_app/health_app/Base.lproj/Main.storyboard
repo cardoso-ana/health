@@ -4,6 +4,7 @@
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="11143.2"/>
         <capability name="Aspect ratio constraints" minToolsVersion="5.1"/>
+        <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
@@ -19,18 +20,28 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <activityIndicatorView opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" fixedFrame="YES" animating="YES" style="whiteLarge" translatesAutoresizingMaskIntoConstraints="NO" id="uHB-27-rrW">
-                                <frame key="frameInset" minX="169" minY="401" width="37" height="37"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <color key="color" red="0.33725490200000002" green="0.78823529410000004" blue="0.76862745099999996" alpha="1" colorSpace="calibratedRGB"/>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="logo" translatesAutoresizingMaskIntoConstraints="NO" id="yAL-a8-asZ">
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="100" id="NnN-au-t3d"/>
+                                </constraints>
+                            </imageView>
+                            <activityIndicatorView opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" animating="YES" style="whiteLarge" translatesAutoresizingMaskIntoConstraints="NO" id="uHB-27-rrW">
+                                <color key="color" red="0.2470588235" green="0.56470588239999997" blue="0.62352941179999999" alpha="1" colorSpace="calibratedRGB"/>
                             </activityIndicatorView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="yAL-a8-asZ" firstAttribute="centerY" secondItem="fsU-M8-DUe" secondAttribute="centerY" id="8n6-B7-uWJ"/>
+                            <constraint firstItem="uHB-27-rrW" firstAttribute="centerX" secondItem="fsU-M8-DUe" secondAttribute="centerX" id="Mrs-Jp-SeN"/>
+                            <constraint firstItem="yAL-a8-asZ" firstAttribute="leading" secondItem="fsU-M8-DUe" secondAttribute="leadingMargin" constant="40" id="gjf-cw-ZV9"/>
+                            <constraint firstItem="uHB-27-rrW" firstAttribute="top" secondItem="yAL-a8-asZ" secondAttribute="bottom" constant="40" id="qrm-Fy-Nkg"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="yAL-a8-asZ" secondAttribute="trailing" constant="40" id="w1y-BA-9MH"/>
+                        </constraints>
                     </view>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="1bV-5r-EvO" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-2040" y="141"/>
+            <point key="canvasLocation" x="-2040.8" y="139.880059970015"/>
         </scene>
         <!--Initial View Controller-->
         <scene sceneID="A90-sA-N4Y">
@@ -63,6 +74,7 @@
                                     </userDefinedRuntimeAttribute>
                                 </userDefinedRuntimeAttributes>
                             </view>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="logo2" translatesAutoresizingMaskIntoConstraints="NO" id="Vtj-kX-qmn"/>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="29s-kp-ABp">
                                 <constraints>
                                     <constraint firstAttribute="height" constant="46" id="0yc-fV-yI5"/>
@@ -93,12 +105,16 @@
                         <constraints>
                             <constraint firstItem="cyM-6C-g3m" firstAttribute="centerY" secondItem="fmU-jb-y93" secondAttribute="centerY" constant="64.5" id="1Rd-Pc-tZc"/>
                             <constraint firstItem="CmM-O9-Pi5" firstAttribute="top" secondItem="fmU-jb-y93" secondAttribute="top" id="42q-tz-3bb"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="Vtj-kX-qmn" secondAttribute="trailing" constant="40" id="8f8-LE-h0d"/>
                             <constraint firstItem="29s-kp-ABp" firstAttribute="centerX" secondItem="fmU-jb-y93" secondAttribute="centerX" id="AUX-SH-KLI"/>
                             <constraint firstItem="cyM-6C-g3m" firstAttribute="centerX" secondItem="fmU-jb-y93" secondAttribute="centerX" id="Fsx-gr-s2f"/>
+                            <constraint firstItem="Vtj-kX-qmn" firstAttribute="leading" secondItem="fmU-jb-y93" secondAttribute="leadingMargin" constant="40" id="Pwi-uP-MH3"/>
                             <constraint firstItem="29s-kp-ABp" firstAttribute="centerY" secondItem="fmU-jb-y93" secondAttribute="centerY" id="TvQ-gR-hCx"/>
                             <constraint firstItem="xPE-ZZ-CUT" firstAttribute="top" secondItem="CmM-O9-Pi5" secondAttribute="bottom" id="V2o-IA-kaC"/>
+                            <constraint firstItem="Vtj-kX-qmn" firstAttribute="top" secondItem="HOP-dh-GuA" secondAttribute="bottom" constant="110" id="dR1-ol-zek"/>
                             <constraint firstAttribute="trailing" secondItem="CmM-O9-Pi5" secondAttribute="trailing" id="f3C-gz-8yd"/>
                             <constraint firstItem="CmM-O9-Pi5" firstAttribute="leading" secondItem="fmU-jb-y93" secondAttribute="leading" id="s6R-77-ZWO"/>
+                            <constraint firstItem="29s-kp-ABp" firstAttribute="top" secondItem="Vtj-kX-qmn" secondAttribute="bottom" constant="70" id="tpB-7w-04G"/>
                         </constraints>
                     </view>
                     <simulatedStatusBarMetrics key="simulatedStatusBarMetrics" statusBarStyle="lightContent"/>
@@ -1303,6 +1319,8 @@
     <resources>
         <image name="active" width="83" height="80"/>
         <image name="heart" width="127" height="120"/>
+        <image name="logo" width="832" height="266"/>
+        <image name="logo2" width="832" height="266"/>
         <image name="phone" width="22" height="24"/>
         <image name="walking" width="57" height="94"/>
     </resources>
