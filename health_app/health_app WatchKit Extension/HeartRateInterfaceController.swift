@@ -77,7 +77,7 @@ class HeartRateInterfaceController: WKInterfaceController, HKWorkoutSessionDeleg
     
     override func didAppear() {
         
-        updateTimer = Timer.scheduledTimer(timeInterval: 1, target: self, selector: #selector(HeartRateInterfaceController.updateHeartBeat), userInfo: nil, repeats: true)
+        updateTimer = Timer.scheduledTimer(timeInterval: 10, target: self, selector: #selector(HeartRateInterfaceController.updateHeartBeat), userInfo: nil, repeats: true)
         updateTimer.fire()
         
         if !motionManager.isAccelerometerActive {

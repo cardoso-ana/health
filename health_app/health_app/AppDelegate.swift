@@ -163,7 +163,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate, WCSessionDelegate {
         
         // Mensagem do batimento
         
-        if message["heartRate"] != nil {
+        if message["heartRate"] as? Int != nil {
             
             // Manda batimento pra cloud
             // Vem como dicionario ["heartRate":Int]
@@ -171,21 +171,24 @@ class AppDelegate: UIResponder, UIApplicationDelegate, WCSessionDelegate {
             
             if message["heartRate"] as? Int > 120 && notificationAvaiable {
                 
+                print("ERA PRA TA MUDANDO AS PARADAS!!")
+                
                 // Manda notificação de batimento alto
                 
                 let notificationManager = NotificationManager()
                 
                 notificationManager.setupAndGenerateLocalHighHeartRateNotification()
                 
-                let elderVC: MainViewController = MainViewController()
-                elderVC.heartRateLabel.text = String(message["heartRate"])
-                elderVC.heartRateLabel.textColor = UIColor.orange()
+//                let elderVC: MainViewController = MainViewController()
+//                elderVC.heartRateLabel.text = String(message["heartRate"])
+//                elderVC.heartRateLabel.textColor = UIColor.orange()
+                print("AUEAUEAUE: \(message["heartRate"])")
+                NotificationCenter.default.post(name: "heartRate" as NSNotification.Name, object: message)
                 
-                
-                let caretakerVC: MonitorViewController = MonitorViewController()
-                caretakerVC.heartRateLabel.text = String(message["heartRate"])
-                caretakerVC.heartRateLabel.textColor = UIColor.orange()
-                caretakerVC.heartViewBackground.backgroundColor = UIColor.orange()
+//                let caretakerVC: MonitorViewController = MonitorViewController()
+//                caretakerVC.heartRateLabel.text = String(message["heartRate"])
+//                caretakerVC.heartRateLabel.textColor = UIColor.orange()
+//                caretakerVC.heartViewBackground.backgroundColor = UIColor.orange()
                 
             } else {
                 
@@ -195,24 +198,28 @@ class AppDelegate: UIResponder, UIApplicationDelegate, WCSessionDelegate {
                     
                     notificationManager.setupAndGenerateLocalLowHeartRateNotification()
                     
-                    let elderVC: MainViewController = MainViewController()
-                    elderVC.heartRateLabel.text = String(message["heartRate"])
-                    elderVC.heartRateLabel.textColor = UIColor.orange()
+//                    let elderVC: MainViewController = MainViewController()
+//                    elderVC.heartRateLabel.text = String(message["heartRate"])
+//                    elderVC.heartRateLabel.textColor = UIColor.orange()
                     
+                    print("AUEAUEAUE: \(message["heartRate"])")
+                    NotificationCenter.default.post(name: "heartRate" as NSNotification.Name, object: message)
                     
-                    let caretakerVC: MonitorViewController = MonitorViewController()
-                    caretakerVC.heartRateLabel.text = String(message["heartRate"])
-                    caretakerVC.heartRateLabel.textColor = UIColor.orange()
-                    caretakerVC.heartViewBackground.backgroundColor = UIColor.orange()
+//                    let caretakerVC: MonitorViewController = MonitorViewController()
+//                    caretakerVC.heartRateLabel.text = String(message["heartRate"])
+//                    caretakerVC.heartRateLabel.textColor = UIColor.orange()
+//                    caretakerVC.heartViewBackground.backgroundColor = UIColor.orange()
                     
                 } else {
+//                    
+//                    let elderVC: MainViewController = MainViewController()
+//                    elderVC.heartRateLabel.text = String(message["heartRate"])
+                    print("AUEAUEAUE: \(message["heartRate"])")
+                    NotificationCenter.default.post(name: "heartRate" as NSNotification.Name, object: message)
                     
-                    let elderVC: MainViewController = MainViewController()
-                    elderVC.heartRateLabel.text = String(message["heartRate"])
-                    
-                    let caretakerVC: MonitorViewController = MonitorViewController()
-                    caretakerVC.heartRateLabel.text = String(message["heartRate"])
-                    
+//                    let caretakerVC: MonitorViewController = MonitorViewController()
+//                    caretakerVC.heartRateLabel.text = String(message["heartRate"])
+//                    
                     notificationAvaiable = true
                     
                 }
@@ -250,7 +257,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate, WCSessionDelegate {
         
         // Informação de batimento:
         
-        if userInfo["heartRate"] != nil {
+        if userInfo["heartRate"] as? Int != nil {
             
             // Manda batimento pra cloud
             // Vem como dicionario ["heartRate":Int]
@@ -264,15 +271,18 @@ class AppDelegate: UIResponder, UIApplicationDelegate, WCSessionDelegate {
                 
                 notificationManager.setupAndGenerateLocalHighHeartRateNotification()
                 
-                let elderVC: MainViewController = MainViewController()
-                elderVC.heartRateLabel.text = String(userInfo["heartRate"])
-                elderVC.heartRateLabel.textColor = UIColor.orange()
+//                let elderVC: MainViewController = MainViewController()
+//                elderVC.heartRateLabel.text = String(userInfo["heartRate"])
+//                elderVC.heartRateLabel.textColor = UIColor.orange()
+//                elderVC.heartViewBackground.backgroundColor = UIColor.orange()
                 
+                print("AUEAUEAUE: \(userInfo["heartRate"])")
+                NotificationCenter.default.post(name: "heartRate" as NSNotification.Name, object: userInfo)
                 
-                let caretakerVC: MonitorViewController = MonitorViewController()
-                caretakerVC.heartRateLabel.text = String(userInfo["heartRate"])
-                caretakerVC.heartRateLabel.textColor = UIColor.orange()
-                caretakerVC.heartViewBackground.backgroundColor = UIColor.orange()
+//                let caretakerVC: MonitorViewController = MonitorViewController()
+//                caretakerVC.heartRateLabel.text = String(userInfo["heartRate"])
+//                caretakerVC.heartRateLabel.textColor = UIColor.orange()
+//                caretakerVC.heartViewBackground.backgroundColor = UIColor.orange()
                 
             } else {
                 
@@ -282,23 +292,29 @@ class AppDelegate: UIResponder, UIApplicationDelegate, WCSessionDelegate {
                     
                     notificationManager.setupAndGenerateLocalLowHeartRateNotification()
                     
-                    let elderVC: MainViewController = MainViewController()
-                    elderVC.heartRateLabel.text = String(userInfo["heartRate"])
-                    elderVC.heartRateLabel.textColor = UIColor.orange()
+//                    let elderVC: MainViewController = MainViewController()
+//                    elderVC.heartRateLabel.text = String(userInfo["heartRate"])
+//                    elderVC.heartRateLabel.textColor = UIColor.orange()
+//                    elderVC.heartViewBackground.backgroundColor = UIColor.orange()
                     
+                    print("AUEAUEAUE: \(userInfo["heartRate"])")
+                    NotificationCenter.default.post(name: "heartRate" as NSNotification.Name, object: userInfo)
                     
-                    let caretakerVC: MonitorViewController = MonitorViewController()
-                    caretakerVC.heartRateLabel.text = String(userInfo["heartRate"])
-                    caretakerVC.heartRateLabel.textColor = UIColor.orange()
-                    caretakerVC.heartViewBackground.backgroundColor = UIColor.orange()
+//                    let caretakerVC: MonitorViewController = MonitorViewController()
+//                    caretakerVC.heartRateLabel.text = String(userInfo["heartRate"])
+//                    caretakerVC.heartRateLabel.textColor = UIColor.orange()
+//                    caretakerVC.heartViewBackground.backgroundColor = UIColor.orange()
                     
                 } else {
                     
-                    let elderVC: MainViewController = MainViewController()
-                    elderVC.heartRateLabel.text = String(userInfo["heartRate"])
+//                    let elderVC: MainViewController = MainViewController()
+//                    elderVC.heartRateLabel.text = String(userInfo["heartRate"])
+
+                    print("AUEAUEAUE: \(userInfo["heartRate"])")
+                    NotificationCenter.default.post(name: "heartRate" as NSNotification.Name, object: userInfo)
                     
-                    let caretakerVC: MonitorViewController = MonitorViewController()
-                    caretakerVC.heartRateLabel.text = String(userInfo["heartRate"])
+//                    let caretakerVC: MonitorViewController = MonitorViewController()
+//                    caretakerVC.heartRateLabel.text = String(userInfo["heartRate"])
 
                     notificationAvaiable = true
                     

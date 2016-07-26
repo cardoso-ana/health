@@ -64,8 +64,35 @@ class MonitorViewController: UIViewController/*, WCSessionDelegate*/, MKMapViewD
         NotificationCenter.default.addObserver(self, selector: #selector(MonitorViewController.setMapToUserLocation), name: "véioChegando" as NSNotification.Name, object: nil)
         
         
+        NotificationCenter.default.addObserver(self, selector: #selector(MonitorViewController.atualizaLabelHB), name: "heartRate" as NSNotification.Name, object: nil)
+        
     }
     
+    func atualizaLabelHB(notification: Notification) {
+        
+        let dict = notification.object as! NSDictionary
+        
+        print("JOJOJOJ")
+        
+        print(dict["heartRate"])
+        
+        self.heartRateLabel.text = String(dict["heartRate"] as? Int).replacingOccurrences(of: "Optional(", with: "")
+        self.heartRateLabel.text = self.heartRateLabel.text?.replacingOccurrences(of: ")", with: "")
+        
+        if (dict["heartRate"] as? Int) > 120 || (dict["heartRate"] as? Int) < 50 {
+            
+//            self.heartViewBackground.backgroundColor = UIColor(colorLiteralRed: 255/255, green: 169/255, blue: 105/255, alpha: 1)
+            self.heartRateLabel.textColor = UIColor(colorLiteralRed: 255/255, green: 169/255, blue: 105/255, alpha: 1)
+
+        } else {
+            self.heartRateLabel.textColor = UIColor(colorLiteralRed: 63/255, green: 144/255, blue: 159/255, alpha: 1)
+        }
+        
+        
+        
+//        self.heartViewBackground.backgroundColor = UIColor.orange()
+        
+    }
     
     func setMapToUserLocation(notification: NSNotification) {
         let dict = notification.object as! NSDictionary

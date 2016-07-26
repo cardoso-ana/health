@@ -70,7 +70,16 @@ class MainViewController: UIViewController, CLLocationManagerDelegate, MKMapView
         
         NotificationCenter.default.addObserver(self, selector: #selector(MainViewController.atualizaLabels), name: "cuidadorChegando" as NSNotification.Name, object: nil)
         
+        NotificationCenter.default.addObserver(self, selector: #selector(MainViewController.atualizaLabelHB), name: "heartRate" as NSNotification.Name, object: nil)
         
+    }
+    
+    func atualizaLabelHB(notification: Notification) {
+        let dict = notification.object as! NSDictionary
+        
+        print("LOLOLOLOLOL")
+        
+        self.heartRateLabel.text = dict["heartRate"] as? String
     }
     
     func enviaCuidadorProDAO(notification: NSNotification) {
