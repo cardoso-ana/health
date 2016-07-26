@@ -45,6 +45,9 @@ class MainViewController: UIViewController, CLLocationManagerDelegate, MKMapView
     @IBOutlet weak var monitorImage: UIImageView!
     @IBOutlet weak var monitorLabel: UILabel!
     
+    @IBOutlet weak var heartViewBackground: UIView!
+    @IBOutlet weak var movementViewBackground: UIView!
+    
     
     override func viewDidLoad() {
         super.viewDidLoad()

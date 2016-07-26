@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="11173.2" systemVersion="15G31" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="CRW-cm-xqe">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="11163.2" systemVersion="15F34" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="CRW-cm-xqe">
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="11143.2"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="11133"/>
         <capability name="Aspect ratio constraints" minToolsVersion="5.1"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
@@ -867,11 +867,13 @@
                     <connections>
                         <outlet property="gradientView" destination="6ji-NY-vbb" id="6ay-Vf-pBV"/>
                         <outlet property="heartRateLabel" destination="mcw-p4-RXk" id="BPk-XX-Mfq"/>
+                        <outlet property="heartViewBackground" destination="vpy-8V-4if" id="d8F-gs-RKc"/>
                         <outlet property="map" destination="SAU-8D-89A" id="15G-Rc-JkJ"/>
                         <outlet property="monitorImage" destination="dPD-OI-YDR" id="IHo-HN-NkF"/>
                         <outlet property="monitorLabel" destination="44B-Vn-zyT" id="rrM-wu-KAl"/>
                         <outlet property="movementImage" destination="9I4-K0-vTO" id="bFv-ZI-vlM"/>
                         <outlet property="movementLabel" destination="Z0e-AB-TDi" id="74Z-Xh-5Id"/>
+                        <outlet property="movementViewBackground" destination="CsY-ny-Vy6" id="Pc7-Ho-NW6"/>
                         <outlet property="nameLabel" destination="uBp-zS-dNl" id="Lwy-WJ-iHE"/>
                     </connections>
                 </viewController>
@@ -1296,7 +1298,7 @@
         <image name="active" width="83" height="80"/>
         <image name="heart" width="127" height="120"/>
         <image name="phone" width="22" height="24"/>
-        <image name="walking" width="58" height="94"/>
+        <image name="walking" width="57" height="94"/>
     </resources>
     <inferredMetricsTieBreakers>
         <segue reference="X3c-vX-rvn"/>
