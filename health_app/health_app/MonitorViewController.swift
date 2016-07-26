@@ -36,6 +36,8 @@ class MonitorViewController: UIViewController/*, WCSessionDelegate*/, MKMapViewD
     @IBOutlet weak var monitorImage: UIImageView!
     @IBOutlet weak var monitorLabel: UILabel!
     
+    @IBOutlet weak var bpmLabel: UILabel!
+    
     var adress = AdressMonitor()
 
     @IBOutlet weak var heartViewBackground: UIView!
@@ -81,11 +83,14 @@ class MonitorViewController: UIViewController/*, WCSessionDelegate*/, MKMapViewD
         
         if (dict["heartRate"] as? Int) > 120 || (dict["heartRate"] as? Int) < 50 {
             
-//            self.heartViewBackground.backgroundColor = UIColor(colorLiteralRed: 255/255, green: 169/255, blue: 105/255, alpha: 1)
+            self.heartViewBackground.backgroundColor = UIColor(colorLiteralRed: 255/255, green: 169/255, blue: 105/255, alpha: 1)
             self.heartRateLabel.textColor = UIColor(colorLiteralRed: 255/255, green: 169/255, blue: 105/255, alpha: 1)
+            self.bpmLabel.textColor = UIColor(colorLiteralRed: 255/255, green: 169/255, blue: 105/255, alpha: 1)
 
         } else {
             self.heartRateLabel.textColor = UIColor(colorLiteralRed: 63/255, green: 144/255, blue: 159/255, alpha: 1)
+            self.bpmLabel.textColor = UIColor(colorLiteralRed: 63/255, green: 144/255, blue: 159/255, alpha: 1)
+            self.heartViewBackground.backgroundColor = UIColor.clear()
         }
         
         
