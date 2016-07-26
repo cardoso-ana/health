@@ -205,6 +205,18 @@ class MonitorViewController: UIViewController/*, WCSessionDelegate*/, MKMapViewD
 //        }
 //    }
     
+    @IBAction func callElder(_ sender: AnyObject) {
+        
+        // Pegar telefone do idoso na Cloud
+        
+        var elderPhone: String!
+        
+        if let url = NSURL(string: "tel://\(elderPhone)") {
+            UIApplication.shared().open(url as URL)
+        }
+        
+    }
+    
     // ************************* FIM DAS COISAS DO BENDIA *************************
     
 }
