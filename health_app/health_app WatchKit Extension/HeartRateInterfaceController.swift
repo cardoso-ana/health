@@ -24,6 +24,11 @@ class HeartRateInterfaceController: WKInterfaceController, HKWorkoutSessionDeleg
     //    let motionManager = CMMotionManager()
     let activityManager = CMMotionActivityManager()
     
+    var notificationAvaiable = true
+    var updateTimer: Timer!
+    var fakeHeartRateArray = ["72", "78", "74", "81", "82", "90", "102", "107", "140", "129", "137", "92", "75", "64", "52", "32", "15", "33", "54", "68"]
+    var arrayCount = 0
+    
     let healthStore = HKHealthStore()
     
     //State of the app - is the workout activated
@@ -56,24 +61,27 @@ class HeartRateInterfaceController: WKInterfaceController, HKWorkoutSessionDeleg
             startWorkout()
         }
         
-//        if WCSession.default().isReachable {
-//            WCSession.default().sendMessage(["fall":"Detected"],
-//                                            replyHandler: { (handler) -> Void in print(handler)},
-//                                            errorHandler: { (error) -> Void in print(error) })
-//            print("ERA PRA TA MANDANDO, PQ EU CHEGUEI AQUI")
-//        } else {
-//            
-//            _ = WCSession.default().transferUserInfo(["fall":"Detected"])
-//            print("DEVERIA TA MANDANDO ATE AQUI, MAS NAAAAAAO, O XCODE NAO GOSTA DE AJUDAR OS MIGOS")
-//            
-//        }
+        //        if WCSession.default().isReachable {
+        //            WCSession.default().sendMessage(["fall":"Detected"],
+        //                                            replyHandler: { (handler) -> Void in print(handler)},
+        //                                            errorHandler: { (error) -> Void in print(error) })
+        //            print("ERA PRA TA MANDANDO, PQ EU CHEGUEI AQUI")
+        //        } else {
+        //
+        //            _ = WCSession.default().transferUserInfo(["fall":"Detected"])
+        //            print("DEVERIA TA MANDANDO ATE AQUI, MAS NAAAAAAO, O XCODE NAO GOSTA DE AJUDAR OS MIGOS")
+        //
+        //        }
         
     }
     
     override func didAppear() {
         
+        updateTimer = Timer.scheduledTimer(timeInterval: 1, target: self, selector: #selector(HeartRateInterfaceController.updateHeartBeat), userInfo: nil, repeats: true)
+        updateTimer.fire()
+        
         if !motionManager.isAccelerometerActive {
-                        
+            
             motionManager.accelerometerUpdateInterval = 0.2
             
             if motionManager.isAccelerometerAvailable {
@@ -201,10 +209,36 @@ class HeartRateInterfaceController: WKInterfaceController, HKWorkoutSessionDeleg
     }
     
     func session(_ session: WCSession, activationDidCompleteWith activationState: WCSessionActivationState, error: NSError?) {
-        print("Ativou a conexão")
+        if error != nil {
+            print(error?.localizedDescription)
+        } else {
+            print("Ativou a conexão")
+        }
     }
     
     override func didDeactivate() {
         super.didDeactivate()
     }
+    
+    func updateHeartBeat() {
+        
+        arrayCount += 1
+        heartBeatLabel.setText(fakeHeartRateArray[arrayCount])
+        
+        if WCSession.default().isReachable {
+            WCSession.default().sendMessage(["heartRate":Int(fakeHeartRateArray[arrayCount])!],
+                                            replyHandler: { (handler) -> Void in print(handler)},
+                                            errorHandler: { (error) -> Void in print(error) })
+            print("\n\n*************************       AGORA TO ENVIANDO O BATIMENTO        ***************************\n\n")
+        } else {
+            _ = WCSession.default().transferUserInfo(["heartRate":"High"])
+            print("\n\n*************************       TRASNFER USER INFO DO BATIMENTO        ***************************\n\n")
+        }
+        
+        if arrayCount == fakeHeartRateArray.count {
+            updateTimer.invalidate()
+        }
+        
+    }
+    
 }
