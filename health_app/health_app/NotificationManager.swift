@@ -57,6 +57,24 @@ class NotificationManager: NSObject {
         
     }
     
+    func setupAndGenerateLocalFallNotification() {
+        
+        let content = UNMutableNotificationContent()
+        content.title = NSString.localizedUserNotificationString(forKey: "Aviso!", arguments: nil)
+        content.body = NSString.localizedUserNotificationString(forKey: "Queda detectada!", arguments: nil)
+        content.sound = UNNotificationSound.default()
+        content.categoryIdentifier = "myNotificationCategory"
+        
+        // Deliver the notification in five seconds.
+        let trigger = UNTimeIntervalNotificationTrigger.init(timeInterval: 1, repeats: false)
+        let request = UNNotificationRequest.init(identifier: "FallNotification", content: content, trigger: trigger)
+        
+        // Schedule the notification.
+        let center = UNUserNotificationCenter.current()
+        center.add(request)
+        
+    }
+    
 }
 
 extension NotificationManager: UNUserNotificationCenterDelegate {

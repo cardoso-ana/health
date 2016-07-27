@@ -68,6 +68,23 @@ class MonitorViewController: UIViewController/*, WCSessionDelegate*/, MKMapViewD
         
         NotificationCenter.default.addObserver(self, selector: #selector(MonitorViewController.atualizaLabelHB), name: "heartRate" as NSNotification.Name, object: nil)
         
+        // Notificação da queda:
+        NotificationCenter.default.addObserver(self, selector: #selector(MonitorViewController.glaucioRei), name: "quedinha" as NSNotification.Name, object: nil)
+        
+    }
+    
+    func glaucioRei() {
+        
+        print("GLAUCIOREIGLAUCIOREIGLAUCIOREIGLAUCIOREIGLAUCIOREIGLAUCIOREI")
+        
+        print("champsonrei")
+        
+        self.movementImage.image = UIImage(named: "alert")
+        
+        self.movementViewBackground.backgroundColor = UIColor(colorLiteralRed: 255/255, green: 169/255, blue: 105/255, alpha: 1)
+        
+        self.movementLabel.text = "Queda detectada!"
+        
     }
     
     func atualizaLabelHB(notification: Notification) {

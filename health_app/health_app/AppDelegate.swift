@@ -142,17 +142,24 @@ class AppDelegate: UIResponder, UIApplicationDelegate, WCSessionDelegate {
             
             // Manda pro cloud avisando que caiu
             // Vem como dicionario ["fall":"Detected"]
-            let teste = CKRecord(recordType: "Teste")
-            teste["teste"] = 1
-            let publicData = CKContainer.default().publicCloudDatabase
-            publicData.save(teste, completionHandler: { (record, error) in
-                if error != nil {
-                    print("NOVINHA SAFADINHA HOJE EU VOU FALAR PRA TU, EU TO DANDO ERRO")
-                    print(error?.localizedDescription)
-                } else {
-                    print("NOVINHA SAFADINHA HOJE EU VOU FALAR PRA TU, EU MANDEI O TESTE COM SUCESSO")
-                }
-            })
+//            let teste = CKRecord(recordType: "Teste")
+//            teste["teste"] = 1
+//            let publicData = CKContainer.default().publicCloudDatabase
+//            publicData.save(teste, completionHandler: { (record, error) in
+//                if error != nil {
+//                    print("NOVINHA SAFADINHA HOJE EU VOU FALAR PRA TU, EU TO DANDO ERRO")
+//                    print(error?.localizedDescription)
+//                } else {
+//                    print("NOVINHA SAFADINHA HOJE EU VOU FALAR PRA TU, EU MANDEI O TESTE COM SUCESSO")
+//                }
+//            })
+
+            NotificationCenter.default.post(name: "quedinha" as NSNotification.Name, object: nil)
+            
+            let notificationManager = NotificationManager()
+            
+            notificationManager.setupAndGenerateLocalFallNotification()
+            
             
             
             print("Recebi \(message["fall"])")
@@ -237,17 +244,23 @@ class AppDelegate: UIResponder, UIApplicationDelegate, WCSessionDelegate {
             // Manda pro cloud avisando que caiu
             // Vem como dicionario ["fall":"Detected"]
             // Fazer tratamento do batimento
-            let teste = CKRecord(recordType: "Teste2")
-            teste["teste"] = 1
-            let publicData = CKContainer.default().publicCloudDatabase
-            publicData.save(teste, completionHandler: { (record, error) in
-                if error != nil {
-                    print("NOVINHA SAFADINHA HOJE EU VOU FALAR PRA TU, EU TO DANDO ERRO")
-                    print(error?.localizedDescription)
-                } else {
-                    print("NOVINHA SAFADINHA HOJE EU VOU FALAR PRA TU, EU MANDEI O TESTE COM SUCESSO")
-                }
-            })
+//            let teste = CKRecord(recordType: "Teste2")
+//            teste["teste"] = 1
+//            let publicData = CKContainer.default().publicCloudDatabase
+//            publicData.save(teste, completionHandler: { (record, error) in
+//                if error != nil {
+//                    print("NOVINHA SAFADINHA HOJE EU VOU FALAR PRA TU, EU TO DANDO ERRO")
+//                    print(error?.localizedDescription)
+//                } else {
+//                    print("NOVINHA SAFADINHA HOJE EU VOU FALAR PRA TU, EU MANDEI O TESTE COM SUCESSO")
+//                }
+//            })
+
+            NotificationCenter.default.post(name: "quedinha" as NSNotification.Name, object: nil)
+            
+            let notificationManager = NotificationManager()
+            
+            notificationManager.setupAndGenerateLocalFallNotification()
             
             print("Recebi \(userInfo["fall"])\n\n")
             
