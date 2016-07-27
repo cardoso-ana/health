@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="11163.2" systemVersion="15F34" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="CRW-cm-xqe">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="11163.2" systemVersion="15G31" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="CRW-cm-xqe">
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="11133"/>
@@ -524,13 +524,29 @@
                                             <action selector="presentCaretaker:" destination="CRW-cm-xqe" eventType="touchUpInside" id="WLL-SY-rfC"/>
                                         </connections>
                                     </button>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="u9W-ii-BhX">
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="46" id="JyV-Za-NYw"/>
+                                            <constraint firstAttribute="width" constant="108" id="xUD-Cd-D7I"/>
+                                        </constraints>
+                                        <state key="normal" title="◀︎ voltar">
+                                            <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                        </state>
+                                        <connections>
+                                            <action selector="cancelAction:" destination="c4t-m1-U8z" eventType="touchUpInside" id="W4j-zw-3UU"/>
+                                            <action selector="presentCaretaker:" destination="CRW-cm-xqe" eventType="touchUpInside" id="Sem-Bt-QF3"/>
+                                            <segue destination="jOE-Y9-gl3" kind="show" id="EAj-iq-tbe"/>
+                                        </connections>
+                                    </button>
                                 </subviews>
                                 <constraints>
                                     <constraint firstAttribute="trailing" secondItem="AJw-gF-uUe" secondAttribute="trailing" constant="16" id="7TO-MT-QOS"/>
                                     <constraint firstItem="AJw-gF-uUe" firstAttribute="leading" secondItem="4Dt-Xj-EuU" secondAttribute="leading" constant="16" id="9md-uU-6jn"/>
+                                    <constraint firstItem="u9W-ii-BhX" firstAttribute="leading" secondItem="4Dt-Xj-EuU" secondAttribute="leading" constant="16" id="LtB-mT-neC"/>
                                     <constraint firstAttribute="trailing" secondItem="T6U-i6-m4X" secondAttribute="trailing" constant="16" id="OZR-0W-5G1"/>
                                     <constraint firstItem="yHg-k0-aW3" firstAttribute="top" secondItem="T6U-i6-m4X" secondAttribute="bottom" constant="54" id="U2L-IY-k7I"/>
                                     <constraint firstAttribute="trailing" secondItem="QAj-pJ-Avf" secondAttribute="trailing" constant="16" id="U3D-Ai-6ou"/>
+                                    <constraint firstItem="u9W-ii-BhX" firstAttribute="top" secondItem="T6U-i6-m4X" secondAttribute="bottom" constant="54" id="WYT-zw-U9t"/>
                                     <constraint firstItem="QAj-pJ-Avf" firstAttribute="leading" secondItem="4Dt-Xj-EuU" secondAttribute="leading" constant="16" id="hQF-07-GIb"/>
                                     <constraint firstItem="T6U-i6-m4X" firstAttribute="leading" secondItem="4Dt-Xj-EuU" secondAttribute="leading" constant="16" id="mnb-IR-luc"/>
                                     <constraint firstItem="T6U-i6-m4X" firstAttribute="top" secondItem="AJw-gF-uUe" secondAttribute="bottom" constant="36" id="n6i-KZ-g5o"/>
@@ -1192,7 +1208,6 @@
                                         </subviews>
                                         <color key="tintColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                         <constraints>
-                                            <constraint firstAttribute="width" secondItem="PZp-Ow-j6b" secondAttribute="height" multiplier="187:161" id="1Dw-Wc-Jxl"/>
                                             <constraint firstItem="GJP-JI-rLW" firstAttribute="centerX" secondItem="PZp-Ow-j6b" secondAttribute="centerX" id="HAg-3b-4VR"/>
                                             <constraint firstItem="GJP-JI-rLW" firstAttribute="top" secondItem="PZp-Ow-j6b" secondAttribute="top" constant="20" id="TJu-eZ-Jm8"/>
                                             <constraint firstItem="giP-lW-ZrK" firstAttribute="top" secondItem="GJP-JI-rLW" secondAttribute="bottom" constant="14" id="cXQ-Yh-LnL"/>
@@ -1270,6 +1285,7 @@
                                     <constraint firstItem="Tmv-r3-K6w" firstAttribute="top" secondItem="zrI-RY-LWV" secondAttribute="top" id="hFK-9c-noT"/>
                                     <constraint firstAttribute="trailing" secondItem="wKM-HX-bBJ" secondAttribute="trailing" id="jdt-RC-7nE"/>
                                     <constraint firstItem="eGu-3z-St3" firstAttribute="top" secondItem="RnV-tq-2IO" secondAttribute="bottom" id="k7v-9d-cXL"/>
+                                    <constraint firstItem="PZp-Ow-j6b" firstAttribute="top" secondItem="ZAX-eb-hTh" secondAttribute="bottom" id="kqI-4T-wT4"/>
                                     <constraint firstAttribute="trailing" secondItem="6ce-m9-pxq" secondAttribute="trailing" id="o5x-Jm-ayY"/>
                                     <constraint firstItem="pmr-z2-E8y" firstAttribute="leading" secondItem="RnV-tq-2IO" secondAttribute="trailing" id="oNZ-e2-pKS"/>
                                     <constraint firstItem="wKM-HX-bBJ" firstAttribute="top" secondItem="ZFs-F9-6xJ" secondAttribute="bottom" constant="2" id="osv-gU-hBG"/>
@@ -1315,7 +1331,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="qMb-Bb-WQk" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1150" y="-207"/>
+            <point key="canvasLocation" x="1149.5999999999999" y="-207.34632683658174"/>
         </scene>
     </scenes>
     <resources>
@@ -1327,6 +1343,7 @@
         <image name="walking" width="57" height="94"/>
     </resources>
     <inferredMetricsTieBreakers>
+        <segue reference="EAj-iq-tbe"/>
         <segue reference="Oby-7h-HH8"/>
     </inferredMetricsTieBreakers>
 </document>

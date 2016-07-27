@@ -56,7 +56,7 @@ class MonitorViewController: UIViewController/*, WCSessionDelegate*/, MKMapViewD
         super.viewDidLoad()
         
         map.delegate = self
-        map.showsUserLocation = true
+        map.showsUserLocation = false
         
         self.view.addSubview(progressHUD)
         progressHUD.show()
@@ -166,7 +166,7 @@ class MonitorViewController: UIViewController/*, WCSessionDelegate*/, MKMapViewD
                 
                 if self.adress.thoroughfare != nil && self.adress.subThoroughfare != nil && self.adress.administrativeArea != nil && self.adress.locality != nil && self.adress.country != nil
                 {
-                    annotation.title = ((self.adress.thoroughfare!) + ", " + (self.adress.subThoroughfare!))
+                    annotation.title = (self.adress.thoroughfare!) /*+ ", " + (self.adress.subThoroughfare!)*/
                     annotation.subtitle = ((self.adress.locality!) + ", " + (self.adress.administrativeArea!) + " - " + (self.adress.country)!)
                     
                     annotation.title = annotation.title?.replacingOccurrences(of: "Optional", with: "")
